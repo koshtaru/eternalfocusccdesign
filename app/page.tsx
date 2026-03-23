@@ -35,8 +35,8 @@ function usePinnedSection(
     if (!section || !a || !b) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const exitA = directionA === 'left' ? '-22vw' : '22vw';
-    const exitB = directionA === 'left' ? '22vw' : '-22vw';
+    const exitA = directionA === 'left' ? '-30vw' : '30vw';
+    const exitB = directionA === 'left' ? '30vw' : '-30vw';
 
     const ctx = gsap.context(() => {
       // Content starts fully visible — no entry animation
@@ -49,7 +49,7 @@ function usePinnedSection(
           end: '+=80%',
           pin: true,
           pinSpacing: true,
-          scrub: 1.2,
+          scrub: 1.4,
         },
       });
 
@@ -172,16 +172,16 @@ function ReassuranceSection({ reassurance }: { reassurance: typeof HOMEPAGE_CONT
       id="reassurance-section"
       ref={sectionRef}
       aria-label="Welcome reassurance"
-      className="relative flex min-h-screen w-full items-center overflow-hidden bg-cream"
+      className="relative flex h-screen w-full items-center bg-cream"
     >
-      <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
           <p className="label-upper mb-4">A Steady First Step</p>
           <div className="hairline mb-8" />
           <p className="reflection-quote max-w-lg">{reassurance.message}</p>
           <p className="mt-6 label-upper">{reassurance.accent}</p>
         </div>
-        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden">
+        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
           <Image
             src="/courses_group.jpg"
             alt="A quiet, welcoming counseling environment"
@@ -209,10 +209,10 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
     <section
       ref={sectionRef}
       aria-labelledby="services-heading"
-      className="relative flex min-h-screen w-full items-center overflow-hidden bg-cream-dark"
+      className="relative flex h-screen w-full items-center bg-cream-dark"
     >
-      <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
-        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden">
+      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
+        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
           <Image
             src="/services_couple.jpg"
             alt="Two people in a supportive counseling session"
@@ -255,9 +255,9 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
     <section
       ref={sectionRef}
       aria-labelledby="faith-heading"
-      className="relative flex min-h-screen w-full items-center overflow-hidden bg-cream"
+      className="relative flex h-screen w-full items-center bg-cream"
     >
-      <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
           <p className="label-upper mb-4">{faithSection.eyebrow}</p>
           <div className="hairline mb-8" />
@@ -360,10 +360,10 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
     <section
       ref={sectionRef}
       aria-labelledby="testimonials-heading"
-      className="relative flex min-h-screen w-full items-center overflow-hidden bg-cream-dark"
+      className="relative flex h-screen w-full items-center bg-cream-dark"
     >
-      <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
-        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden">
+      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
+        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
           <Image
             src="/testimonial_interior.jpg"
             alt="A calming interior counseling space"
