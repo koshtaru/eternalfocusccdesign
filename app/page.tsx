@@ -85,6 +85,55 @@ function useFadeUp(ref: React.RefObject<HTMLElement | null>) {
   }, []);
 }
 
+function usePinnedCards(
+  sectionRef: React.RefObject<HTMLElement | null>,
+  textRef: React.RefObject<HTMLDivElement | null>,
+  selector: string,
+) {
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const text = textRef.current;
+    if (!section || !text) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>(selector, section);
+
+      // Set initial states
+      gsap.set(text, { y: 24, opacity: 0 });
+      gsap.set(cards, { x: 60, opacity: 0 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=100%',
+          pin: true,
+          pinSpacing: true,
+          scrub: 1.4,
+        },
+      });
+
+      // Text fades up first (0–30%)
+      tl.to(text, { y: 0, opacity: 1, ease: 'power2.out', duration: 0.3 }, 0);
+
+      // Cards stagger in from right (20–70%)
+      tl.to(cards, {
+        x: 0,
+        opacity: 1,
+        ease: 'back.out(1.4)',
+        stagger: 0.12,
+        duration: 0.2,
+      }, 0.2);
+
+      // Hold for remaining 30%
+      tl.to({}, { duration: 0.3 });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+}
+
 // ─── Hero ───────────────────────────────────────────────────────────────────
 function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
   const line1Ref = useRef<HTMLSpanElement>(null);
@@ -107,7 +156,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden pt-20"
     >
       <Image
         src="/hero_interior.jpg"
@@ -117,7 +166,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-cream/40" />
+      <div className="absolute inset-0 bg-cream/65" />
 
       <div className="relative z-10 container-shell text-center">
         <p className="label-upper mb-6">{hero.eyebrow}</p>
@@ -224,10 +273,10 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
         <div ref={contentRef}>
           <p className="label-upper mb-4">{services.eyebrow}</p>
           <div className="hairline mb-8" />
-          <h2 id="services-heading" className="section-title">{services.heading}</h2>
+          <h2 id="services-heading" className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
           <p className="body-copy mt-5">{services.intro}</p>
           <div className="mt-8 space-y-4">
-            {services.items.map((card) => (
+            {services.items.slice(0, 2).map((card) => (
               <article key={card.title} className="card-premium-soft p-5">
                 <p className="card-kicker">{card.accent}</p>
                 <h3 className="card-title mt-2">{card.title}</h3>
@@ -287,16 +336,17 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
 // ─── Telehealth ─────────────────────────────────────────────────────────────
 function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT.telehealth }) {
   const ref = useRef<HTMLElement>(null);
-  useFadeUp(ref);
+  const textRef = useRef<HTMLDivElement>(null);
+  usePinnedCards(ref, textRef, '.card-premium-soft');
 
   return (
     <section
       ref={ref}
       aria-labelledby="telehealth-heading"
-      className="relative bg-cream-dark py-20"
+      className="relative flex h-screen w-full items-center bg-cream-dark"
     >
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div>
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div ref={textRef}>
           <p className="label-upper mb-4">{telehealth.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="telehealth-heading" className="section-title">{telehealth.heading}</h2>
@@ -318,16 +368,17 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
 // ─── Insurance ──────────────────────────────────────────────────────────────
 function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.insurance }) {
   const ref = useRef<HTMLElement>(null);
-  useFadeUp(ref);
+  const textRef = useRef<HTMLDivElement>(null);
+  usePinnedCards(ref, textRef, '.card-premium-soft');
 
   return (
     <section
       ref={ref}
       aria-labelledby="insurance-heading"
-      className="bg-cream py-20"
+      className="flex h-screen w-full items-center bg-cream"
     >
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div>
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div ref={textRef}>
           <p className="label-upper mb-4">{insurance.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="insurance-heading" className="section-title">{insurance.heading}</h2>
@@ -375,10 +426,10 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
         <div ref={contentRef}>
           <p className="label-upper mb-4">{testimonialsPlaceholder.eyebrow}</p>
           <div className="hairline mb-8" />
-          <h2 id="testimonials-heading" className="section-title">{testimonialsPlaceholder.heading}</h2>
+          <h2 id="testimonials-heading" className="section-title" style={{ fontSize: 'clamp(1.6rem,2.8vw,2.5rem)' }}>{testimonialsPlaceholder.heading}</h2>
           <p className="body-copy mt-5">{testimonialsPlaceholder.body}</p>
           <div className="mt-8 space-y-4">
-            {testimonialsPlaceholder.cards.map((item) => (
+            {testimonialsPlaceholder.cards.slice(0, 2).map((item) => (
               <div key={item} className="card-premium-soft p-5">
                 <div className="h-3 w-24 rounded-full bg-[var(--color-light-tint)]" aria-hidden="true" />
                 <div className="mt-4 space-y-2" aria-hidden="true">

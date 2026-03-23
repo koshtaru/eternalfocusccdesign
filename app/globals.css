@@ -5,7 +5,7 @@
 :root {
   /* --- KIMI-inspired palette --- */
   --color-cream:          #F6F4F2;
-  --color-cream-dark:     #F2EBE5;
+  --color-cream-dark:     #EDE4DB;
   --color-sage:           #7E8A56;
   --color-sage-light:     #9BA574;
   --color-sage-dark:      #5E6A3E;
@@ -68,10 +68,10 @@ a {
   color: var(--color-charcoal);
 }
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--color-cream); }
-::-webkit-scrollbar-thumb { background: var(--color-sage); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-sage-dark); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(126,138,86,0.4); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(126,138,86,0.7); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -126,7 +126,7 @@ a {
   .card-premium {
     border-radius: 22px;
     border: 1px solid rgba(126, 138, 86, 0.15);
-    background: linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(247, 248, 242, 0.95));
+    background: linear-gradient(180deg, rgba(253, 251, 247, 0.97), rgba(244, 241, 235, 0.95));
     box-shadow: 0 18px 34px rgba(43, 43, 43, 0.06);
     transition:
       transform 180ms ease,
@@ -138,7 +138,7 @@ a {
   .card-premium-soft {
     border-radius: 20px;
     border: 1px solid rgba(126, 138, 86, 0.13);
-    background: linear-gradient(180deg, rgba(250, 249, 245, 0.98), rgba(255, 255, 255, 0.98));
+    background: linear-gradient(180deg, rgba(253, 251, 248, 0.97), rgba(246, 243, 238, 0.95));
     box-shadow: 0 14px 28px rgba(43, 43, 43, 0.045);
     transition:
       transform 180ms ease,
@@ -205,10 +205,10 @@ a {
   .hero-title {
     color: var(--color-charcoal);
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 5vw, 4.5rem);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 0.95;
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: 500;
+    letter-spacing: 0em;
+    line-height: 1.15;
     text-wrap: balance;
   }
 
@@ -223,7 +223,7 @@ a {
   }
 
   .hero-lead {
-    color: var(--color-charcoal-light);
+    color: var(--color-charcoal);
     font-size: clamp(1rem, 1.5vw, 1.25rem);
     line-height: 1.6;
   }
