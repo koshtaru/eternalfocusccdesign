@@ -7,29 +7,58 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EXTERNAL_LINKS } from '../lib/constants';
 import { HOMEPAGE_CONTENT } from '../lib/content';
 import LeafDecoration from '../components/LeafDecoration';
+import ScrollProgressNav from '../components/ScrollProgressNav';
+
+const HOME_SECTIONS = [
+  { id: 'hero-heading',        label: 'Home' },
+  { id: 'reassurance-section', label: 'Welcome' },
+  { id: 'services-heading',    label: 'Services' },
+  { id: 'faith-heading',       label: 'Faith' },
+  { id: 'telehealth-heading',  label: 'Telehealth' },
+  { id: 'insurance-heading',   label: 'Insurance' },
+  { id: 'testimonials-heading',label: 'Stories' },
+  { id: 'closing-cta-heading', label: 'Get Started' },
+];
 
 gsap.registerPlugin(ScrollTrigger);
 
 function usePinnedSection(
   sectionRef: React.RefObject<HTMLElement | null>,
-  animate: (tl: gsap.core.Timeline) => void,
+  elA: React.RefObject<HTMLElement | HTMLDivElement | HTMLParagraphElement | null>,
+  elB: React.RefObject<HTMLElement | HTMLDivElement | HTMLParagraphElement | null>,
+  directionA: 'left' | 'right',
 ) {
   useLayoutEffect(() => {
     const section = sectionRef.current;
-    if (!section) return;
+    const a = elA.current;
+    const b = elB.current;
+    if (!section || !a || !b) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    const exitA = directionA === 'left' ? '-22vw' : '22vw';
+    const exitB = directionA === 'left' ? '22vw' : '-22vw';
+
     const ctx = gsap.context(() => {
+      // Content starts fully visible — no entry animation
+      gsap.set([a, b], { clearProps: 'all' });
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: 'top top',
-          end: '+=130%',
+          end: '+=80%',
           pin: true,
-          scrub: 0.6,
+          pinSpacing: true,
+          scrub: 1.2,
         },
       });
-      animate(tl);
+
+      // Hold fully visible for first 55% of scroll debt
+      tl.to({}, { duration: 0.55 });
+
+      // Exit: slide out in opposite directions (last 45%)
+      tl.to(a, { x: exitA, opacity: 0, ease: 'power2.in' }, 0.55);
+      tl.to(b, { x: exitB, opacity: 0, ease: 'power2.in' }, 0.58);
     }, section);
 
     return () => ctx.revert();
@@ -135,26 +164,19 @@ function ReassuranceSection({ reassurance }: { reassurance: typeof HOMEPAGE_CONT
   const sectionRef  = useRef<HTMLElement>(null);
   const contentRef  = useRef<HTMLDivElement>(null);
   const imageRef    = useRef<HTMLDivElement>(null);
-  const labelRef    = useRef<HTMLParagraphElement>(null);
 
-  usePinnedSection(sectionRef, (tl) => {
-    tl.fromTo(labelRef.current, { opacity: 0, y: -12 }, { opacity: 1, y: 0, ease: 'none' }, 0);
-    tl.fromTo(imageRef.current, { x: '60vw', opacity: 0, scale: 0.98 }, { x: 0, opacity: 1, scale: 1, ease: 'power2.out' }, 0);
-    tl.fromTo(contentRef.current, { x: '-40vw', opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out' }, 0.05);
-    tl.fromTo(imageRef.current, { x: 0, opacity: 1 }, { x: '18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(contentRef.current, { x: 0, opacity: 1 }, { x: '-18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(labelRef.current, { opacity: 1 }, { opacity: 0, ease: 'power2.in' }, 0.8);
-  });
+  usePinnedSection(sectionRef, contentRef, imageRef, 'left');
 
   return (
     <section
+      id="reassurance-section"
       ref={sectionRef}
       aria-label="Welcome reassurance"
       className="relative flex min-h-screen w-full items-center overflow-hidden bg-cream"
     >
       <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
         <div ref={contentRef}>
-          <p ref={labelRef} className="label-upper mb-4">A Steady First Step</p>
+          <p className="label-upper mb-4">A Steady First Step</p>
           <div className="hairline mb-8" />
           <p className="reflection-quote max-w-lg">{reassurance.message}</p>
           <p className="mt-6 label-upper">{reassurance.accent}</p>
@@ -180,16 +202,8 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef   = useRef<HTMLDivElement>(null);
-  const labelRef   = useRef<HTMLParagraphElement>(null);
 
-  usePinnedSection(sectionRef, (tl) => {
-    tl.fromTo(labelRef.current, { opacity: 0, y: -12 }, { opacity: 1, y: 0, ease: 'none' }, 0);
-    tl.fromTo(imageRef.current, { x: '-60vw', opacity: 0, scale: 0.98 }, { x: 0, opacity: 1, scale: 1, ease: 'power2.out' }, 0);
-    tl.fromTo(contentRef.current, { x: '40vw', opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out' }, 0.05);
-    tl.fromTo(imageRef.current, { x: 0, opacity: 1 }, { x: '-18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(contentRef.current, { x: 0, opacity: 1 }, { x: '18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(labelRef.current, { opacity: 1 }, { opacity: 0, ease: 'power2.in' }, 0.8);
-  });
+  usePinnedSection(sectionRef, imageRef, contentRef, 'right');
 
   return (
     <section
@@ -208,7 +222,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
           />
         </div>
         <div ref={contentRef}>
-          <p ref={labelRef} className="label-upper mb-4">{services.eyebrow}</p>
+          <p className="label-upper mb-4">{services.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="services-heading" className="section-title">{services.heading}</h2>
           <p className="body-copy mt-5">{services.intro}</p>
@@ -234,16 +248,8 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const quoteRef   = useRef<HTMLDivElement>(null);
-  const labelRef   = useRef<HTMLParagraphElement>(null);
 
-  usePinnedSection(sectionRef, (tl) => {
-    tl.fromTo(labelRef.current, { opacity: 0, y: -12 }, { opacity: 1, y: 0, ease: 'none' }, 0);
-    tl.fromTo(contentRef.current, { x: '-60vw', opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out' }, 0);
-    tl.fromTo(quoteRef.current, { x: '40vw', opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out' }, 0.05);
-    tl.fromTo(contentRef.current, { x: 0, opacity: 1 }, { x: '-18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(quoteRef.current, { x: 0, opacity: 1 }, { x: '18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(labelRef.current, { opacity: 1 }, { opacity: 0, ease: 'power2.in' }, 0.8);
-  });
+  usePinnedSection(sectionRef, contentRef, quoteRef, 'left');
 
   return (
     <section
@@ -253,7 +259,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
     >
       <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
         <div ref={contentRef}>
-          <p ref={labelRef} className="label-upper mb-4">{faithSection.eyebrow}</p>
+          <p className="label-upper mb-4">{faithSection.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="faith-heading" className="section-title">{faithSection.heading}</h2>
           <p className="body-copy mt-5">{faithSection.body}</p>
@@ -347,16 +353,8 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef   = useRef<HTMLDivElement>(null);
-  const labelRef   = useRef<HTMLParagraphElement>(null);
 
-  usePinnedSection(sectionRef, (tl) => {
-    tl.fromTo(labelRef.current, { opacity: 0, y: -12 }, { opacity: 1, y: 0, ease: 'none' }, 0);
-    tl.fromTo(imageRef.current, { x: '-60vw', opacity: 0, scale: 0.98 }, { x: 0, opacity: 1, scale: 1, ease: 'power2.out' }, 0);
-    tl.fromTo(contentRef.current, { x: '40vw', opacity: 0 }, { x: 0, opacity: 1, ease: 'power2.out' }, 0.05);
-    tl.fromTo(imageRef.current, { x: 0, opacity: 1 }, { x: '-18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(contentRef.current, { x: 0, opacity: 1 }, { x: '18vw', opacity: 0, ease: 'power2.in' }, 0.7);
-    tl.fromTo(labelRef.current, { opacity: 1 }, { opacity: 0, ease: 'power2.in' }, 0.8);
-  });
+  usePinnedSection(sectionRef, imageRef, contentRef, 'right');
 
   return (
     <section
@@ -375,7 +373,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
           />
         </div>
         <div ref={contentRef}>
-          <p ref={labelRef} className="label-upper mb-4">{testimonialsPlaceholder.eyebrow}</p>
+          <p className="label-upper mb-4">{testimonialsPlaceholder.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="testimonials-heading" className="section-title">{testimonialsPlaceholder.heading}</h2>
           <p className="body-copy mt-5">{testimonialsPlaceholder.body}</p>
@@ -454,6 +452,7 @@ export default function HomePage() {
 
   return (
     <div className="pt-0">
+      <ScrollProgressNav sections={HOME_SECTIONS} />
       <HeroSection hero={hero} />
       <ReassuranceSection reassurance={reassurance} />
       <ServicesSection services={services} />
