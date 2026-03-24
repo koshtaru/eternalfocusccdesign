@@ -156,7 +156,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden pt-20"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden pt-20"
     >
       <Image
         src="/hero_interior.jpg"
@@ -221,7 +221,7 @@ function ReassuranceSection({ reassurance }: { reassurance: typeof HOMEPAGE_CONT
       id="reassurance-section"
       ref={sectionRef}
       aria-label="Welcome reassurance"
-      className="relative flex h-screen w-full items-center bg-cream"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
@@ -258,7 +258,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
     <section
       ref={sectionRef}
       aria-labelledby="services-heading"
-      className="relative flex h-screen w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
@@ -304,7 +304,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
     <section
       ref={sectionRef}
       aria-labelledby="faith-heading"
-      className="relative flex h-screen w-full items-center bg-cream"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
@@ -343,7 +343,7 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
     <section
       ref={ref}
       aria-labelledby="telehealth-heading"
-      className="relative flex h-screen w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
       <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div ref={textRef}>
@@ -375,7 +375,7 @@ function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.in
     <section
       ref={ref}
       aria-labelledby="insurance-heading"
-      className="flex h-screen w-full items-center bg-cream"
+      className="flex min-h-[100dvh] w-full items-center bg-cream"
     >
       <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
         <div ref={textRef}>
@@ -411,7 +411,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
     <section
       ref={sectionRef}
       aria-labelledby="testimonials-heading"
-      className="relative flex h-screen w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
@@ -424,22 +424,19 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
           />
         </div>
         <div ref={contentRef}>
-          <p className="label-upper mb-4">{testimonialsPlaceholder.eyebrow}</p>
+          <p className="label-upper mb-4">Your Story Matters</p>
           <div className="hairline mb-8" />
-          <h2 id="testimonials-heading" className="section-title" style={{ fontSize: 'clamp(1.6rem,2.8vw,2.5rem)' }}>{testimonialsPlaceholder.heading}</h2>
-          <p className="body-copy mt-5">{testimonialsPlaceholder.body}</p>
+          <h2 id="testimonials-heading" className="section-title" style={{ fontSize: 'clamp(1.6rem,2.8vw,2.5rem)' }}>A space where healing begins at your own pace.</h2>
+          <p className="body-copy mt-5">Every person who walks through our door carries a unique story. While we respect the privacy of those we serve, we want you to know this space was built for people like you — people looking for something real.</p>
           <div className="mt-8 space-y-4">
-            {testimonialsPlaceholder.cards.slice(0, 2).map((item) => (
-              <div key={item} className="card-premium-soft p-5">
-                <div className="h-3 w-24 rounded-full bg-[var(--color-light-tint)]" aria-hidden="true" />
-                <div className="mt-4 space-y-2" aria-hidden="true">
-                  <div className="h-2.5 rounded-full bg-[rgba(126,138,86,0.15)]" />
-                  <div className="h-2.5 rounded-full bg-[rgba(126,138,86,0.12)]" />
-                  <div className="h-2.5 w-4/5 rounded-full bg-[rgba(126,138,86,0.10)]" />
-                </div>
-                <p className="mt-4 text-sm font-semibold text-[var(--color-sage-dark)]">{testimonialsPlaceholder.cardLabel}</p>
-              </div>
-            ))}
+            <div className="card-premium-soft p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-sage-dark)] mb-3">Our commitment</p>
+              <p className="card-copy">Confidential, compassionate care rooted in faith. No judgment, no rush — just honest support for wherever you are right now.</p>
+            </div>
+            <div className="card-premium-soft p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-sage-dark)] mb-3">Getting started</p>
+              <p className="card-copy">Reach out when you are ready. A brief phone call or email is all it takes to begin exploring whether this is the right fit for you.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -458,7 +455,7 @@ function ClosingCTASection({ closingCTA }: { closingCTA: typeof HOMEPAGE_CONTENT
     <section
       ref={ref}
       aria-labelledby="closing-cta-heading"
-      className="relative overflow-hidden cta-panel py-20"
+      className="relative overflow-hidden cta-panel py-20 cta-section-bridge"
     >
       <div className="container-shell relative z-10 max-w-3xl">
         <p className="label-upper mb-4 text-sage-light">{closingCTA.eyebrow}</p>

@@ -70,7 +70,7 @@ export default function ScrollProgressNav({ sections }: Props) {
       }}
     >
       {/* Vertical progress track */}
-      <div className="relative flex flex-col items-center">
+      <div className="relative flex flex-col items-center" style={{ overflow: 'hidden' }}>
         {/* Track background */}
         <div
           className="absolute left-1/2 -translate-x-1/2 w-[2px] rounded-full bg-[rgba(43,43,43,0.10)]"
@@ -81,7 +81,7 @@ export default function ScrollProgressNav({ sections }: Props) {
           className="absolute left-1/2 -translate-x-1/2 w-[2px] rounded-full bg-[var(--color-sage)]"
           style={{
             top: 0,
-            height: `${scrollProgress * 100}%`,
+            height: `${Math.min(scrollProgress * 100, 100)}%`,
             transition: 'height 80ms linear',
             transformOrigin: 'top',
           }}
