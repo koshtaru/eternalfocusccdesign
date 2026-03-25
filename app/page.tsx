@@ -22,7 +22,9 @@ const HOME_SECTIONS = [
 
 gsap.registerPlugin(ScrollTrigger);
 
-function usePinnedSection(
+// Viewport-reveal: elements animate in as section enters, out as it leaves.
+// No pinning, no scrub — works with native OS scroll inertia.
+function useViewportReveal(
   sectionRef: React.RefObject<HTMLElement | null>,
   elA: React.RefObject<HTMLElement | HTMLDivElement | HTMLParagraphElement | null>,
   elB: React.RefObject<HTMLElement | HTMLDivElement | HTMLParagraphElement | null>,
@@ -35,30 +37,79 @@ function usePinnedSection(
     if (!section || !a || !b) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const exitA = directionA === 'left' ? '-30vw' : '30vw';
-    const exitB = directionA === 'left' ? '30vw' : '-30vw';
+    const fromA = directionA === 'left' ? '-40px' : '40px';
+    const fromB = directionA === 'left' ? '40px' : '-40px';
 
     const ctx = gsap.context(() => {
-      // Content starts fully visible — no entry animation
-      gsap.set([a, b], { clearProps: 'all' });
+      // Start offscreen
+      gsap.set(a, { x: fromA, opacity: 0 });
+      gsap.set(b, { x: fromB, opacity: 0 });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=80%',
-          pin: true,
-          pinSpacing: true,
-          scrub: 1.4,
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 75%',
+        end: 'bottom 15%',
+        onEnter: () => {
+          gsap.to(a, { x: 0, opacity: 1, duration: 0.7, ease: 'power3.out' });
+          gsap.to(b, { x: 0, opacity: 1, duration: 0.7, ease: 'power3.out', delay: 0.1 });
+        },
+        onLeave: () => {
+          gsap.to(a, { x: fromA, opacity: 0, duration: 0.5, ease: 'power2.in' });
+          gsap.to(b, { x: fromB, opacity: 0, duration: 0.5, ease: 'power2.in', delay: 0.06 });
+        },
+        onEnterBack: () => {
+          gsap.to(a, { x: 0, opacity: 1, duration: 0.7, ease: 'power3.out' });
+          gsap.to(b, { x: 0, opacity: 1, duration: 0.7, ease: 'power3.out', delay: 0.1 });
+        },
+        onLeaveBack: () => {
+          gsap.to(a, { x: fromA, opacity: 0, duration: 0.5, ease: 'power2.in' });
+          gsap.to(b, { x: fromB, opacity: 0, duration: 0.5, ease: 'power2.in', delay: 0.06 });
         },
       });
+    }, section);
 
-      // Hold fully visible for first 55% of scroll debt
-      tl.to({}, { duration: 0.55 });
+    return () => ctx.revert();
+  }, []);
+}
 
-      // Exit: slide out in opposite directions (last 45%)
-      tl.to(a, { x: exitA, opacity: 0, ease: 'power2.in' }, 0.55);
-      tl.to(b, { x: exitB, opacity: 0, ease: 'power2.in' }, 0.58);
+function useViewportRevealCards(
+  sectionRef: React.RefObject<HTMLElement | null>,
+  textRef: React.RefObject<HTMLDivElement | null>,
+  selector: string,
+) {
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const text = textRef.current;
+    if (!section || !text) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLElement>(selector, section);
+
+      gsap.set(text, { y: 24, opacity: 0 });
+      gsap.set(cards, { y: 20, opacity: 0 });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 75%',
+        end: 'bottom 15%',
+        onEnter: () => {
+          gsap.to(text, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' });
+          gsap.to(cards, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', stagger: 0.1, delay: 0.15 });
+        },
+        onLeave: () => {
+          gsap.to(text, { y: -16, opacity: 0, duration: 0.4, ease: 'power2.in' });
+          gsap.to(cards, { y: -12, opacity: 0, duration: 0.4, ease: 'power2.in', stagger: 0.06 });
+        },
+        onEnterBack: () => {
+          gsap.to(text, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' });
+          gsap.to(cards, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', stagger: 0.1, delay: 0.1 });
+        },
+        onLeaveBack: () => {
+          gsap.to(text, { y: 24, opacity: 0, duration: 0.4, ease: 'power2.in' });
+          gsap.to(cards, { y: 20, opacity: 0, duration: 0.4, ease: 'power2.in', stagger: 0.06 });
+        },
+      });
     }, section);
 
     return () => ctx.revert();
@@ -107,7 +158,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden pt-20"
     >
       <Image
         src="/hero_interior.jpg"
@@ -117,7 +168,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-cream/40" />
+      <div className="absolute inset-0 bg-cream/65" />
 
       <div className="relative z-10 container-shell text-center">
         <p className="label-upper mb-6">{hero.eyebrow}</p>
@@ -165,14 +216,14 @@ function ReassuranceSection({ reassurance }: { reassurance: typeof HOMEPAGE_CONT
   const contentRef  = useRef<HTMLDivElement>(null);
   const imageRef    = useRef<HTMLDivElement>(null);
 
-  usePinnedSection(sectionRef, contentRef, imageRef, 'left');
+  useViewportReveal(sectionRef, contentRef, imageRef, 'left');
 
   return (
     <section
       id="reassurance-section"
       ref={sectionRef}
       aria-label="Welcome reassurance"
-      className="relative flex h-screen w-full items-center bg-cream"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
@@ -203,13 +254,13 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef   = useRef<HTMLDivElement>(null);
 
-  usePinnedSection(sectionRef, imageRef, contentRef, 'right');
+  useViewportReveal(sectionRef, imageRef, contentRef, 'right');
 
   return (
     <section
       ref={sectionRef}
       aria-labelledby="services-heading"
-      className="relative flex h-screen w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
@@ -224,10 +275,10 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
         <div ref={contentRef}>
           <p className="label-upper mb-4">{services.eyebrow}</p>
           <div className="hairline mb-8" />
-          <h2 id="services-heading" className="section-title">{services.heading}</h2>
+          <h2 id="services-heading" className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
           <p className="body-copy mt-5">{services.intro}</p>
           <div className="mt-8 space-y-4">
-            {services.items.map((card) => (
+            {services.items.slice(0, 2).map((card) => (
               <article key={card.title} className="card-premium-soft p-5">
                 <p className="card-kicker">{card.accent}</p>
                 <h3 className="card-title mt-2">{card.title}</h3>
@@ -249,13 +300,13 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
   const contentRef = useRef<HTMLDivElement>(null);
   const quoteRef   = useRef<HTMLDivElement>(null);
 
-  usePinnedSection(sectionRef, contentRef, quoteRef, 'left');
+  useViewportReveal(sectionRef, contentRef, quoteRef, 'left');
 
   return (
     <section
       ref={sectionRef}
       aria-labelledby="faith-heading"
-      className="relative flex h-screen w-full items-center bg-cream"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
@@ -287,16 +338,17 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
 // ─── Telehealth ─────────────────────────────────────────────────────────────
 function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT.telehealth }) {
   const ref = useRef<HTMLElement>(null);
-  useFadeUp(ref);
+  const textRef = useRef<HTMLDivElement>(null);
+  useViewportRevealCards(ref, textRef, '.card-premium-soft');
 
   return (
     <section
       ref={ref}
       aria-labelledby="telehealth-heading"
-      className="relative bg-cream-dark py-20"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div>
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div ref={textRef}>
           <p className="label-upper mb-4">{telehealth.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="telehealth-heading" className="section-title">{telehealth.heading}</h2>
@@ -318,16 +370,17 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
 // ─── Insurance ──────────────────────────────────────────────────────────────
 function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.insurance }) {
   const ref = useRef<HTMLElement>(null);
-  useFadeUp(ref);
+  const textRef = useRef<HTMLDivElement>(null);
+  useViewportRevealCards(ref, textRef, '.card-premium-soft');
 
   return (
     <section
       ref={ref}
       aria-labelledby="insurance-heading"
-      className="bg-cream py-20"
+      className="flex min-h-[100dvh] w-full items-center bg-cream"
     >
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div>
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div ref={textRef}>
           <p className="label-upper mb-4">{insurance.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="insurance-heading" className="section-title">{insurance.heading}</h2>
@@ -354,13 +407,13 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef   = useRef<HTMLDivElement>(null);
 
-  usePinnedSection(sectionRef, imageRef, contentRef, 'right');
+  useViewportReveal(sectionRef, imageRef, contentRef, 'right');
 
   return (
     <section
       ref={sectionRef}
       aria-labelledby="testimonials-heading"
-      className="relative flex h-screen w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
@@ -373,22 +426,19 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
           />
         </div>
         <div ref={contentRef}>
-          <p className="label-upper mb-4">{testimonialsPlaceholder.eyebrow}</p>
+          <p className="label-upper mb-4">Your Story Matters</p>
           <div className="hairline mb-8" />
-          <h2 id="testimonials-heading" className="section-title">{testimonialsPlaceholder.heading}</h2>
-          <p className="body-copy mt-5">{testimonialsPlaceholder.body}</p>
+          <h2 id="testimonials-heading" className="section-title" style={{ fontSize: 'clamp(1.6rem,2.8vw,2.5rem)' }}>A space where healing begins at your own pace.</h2>
+          <p className="body-copy mt-5">Every person who walks through our door carries a unique story. While we respect the privacy of those we serve, we want you to know this space was built for people like you — people looking for something real.</p>
           <div className="mt-8 space-y-4">
-            {testimonialsPlaceholder.cards.map((item) => (
-              <div key={item} className="card-premium-soft p-5">
-                <div className="h-3 w-24 rounded-full bg-[var(--color-light-tint)]" aria-hidden="true" />
-                <div className="mt-4 space-y-2" aria-hidden="true">
-                  <div className="h-2.5 rounded-full bg-[rgba(126,138,86,0.15)]" />
-                  <div className="h-2.5 rounded-full bg-[rgba(126,138,86,0.12)]" />
-                  <div className="h-2.5 w-4/5 rounded-full bg-[rgba(126,138,86,0.10)]" />
-                </div>
-                <p className="mt-4 text-sm font-semibold text-[var(--color-sage-dark)]">{testimonialsPlaceholder.cardLabel}</p>
-              </div>
-            ))}
+            <div className="card-premium-soft p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-sage-dark)] mb-3">Our commitment</p>
+              <p className="card-copy">Confidential, compassionate care rooted in faith. No judgment, no rush — just honest support for wherever you are right now.</p>
+            </div>
+            <div className="card-premium-soft p-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-sage-dark)] mb-3">Getting started</p>
+              <p className="card-copy">Reach out when you are ready. A brief phone call or email is all it takes to begin exploring whether this is the right fit for you.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -407,7 +457,7 @@ function ClosingCTASection({ closingCTA }: { closingCTA: typeof HOMEPAGE_CONTENT
     <section
       ref={ref}
       aria-labelledby="closing-cta-heading"
-      className="relative overflow-hidden cta-panel py-20"
+      className="relative overflow-hidden cta-panel py-20 cta-section-bridge"
     >
       <div className="container-shell relative z-10 max-w-3xl">
         <p className="label-upper mb-4 text-sage-light">{closingCTA.eyebrow}</p>
