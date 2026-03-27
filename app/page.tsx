@@ -158,7 +158,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden pt-20"
+      className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden pt-20 snap-start"
     >
       <Image
         src="/hero_interior.jpg"
@@ -223,7 +223,7 @@ function ReassuranceSection({ reassurance }: { reassurance: typeof HOMEPAGE_CONT
       id="reassurance-section"
       ref={sectionRef}
       aria-label="Welcome reassurance"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream snap-start"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
@@ -260,7 +260,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
     <section
       ref={sectionRef}
       aria-labelledby="services-heading"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark snap-start"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
@@ -306,7 +306,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
     <section
       ref={sectionRef}
       aria-labelledby="faith-heading"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream snap-start"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={contentRef}>
@@ -345,7 +345,7 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
     <section
       ref={ref}
       aria-labelledby="telehealth-heading"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark snap-start"
     >
       <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div ref={textRef}>
@@ -377,7 +377,7 @@ function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.in
     <section
       ref={ref}
       aria-labelledby="insurance-heading"
-      className="flex min-h-[100dvh] w-full items-center bg-cream"
+      className="flex min-h-[100dvh] w-full items-center bg-cream snap-start"
     >
       <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
         <div ref={textRef}>
@@ -413,7 +413,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
     <section
       ref={sectionRef}
       aria-labelledby="testimonials-heading"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark snap-start"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
@@ -457,7 +457,7 @@ function ClosingCTASection({ closingCTA }: { closingCTA: typeof HOMEPAGE_CONTENT
     <section
       ref={ref}
       aria-labelledby="closing-cta-heading"
-      className="relative overflow-hidden cta-panel py-20 cta-section-bridge"
+      className="relative overflow-hidden cta-panel py-20 cta-section-bridge snap-start"
     >
       <div className="container-shell relative z-10 max-w-3xl">
         <p className="label-upper mb-4 text-sage-light">{closingCTA.eyebrow}</p>
