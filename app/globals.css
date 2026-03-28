@@ -48,16 +48,6 @@ body {
   padding: 0;
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-snap-type: none;
-  }
-}
-
 body {
   background-color: var(--color-cream);
   color: var(--color-charcoal-light);
