@@ -69,6 +69,7 @@ function useViewportReveal(
     }, section);
 
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 
@@ -113,6 +114,7 @@ function useViewportRevealCards(
     }, section);
 
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 
@@ -133,6 +135,7 @@ function useFadeUp(ref: React.RefObject<HTMLElement | null>) {
     }, el);
 
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 

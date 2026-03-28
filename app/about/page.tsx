@@ -24,6 +24,7 @@ function usePinnedSection(
       animate(tl);
     }, section);
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 
@@ -39,6 +40,7 @@ function useFadeUp(ref: React.RefObject<HTMLElement | null>) {
       });
     }, el);
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 
@@ -57,6 +59,7 @@ function useStaggerFadeUp(containerRef: React.RefObject<HTMLElement | null>, sel
       );
     }, el);
     return () => ctx.revert();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 
