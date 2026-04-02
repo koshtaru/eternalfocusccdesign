@@ -261,6 +261,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
 
   return (
     <section
+      id="services-heading"
       ref={sectionRef}
       aria-labelledby="services-heading"
       className="relative w-full bg-cream-dark py-16"
@@ -280,7 +281,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
           <div ref={contentRef}>
             <p className="label-upper mb-4">{services.eyebrow}</p>
             <div className="hairline mb-8" />
-            <h2 id="services-heading" className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
+            <h2 className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
             <p className="body-copy mt-5">{services.intro}</p>
             <div className="mt-8 space-y-4">
               {services.items.map((card) => (
