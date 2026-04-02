@@ -25,7 +25,7 @@ export default function NavBar() {
     >
       <div className="container-shell flex min-h-[72px] items-center justify-between gap-4">
         <Link
-          href="/"
+          href="/#"
           className="flex max-w-[18rem] items-center gap-2.5 text-[var(--color-charcoal)] md:max-w-none"
         >
           <Image
