@@ -8,7 +8,7 @@ import {
 
 export const HOMEPAGE_CONTENT = {
   hero: {
-    eyebrow: 'Faith-Centered Christian Counseling',
+    eyebrow: 'Christ-Centered Christian Counseling',
     heading:
       'Compassionate counseling for the places in life that feel tender, heavy, or hard to navigate alone.',
     supportingText: `${SITE.name} offers a calm, supportive space where professional counseling and Christian faith can be held together with care, wisdom, and respect.`,
@@ -26,7 +26,7 @@ export const HOMEPAGE_CONTENT = {
     accent: 'Warmth. Clarity. Hope.',
   },
   services: {
-    eyebrow: 'How We Can Help',
+    eyebrow: 'Teamwork',
     heading: 'Support for individuals, couples, and telehealth care in Wisconsin.',
     intro:
       'These care areas reflect confirmed areas of support currently offered through telehealth counseling and can be updated over time as the practice continues to grow.',
@@ -34,7 +34,7 @@ export const HOMEPAGE_CONTENT = {
       {
         title: 'Individual Counseling',
         description:
-          'One-on-one counseling for anxiety, grief and loss, life transitions, and the emotional burdens that can quietly build over time.',
+          'One-to-One counseling for anxiety, grief and loss, life transitions, and the emotional burdens that can quietly build over time.',
         accent: 'Anxiety, grief, and life transitions',
       },
       {
@@ -54,9 +54,9 @@ export const HOMEPAGE_CONTENT = {
   faithSection: {
     eyebrow: 'Thoughtful Integration',
     heading:
-      'Faith-centered counseling that is gentle, grounded, and attentive to the whole person.',
+      'Christ-centered counseling that is gentle, grounded, and attentive to the whole person.',
     body:
-      'For clients who desire it, counseling can thoughtfully include prayer, biblical perspective, and faith-based reflection alongside sound clinical care. Each session is approached with respect, humility, and sensitivity to your story.',
+      'For clients who desire it, counseling can thoughtfully include prayer, biblical perspective, and Christ-centered reflection alongside sound clinical care. Each session is approached with respect, humility, and sensitivity to your story.',
     quote:
       '"Healing often begins when people feel safe enough to be honest, supported enough to keep going, and reminded that hope is still present."',
     snapshotEyebrow: 'Practice Snapshot',
@@ -83,11 +83,11 @@ export const HOMEPAGE_CONTENT = {
     eyebrow: 'Payment Details',
     heading: 'Insurance and payment information presented simply and clearly.',
     body:
-      'Insurance credentialing is currently in progress. Until that process is complete, please contact the practice directly for the latest information about fees, payment, and getting started.',
+      'Insurance credentialing is currently in progress. Session fees are listed below.',
     items: [
-      'Insurance status: credentialing is in progress, so accepted plans are not being listed yet.',
-      'Fees: current session rates will be shared directly once payment details are finalized.',
-      'Next step: call or email the practice for the most current information about scheduling, fees, and insurance updates.',
+      'Individual session: $130',
+      'Couples session: $150',
+      'Missed appointment: $80',
     ],
   },
   testimonialsPlaceholder: {
@@ -113,7 +113,7 @@ export const ABOUT_PAGE_CONTENT = {
     eyebrow: 'About the Counselor',
     heading: `Meet ${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
     intro:
-      'Warm, faith-centered counseling for adults and couples seeking steady support, practical tools, and compassionate care.',
+      'Warm, Christ-centered counseling for adults and couples seeking steady support, practical tools, and compassionate care.',
     supportingText: `${COUNSELOR_NAME} is a Licensed Professional Counselor in ${STATES} who provides telehealth counseling only, offering a calm and thoughtful space for healing, growth, and meaningful change.`,
   },
   professionalOverview: {
@@ -168,12 +168,22 @@ export const ABOUT_PAGE_CONTENT = {
     intro:
       'Amy brings counseling training together with a broader professional background that reflects discipline, service, and practical life experience.',
     items: [
-      'Master of Arts in Professional Counseling - Liberty University',
-      'Bachelor of Science in Management - University of Phoenix',
-      'Associate of Arts in Human Resources - Community College of the Air Force',
+      'MA, Professional Counseling — Liberty University, VA',
+      'BS, Business Management — University of Phoenix',
+      'AA, Human Resources — Community College of the Air Force',
     ],
     note:
       'Her background in the Air Force is part of the broader experience that informs her professionalism and steady presence in care.',
+  },
+  personalBio: {
+    eyebrow: 'A Little About Amy',
+    heading: 'Beyond the counseling room.',
+    items: [
+      'Retired from the United States Air Force after 22 years of service.',
+      'Proud parent of three adult children and grandparent of three.',
+      'Married three times — divorced, widowed, and now blessed.',
+      'Enjoys spending time with friends and family, traveling, and playing pickleball.',
+    ],
   },
   closingCta: {
     eyebrow: 'Take the Next Step',
@@ -256,11 +266,12 @@ export const CONTACT_PAGE_CONTENT = {
     eyebrow: 'Insurance & Payment Status',
     heading: 'Insurance credentialing is in progress.',
     body:
-      'Insurance participation is not active yet, and payment details are still being finalized. For now, the best way to receive the most current information is to contact the practice directly.',
+      'Insurance participation is not active yet. Current session fees are listed below.',
     items: [
       'Insurance credentialing is currently in progress, so accepted plans are not being listed yet.',
-      'Session fees and payment details will be shared once they are finalized.',
-      'Phone or email is the best way to ask about the most current status before getting started.',
+      'Individual session: $130',
+      'Couples session: $150',
+      'Missed appointment: $80',
     ],
   },
   closingCta: {
@@ -315,7 +326,7 @@ export const SERVICES_PAGE_CONTENT = {
   },
   counselingApproach: {
     eyebrow: 'Counseling Approach',
-    heading: 'Faith-centered care that is compassionate, practical, and clinically informed.',
+    heading: 'Christ-centered care that is compassionate, practical, and clinically informed.',
     body:
       "Amy's work is grounded in the belief that counseling should help people feel heard, supported, and better equipped for what they are facing. For clients who desire it, faith can be integrated naturally and respectfully into the counseling process.",
     methodsIntro:

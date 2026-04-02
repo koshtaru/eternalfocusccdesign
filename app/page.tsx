@@ -432,7 +432,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
           <p className="label-upper mb-4">Your Story Matters</p>
           <div className="hairline mb-8" />
           <h2 id="testimonials-heading" className="section-title" style={{ fontSize: 'clamp(1.6rem,2.8vw,2.5rem)' }}>A space where healing begins at your own pace.</h2>
-          <p className="body-copy mt-5">Every person who walks through our door carries a unique story. While we respect the privacy of those we serve, we want you to know this space was built for people like you — people looking for something real.</p>
+          <p className="body-copy mt-5">Every person carries a unique story. While we respect the privacy of those we serve, we want you to know this space was built for people like you — people looking for something real.</p>
           <div className="mt-8 space-y-4">
             <div className="card-premium-soft p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-sage-dark)] mb-3">Our commitment</p>

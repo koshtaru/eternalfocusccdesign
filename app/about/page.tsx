@@ -70,6 +70,7 @@ export default function AboutPage() {
     counselingApproach,
     areasOfFocus,
     education,
+    personalBio,
     closingCta,
   } = ABOUT_PAGE_CONTENT;
 
@@ -112,6 +113,10 @@ export default function AboutPage() {
   // Education
   const educationRef = useRef<HTMLElement>(null);
   useFadeUp(educationRef);
+
+  // Personal bio
+  const personalBioRef = useRef<HTMLElement>(null);
+  useFadeUp(personalBioRef);
 
   // Closing CTA
   const ctaRef = useRef<HTMLElement>(null);
@@ -234,6 +239,26 @@ export default function AboutPage() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* Personal bio */}
+      <section
+        ref={personalBioRef}
+        aria-labelledby="personal-bio-heading"
+        className="bg-cream-dark py-20"
+      >
+        <div className="container-shell max-w-3xl">
+          <p className="label-upper mb-4">{personalBio.eyebrow}</p>
+          <div className="hairline mb-8" />
+          <h2 id="personal-bio-heading" className="section-title">{personalBio.heading}</h2>
+          <ul className="mt-8 space-y-3">
+            {personalBio.items.map((item) => (
+              <li key={item} className="card-premium-inset px-5 py-4 text-sm leading-7 text-[var(--color-charcoal-light)]">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

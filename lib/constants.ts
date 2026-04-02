@@ -11,7 +11,7 @@ export const SITE = {
   name: 'Eternal Focus Christian Counseling',
   title: 'Eternal Focus Christian Counseling',
   description:
-    'Faith-centered counseling support for individuals, couples, and families.',
+    'Christ-centered counseling support for individuals, couples, and families.',
   url: 'https://www.eternfocuscounseling.com',
 } as const;
 
