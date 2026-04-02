@@ -10,14 +10,13 @@ import LeafDecoration from '../components/LeafDecoration';
 import ScrollProgressNav from '../components/ScrollProgressNav';
 
 const HOME_SECTIONS = [
-  { id: 'hero-heading',        label: 'Home' },
-  { id: 'reassurance-section', label: 'Welcome' },
-  { id: 'services-heading',    label: 'Services' },
-  { id: 'faith-heading',       label: 'Faith' },
-  { id: 'telehealth-heading',  label: 'Telehealth' },
-  { id: 'insurance-heading',   label: 'Insurance' },
-  { id: 'testimonials-heading',label: 'Stories' },
-  { id: 'closing-cta-heading', label: 'Get Started' },
+  { id: 'hero-heading',         label: 'Home' },
+  { id: 'faith-heading',        label: 'Faith' },
+  { id: 'testimonials-heading', label: 'Stories' },
+  { id: 'services-heading',     label: 'Services' },
+  { id: 'telehealth-heading',   label: 'Telehealth' },
+  { id: 'insurance-heading',    label: 'Insurance' },
+  { id: 'closing-cta-heading',  label: 'Get Started' },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -209,44 +208,6 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
         className="absolute bottom-[-4%] right-[-4%] w-[35vw] translate-x-[20%] translate-y-[20%] opacity-60 animate-leaf-drift"
         aria-hidden="true"
       />
-    </section>
-  );
-}
-
-// ─── Reassurance ────────────────────────────────────────────────────────────
-function ReassuranceSection({ reassurance }: { reassurance: typeof HOMEPAGE_CONTENT.reassurance }) {
-  const sectionRef  = useRef<HTMLElement>(null);
-  const contentRef  = useRef<HTMLDivElement>(null);
-  const imageRef    = useRef<HTMLDivElement>(null);
-
-  useViewportReveal(sectionRef, contentRef, imageRef, 'left');
-
-  return (
-    <section
-      id="reassurance-section"
-      ref={sectionRef}
-      aria-label="Welcome reassurance"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
-    >
-      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
-        <div ref={contentRef}>
-          <p className="label-upper mb-4">A Steady First Step</p>
-          <div className="hairline mb-8" />
-          <p className="reflection-quote max-w-lg">{reassurance.message}</p>
-          <p className="mt-6 label-upper">{reassurance.accent}</p>
-        </div>
-        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
-          <Image
-            src="/courses_group.jpg"
-            alt="A quiet, welcoming counseling environment"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-center"
-          />
-        </div>
-      </div>
-      <LeafDecoration variant="vertical" className="absolute right-4 top-0 h-full w-8 opacity-30" aria-hidden="true" />
-      <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-40 opacity-20 animate-leaf-rotate" aria-hidden="true" />
     </section>
   );
 }
@@ -540,7 +501,6 @@ function ClosingCTASection({ closingCTA }: { closingCTA: typeof HOMEPAGE_CONTENT
 export default function HomePage() {
   const {
     hero,
-    reassurance,
     services,
     faithSection,
     telehealth,
@@ -553,12 +513,11 @@ export default function HomePage() {
     <div className="pt-0">
       <ScrollProgressNav sections={HOME_SECTIONS} />
       <HeroSection hero={hero} />
-      <ReassuranceSection reassurance={reassurance} />
-      <ServicesSection services={services} />
       <FaithSection faithSection={faithSection} />
+      <TestimonialsSection testimonialsPlaceholder={testimonialsPlaceholder} />
+      <ServicesSection services={services} />
       <TelehealthSection telehealth={telehealth} />
       <InsuranceSection insurance={insurance} />
-      <TestimonialsSection testimonialsPlaceholder={testimonialsPlaceholder} />
       <ClosingCTASection closingCTA={closingCTA} />
     </div>
   );
