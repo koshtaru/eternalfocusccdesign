@@ -58,12 +58,20 @@ export const HOMEPAGE_CONTENT = {
     body:
       'For clients who desire it, counseling can thoughtfully include prayer, biblical perspective, and Christ-centered reflection alongside sound clinical care. Each session is approached with respect, humility, and sensitivity to your story.',
     quote:
-      '"Healing often begins when people feel safe enough to be honest, supported enough to keep going, and reminded that hope is still present."',
+      '"...who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves receive from God."',
+    quoteAttribution: '2 Corinthians 1:4 (NIV)',
     snapshotEyebrow: 'Practice Snapshot',
     counselorLabel: 'Counselor',
     counselorValue: `${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
     statesLabel: 'Licensed States',
     statesValue: STATES,
+    educationLabel: 'Education',
+    educationItems: [
+      'MA, Professional Counseling — Liberty University, VA',
+      'BS, Business Management — University of Phoenix',
+    ],
+    backgroundLabel: 'Background',
+    backgroundValue: 'Retired U.S. Air Force — 22 years of service',
     note:
       'Amy currently provides telehealth counseling for clients in Wisconsin, with a warm and thoughtful approach that honors both clinical care and Christian faith.',
   },

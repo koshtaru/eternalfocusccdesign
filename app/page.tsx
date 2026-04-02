@@ -319,9 +319,10 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="body-copy mt-5">{faithSection.body}</p>
         </div>
         <div ref={quoteRef} className="rounded-[30px] bg-[#5E6A3E] p-8 text-white">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Reflection</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
-          <div className="mt-8 space-y-4 border-t border-white/20 pt-6">
+          <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
+          <div className="mt-6 space-y-4 border-t border-white/20 pt-6">
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.counselorLabel}</p>
               <p className="mt-1 text-lg">{faithSection.counselorValue}</p>
@@ -329,6 +330,18 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.statesLabel}</p>
               <p className="mt-1 text-lg">{faithSection.statesValue}</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.educationLabel}</p>
+              <ul className="mt-1 space-y-1">
+                {faithSection.educationItems.map((item) => (
+                  <li key={item} className="text-sm text-white/85">{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.backgroundLabel}</p>
+              <p className="mt-1 text-sm text-white/85">{faithSection.backgroundValue}</p>
             </div>
           </div>
         </div>
