@@ -16,6 +16,7 @@ const HOME_SECTIONS = [
   { id: 'services-heading',     label: 'Services' },
   { id: 'telehealth-heading',   label: 'Telehealth' },
   { id: 'insurance-heading',    label: 'Insurance' },
+  { id: 'about-heading',        label: 'About' },
   { id: 'closing-cta-heading',  label: 'Get Started' },
 ];
 
@@ -316,28 +317,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
           <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
-          <div className="mt-6 space-y-4 border-t border-white/20 pt-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.counselorLabel}</p>
-              <p className="mt-1 text-lg">{faithSection.counselorValue}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.statesLabel}</p>
-              <p className="mt-1 text-lg">{faithSection.statesValue}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.educationLabel}</p>
-              <ul className="mt-1 space-y-1">
-                {faithSection.educationItems.map((item) => (
-                  <li key={item} className="text-sm text-white/85">{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.backgroundLabel}</p>
-              <p className="mt-1 text-sm text-white/85">{faithSection.backgroundValue}</p>
-            </div>
-          </div>
+          <p className="mt-6 border-t border-white/20 pt-6 text-sm text-white/70 leading-relaxed">{faithSection.note}</p>
         </div>
       </div>
       <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-48 opacity-15 animate-leaf-rotate" aria-hidden="true" />
@@ -497,12 +477,101 @@ function ClosingCTASection({ closingCTA }: { closingCTA: typeof HOMEPAGE_CONTENT
   );
 }
 
+// ─── About ──────────────────────────────────────────────────────────────────
+function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef   = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useViewportReveal(sectionRef, imageRef, contentRef, 'left');
+
+  return (
+    <section
+      id="about-heading"
+      ref={sectionRef}
+      aria-labelledby="about-heading"
+      className="relative flex min-h-[100dvh] w-full items-center bg-cream"
+    >
+      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-start py-16">
+        {/* Left — photo + personal bio */}
+        <div ref={imageRef} className="flex flex-col gap-6">
+          <div className="card-rounded aspect-[3/4] relative overflow-hidden max-h-[55vh] w-full">
+            <Image
+              src="/about_founder.jpg"
+              alt="Amy Polzin, Licensed Professional Counselor"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-top"
+            />
+          </div>
+          <div className="card-premium-soft p-5">
+            <p className="label-upper mb-3">{about.bioEyebrow}</p>
+            <ul className="space-y-2">
+              {about.bioItems.map((item) => (
+                <li key={item} className="flex gap-2 text-sm text-[var(--color-charcoal-light)]">
+                  <span className="mt-0.5 shrink-0 text-[var(--color-sage)]">—</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        {/* Right — heading + credentials + approach */}
+        <div ref={contentRef}>
+          <p className="label-upper mb-4">{about.eyebrow}</p>
+          <div className="hairline mb-8" />
+          <h2 id="about-heading" className="section-title">{about.heading}</h2>
+          <p className="body-copy mt-5">{about.intro}</p>
+          {/* Credentials */}
+          <div className="mt-8 rounded-[20px] bg-[#5E6A3E] p-6 text-white space-y-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.counselorLabel}</p>
+              <p className="mt-1 text-lg">{about.counselorValue}</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.statesLabel}</p>
+              <p className="mt-1 text-lg">{about.statesValue}</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.educationLabel}</p>
+              <ul className="mt-1 space-y-1">
+                {about.educationItems.map((item) => (
+                  <li key={item} className="text-sm text-white/85">{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.backgroundLabel}</p>
+              <p className="mt-1 text-sm text-white/85">{about.backgroundValue}</p>
+            </div>
+          </div>
+          {/* Counseling approach */}
+          <div className="mt-8">
+            <p className="body-copy">{about.approachBody}</p>
+            <p className="mt-4 text-sm italic text-[var(--color-charcoal-light)]">{about.methodsIntro}</p>
+            <div className="mt-4 space-y-3">
+              {about.methods.map((m) => (
+                <article key={m.name} className="card-premium-soft p-4">
+                  <h3 className="card-title">{m.name}</h3>
+                  <p className="card-copy mt-1 text-sm">{m.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <LeafDecoration variant="cluster" className="absolute bottom-8 left-8 w-36 opacity-20 animate-leaf-drift" aria-hidden="true" />
+    </section>
+  );
+}
+
 // ─── Page ───────────────────────────────────────────────────────────────────
 export default function HomePage() {
   const {
     hero,
     services,
     faithSection,
+    about,
     telehealth,
     insurance,
     testimonialsPlaceholder,
@@ -518,6 +587,7 @@ export default function HomePage() {
       <ServicesSection services={services} />
       <TelehealthSection telehealth={telehealth} />
       <InsuranceSection insurance={insurance} />
+      <AboutSection about={about} />
       <ClosingCTASection closingCTA={closingCTA} />
     </div>
   );

@@ -18,14 +18,14 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services-heading' },
-  { label: 'About', href: '/about' },
+  { label: 'About', href: '/#about-heading' },
   { label: 'Contact', href: '/contact' },
 ] as const;
 
 export const FOOTER_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services-heading' },
-  { label: 'About', href: '/about' },
+  { label: 'About', href: '/#about-heading' },
   { label: 'Contact', href: '/contact' },
   { label: 'Privacy', href: '/privacy' },
 ] as const;
