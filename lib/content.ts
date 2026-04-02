@@ -87,6 +87,27 @@ export const HOMEPAGE_CONTENT = {
         'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
       ],
     },
+    approaches: {
+      eyebrow: 'Therapeutic Approaches',
+      intro: 'Her work draws from several evidence-based approaches, including:',
+      methods: [
+        {
+          abbr: 'CBT',
+          name: 'Cognitive Behavioral Therapy',
+          description: 'to identify unhelpful thought patterns and build healthier responses',
+        },
+        {
+          abbr: 'EFT',
+          name: 'Emotionally Focused Therapy',
+          description: 'to support emotional awareness, connection, and relationship repair',
+        },
+        {
+          abbr: 'IFS',
+          name: 'Internal Family Systems',
+          description: 'to help clients understand internal patterns with greater clarity and compassion',
+        },
+      ],
+    },
   },
   faithSection: {
     eyebrow: 'Thoughtful Integration',
@@ -97,6 +118,18 @@ export const HOMEPAGE_CONTENT = {
     quote:
       '"...who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves receive from God."',
     quoteAttribution: '2 Corinthians 1:4 (NIV)',
+    snapshotEyebrow: 'Practice Snapshot',
+    counselorLabel: 'Counselor',
+    counselorValue: `${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
+    statesLabel: 'Licensed States',
+    statesValue: STATES,
+    educationLabel: 'Education',
+    educationItems: [
+      'MA, Professional Counseling — Liberty University, VA',
+      'BS, Business Management — University of Phoenix',
+    ],
+    backgroundLabel: 'Background',
+    backgroundValue: 'Retired U.S. Air Force — 22 years of service',
     note:
       'Amy currently provides telehealth counseling for clients in Wisconsin, with a warm and thoughtful approach that honors both clinical care and Christian faith.',
   },
@@ -119,12 +152,6 @@ export const HOMEPAGE_CONTENT = {
     backgroundValue: 'Retired U.S. Air Force — 22 years of service',
     approachBody:
       "Amy's approach is warm, collaborative, and grounded in the belief that counseling should help people feel both supported and equipped. For clients who desire it, faith can be integrated gently and respectfully into the counseling process.",
-    methodsIntro: 'Her work draws from several evidence-based approaches, including:',
-    methods: [
-      { name: 'CBT', description: 'to identify unhelpful thought patterns and build healthier responses' },
-      { name: 'EFT', description: 'to support emotional awareness, connection, and relationship repair' },
-      { name: 'IFS', description: 'to help clients understand internal patterns with greater clarity and compassion' },
-    ],
     bioEyebrow: 'A Little About Amy',
     bioItems: [
       'Retired from the United States Air Force after 22 years of service.',

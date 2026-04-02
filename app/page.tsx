@@ -285,6 +285,20 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
             ))}
           </div>
         </div>
+        {/* Therapeutic approaches */}
+        <div className="mt-12 border-t border-[var(--color-sage)]/20 pt-12">
+          <p className="label-upper mb-4">{services.approaches.eyebrow}</p>
+          <p className="body-copy mb-6">{services.approaches.intro}</p>
+          <div className="grid gap-4 md:grid-cols-3">
+            {services.approaches.methods.map((m) => (
+              <article key={m.abbr} className="card-premium-soft p-5">
+                <p className="card-kicker">{m.abbr}</p>
+                <h3 className="card-title mt-2">{m.name}</h3>
+                <p className="card-copy mt-2 text-sm">{m.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
       </div>
       <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
       <LeafDecoration variant="single" className="absolute bottom-8 left-8 w-20 opacity-20 animate-leaf-drift" aria-hidden="true" />
@@ -317,7 +331,28 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
           <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
-          <p className="mt-6 border-t border-white/20 pt-6 text-sm text-white/70 leading-relaxed">{faithSection.note}</p>
+          <div className="mt-6 space-y-4 border-t border-white/20 pt-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.counselorLabel}</p>
+              <p className="mt-1 text-lg">{faithSection.counselorValue}</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.statesLabel}</p>
+              <p className="mt-1 text-lg">{faithSection.statesValue}</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.educationLabel}</p>
+              <ul className="mt-1 space-y-1">
+                {faithSection.educationItems.map((item) => (
+                  <li key={item} className="text-sm text-white/85">{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.backgroundLabel}</p>
+              <p className="mt-1 text-sm text-white/85">{faithSection.backgroundValue}</p>
+            </div>
+          </div>
         </div>
       </div>
       <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-48 opacity-15 animate-leaf-rotate" aria-hidden="true" />
@@ -548,15 +583,6 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
           {/* Counseling approach */}
           <div className="mt-8">
             <p className="body-copy">{about.approachBody}</p>
-            <p className="mt-4 text-sm italic text-[var(--color-charcoal-light)]">{about.methodsIntro}</p>
-            <div className="mt-4 space-y-3">
-              {about.methods.map((m) => (
-                <article key={m.name} className="card-premium-soft p-4">
-                  <h3 className="card-title">{m.name}</h3>
-                  <p className="card-copy mt-1 text-sm">{m.description}</p>
-                </article>
-              ))}
-            </div>
           </div>
         </div>
       </div>
