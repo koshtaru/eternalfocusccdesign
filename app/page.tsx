@@ -275,26 +275,45 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
         </div>
         {/* What support can look like */}
         <div className="mt-12 border-t border-[var(--color-sage)]/20 pt-12">
-          <p className="label-upper mb-4">{services.supportLooksLike.eyebrow}</p>
-          <h3 className="section-title max-w-2xl">{services.supportLooksLike.heading}</h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end mb-10">
+            <div>
+              <p className="label-upper mb-4">{services.supportLooksLike.eyebrow}</p>
+              <div className="hairline mb-5" />
+              <h3 className="section-title max-w-2xl">{services.supportLooksLike.heading}</h3>
+            </div>
+            <div className="card-premium-inset px-6 py-5 max-w-xs hidden lg:block">
+              <p className="reflection-quote !text-base !leading-relaxed text-[var(--color-charcoal-light)]">
+                &ldquo;Healing is not linear &mdash; and good support meets you where you actually are.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
             {services.supportLooksLike.paragraphs.map((p, i) => (
-              <article key={i} className="card-premium-soft bg-white p-6">
-                <p className="card-copy">{p}</p>
+              <article key={i} className="card-premium p-6 flex flex-col gap-4">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-light-tint)] text-sm font-semibold text-[var(--color-sage-dark)]">
+                  0{i + 1}
+                </span>
+                <h4 className="card-title">{p.title}</h4>
+                <p className="card-copy">{p.body}</p>
               </article>
             ))}
           </div>
         </div>
         {/* Therapeutic approaches */}
         <div className="mt-12 border-t border-[var(--color-sage)]/20 pt-12">
-          <p className="label-upper mb-4">{services.approaches.eyebrow}</p>
-          <p className="body-copy mb-6">{services.approaches.intro}</p>
+          <div className="grid gap-4 lg:grid-cols-[auto_1fr] lg:items-baseline mb-8">
+            <p className="label-upper">{services.approaches.eyebrow}</p>
+            <p className="body-copy lg:text-right !text-sm lg:ml-auto">{services.approaches.intro}</p>
+          </div>
           <div className="grid gap-4 md:grid-cols-3">
             {services.approaches.methods.map((m) => (
-              <article key={m.abbr} className="card-premium-soft p-5">
-                <p className="card-kicker">{m.abbr}</p>
-                <h3 className="card-title mt-2">{m.name}</h3>
-                <p className="card-copy mt-2 text-sm">{m.description}</p>
+              <article key={m.abbr} className="card-premium p-6 flex flex-col gap-3">
+                <span className="inline-flex self-start items-center rounded-full bg-[var(--color-sage-dark)] px-3 py-1 text-xs font-bold tracking-[0.14em] text-white">
+                  {m.abbr}
+                </span>
+                <div className="hairline" />
+                <h3 className="card-title">{m.name}</h3>
+                <p className="card-copy !text-sm">{m.description}</p>
               </article>
             ))}
           </div>

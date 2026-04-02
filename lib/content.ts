@@ -82,9 +82,18 @@ export const HOMEPAGE_CONTENT = {
       eyebrow: 'What Support Can Look Like',
       heading: 'A place to process, gain tools, and move through difficult seasons with steadier support.',
       paragraphs: [
-        'Counseling can be a place to slow down and talk honestly about what has been weighing on you, whether that involves anxiety, grief, trauma, anger, relationship strain, or a major transition.',
-        'Support may include learning coping skills, building insight, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
-        'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
+        {
+          title: 'A Place to Be Heard',
+          body: 'Counseling can be a place to slow down and talk honestly about what has been weighing on you, whether that involves anxiety, grief, trauma, anger, relationship strain, or a major transition.',
+        },
+        {
+          title: 'Skills That Stay With You',
+          body: 'Support may include learning coping skills, building insight, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
+        },
+        {
+          title: 'Care at Your Own Pace',
+          body: 'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
+        },
       ],
     },
     approaches: {
