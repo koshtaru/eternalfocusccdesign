@@ -225,12 +225,12 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
       id="services-heading"
       ref={sectionRef}
       aria-labelledby="services-heading"
-      className="relative w-full bg-cream-dark py-16"
+      className="relative w-full bg-cream-dark py-10"
     >
       <div className="container-shell">
         {/* Intro — image + service cards */}
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-          <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
+          <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[52vh] w-full">
             <Image
               src="/services_couple.jpg"
               alt="Two people in a supportive counseling session"
@@ -240,13 +240,13 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
             />
           </div>
           <div ref={contentRef}>
-            <p className="label-upper mb-4">{services.eyebrow}</p>
-            <div className="hairline mb-8" />
-            <h2 className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
-            <p className="body-copy mt-5">{services.intro}</p>
-            <div className="mt-8 space-y-4">
+            <p className="label-upper mb-3">{services.eyebrow}</p>
+            <div className="hairline mb-5" />
+            <h2 className="section-title !text-[clamp(1.4rem,2.4vw,2.1rem)]">{services.heading}</h2>
+            <p className="body-copy mt-3">{services.intro}</p>
+            <div className="mt-5 space-y-3">
               {services.items.map((card) => (
-                <article key={card.title} className="card-premium-soft p-5">
+                <article key={card.title} className="card-premium-soft p-4">
                   <p className="card-kicker">{card.accent}</p>
                   <h3 className="card-title mt-2">{card.title}</h3>
                   <p className="card-copy mt-2">{card.description}</p>
