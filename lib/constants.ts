@@ -16,14 +16,14 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '/#' },
+  { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services-heading' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const;
 
 export const FOOTER_LINKS = [
-  { label: 'Home', href: '/#' },
+  { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services-heading' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },

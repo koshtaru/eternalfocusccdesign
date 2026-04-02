@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { EXTERNAL_LINKS, NAV_LINKS, SITE } from '../lib/constants';
@@ -8,6 +9,14 @@ import MobileDrawer from './MobileDrawer';
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  function handleHomeClick(e: React.MouseEvent) {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -25,7 +34,8 @@ export default function NavBar() {
     >
       <div className="container-shell flex min-h-[72px] items-center justify-between gap-4">
         <Link
-          href="/#"
+          href="/"
+          onClick={handleHomeClick}
           className="flex max-w-[18rem] items-center gap-2.5 text-[var(--color-charcoal)] md:max-w-none"
         >
           <Image
@@ -46,6 +56,7 @@ export default function NavBar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={link.label === 'Home' ? handleHomeClick : undefined}
               className="nav-link-editorial text-sm font-medium focus-visible:outline-none"
             >
               {link.label}
