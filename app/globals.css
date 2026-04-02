@@ -44,6 +44,7 @@
 
 html {
   scroll-padding-top: 80px; /* offset for fixed 72px navbar */
+  scroll-behavior: smooth;
 }
 
 html,
