@@ -42,6 +42,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-padding-top: 80px; /* offset for fixed 72px navbar */
+}
+
 html,
 body {
   margin: 0;
