@@ -50,6 +50,43 @@ export const HOMEPAGE_CONTENT = {
         accent: 'Private, flexible, and accessible care',
       },
     ],
+    focusAreas: {
+      eyebrow: 'Areas of Focus',
+      groups: [
+        {
+          title: 'Emotional health and daily stress',
+          intro:
+            'Support for the internal weight that can quietly affect everyday life, relationships, and peace of mind.',
+          items: ['Anxiety', 'Depression', 'Anger management', 'Life transitions'],
+        },
+        {
+          title: 'Loss, trauma, and complex experiences',
+          intro:
+            'Care for seasons that involve pain, overwhelm, or the need to process difficult experiences with gentleness and steadiness.',
+          items: [
+            'Grief and loss',
+            'Trauma',
+            'Suicide prevention and postvention',
+            'Dissociative Identity Disorder (DID)',
+          ],
+        },
+        {
+          title: 'Relationship support',
+          intro:
+            'Counseling for adults and couples who want help with connection, communication, and moving through challenges with greater understanding.',
+          items: ['Adults ages 20+', 'Couples counseling'],
+        },
+      ],
+    },
+    supportLooksLike: {
+      eyebrow: 'What Support Can Look Like',
+      heading: 'A place to process, gain tools, and move through difficult seasons with steadier support.',
+      paragraphs: [
+        'Counseling can be a place to slow down and talk honestly about what has been weighing on you, whether that involves anxiety, grief, trauma, anger, relationship strain, or a major transition.',
+        'Support may include learning coping skills, building insight, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
+        'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
+      ],
+    },
   },
   faithSection: {
     eyebrow: 'Thoughtful Integration',
@@ -287,102 +324,6 @@ export const CONTACT_PAGE_CONTENT = {
     heading: 'You are welcome to take the next step at your own pace.',
     body:
       'Whether you are ready to begin soon or simply want more information, reaching out by phone or email is a warm and practical place to start.',
-    primaryLabel: 'Call Amy',
-    primaryHref: `tel:${CONTACT.phone}`,
-    secondaryLabel: 'Email Amy',
-    secondaryHref: `mailto:${CONTACT.email}`,
-  },
-} as const;
-
-export const SERVICES_PAGE_CONTENT = {
-  hero: {
-    eyebrow: 'Services',
-    heading: 'Counseling support for the concerns that can weigh on daily life and relationships.',
-    intro:
-      `${COUNSELOR_NAME} provides telehealth counseling for adults ages 20 and older, as well as couples, in ${STATES}. Care is offered with warmth, clarity, and respect for each client's story.`,
-    supportingText:
-      'Whether you are feeling overwhelmed, grieving a loss, navigating a transition, or trying to strengthen a relationship, counseling can offer a steady place to process what is happening and move forward with support.',
-  },
-  focusAreas: {
-    eyebrow: 'Main Services / Focus Areas',
-    heading: 'Clear areas of support, organized in a way that is easy to understand.',
-    groups: [
-      {
-        title: 'Emotional health and daily stress',
-        intro:
-          'Support for the internal weight that can quietly affect everyday life, relationships, and peace of mind.',
-        items: ['Anxiety', 'Depression', 'Anger management', 'Life transitions'],
-      },
-      {
-        title: 'Loss, trauma, and complex experiences',
-        intro:
-          'Care for seasons that involve pain, overwhelm, or the need to process difficult experiences with gentleness and steadiness.',
-        items: [
-          'Grief and loss',
-          'Trauma',
-          'Suicide prevention and postvention',
-          'Dissociative Identity Disorder (DID)',
-        ],
-      },
-      {
-        title: 'Relationship support',
-        intro:
-          'Counseling for adults and couples who want help with connection, communication, and moving through challenges with greater understanding.',
-        items: ['Adults ages 20+', 'Couples counseling'],
-      },
-    ],
-  },
-  counselingApproach: {
-    eyebrow: 'Counseling Approach',
-    heading: 'Christ-centered care that is compassionate, practical, and clinically informed.',
-    body:
-      "Amy's work is grounded in the belief that counseling should help people feel heard, supported, and better equipped for what they are facing. For clients who desire it, faith can be integrated naturally and respectfully into the counseling process.",
-    methodsIntro:
-      'Her approach may include several evidence-based methods, depending on each client and situation:',
-    methods: [
-      {
-        name: 'CBT',
-        description:
-          'to notice unhelpful thought patterns and build healthier ways of responding',
-      },
-      {
-        name: 'EFT',
-        description:
-          'to support emotional awareness, connection, and deeper understanding in relationships',
-      },
-      {
-        name: 'IFS',
-        description:
-          'to help clients understand internal experiences with greater curiosity, compassion, and clarity',
-      },
-    ],
-  },
-  whoItsFor: {
-    eyebrow: 'Who Counseling Is For',
-    heading: 'Care designed for adults and couples, offered through telehealth in Wisconsin.',
-    items: [
-      'Adults ages 20 and older',
-      'Couples seeking support, healing, or improved communication',
-      'Clients located in Wisconsin',
-      'Clients looking for telehealth counseling only',
-    ],
-    note:
-      'If you are unsure whether counseling would be a good fit for your needs, reaching out by phone or email is a simple place to begin.',
-  },
-  supportLooksLike: {
-    eyebrow: 'What Support Can Look Like',
-    heading: 'A place to process, gain tools, and move through difficult seasons with steadier support.',
-    paragraphs: [
-      'Counseling can be a place to slow down and talk honestly about what has been weighing on you, whether that involves anxiety, grief, trauma, anger, relationship strain, or a major transition.',
-      'Support may include learning coping skills, building insight, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
-      'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
-    ],
-  },
-  closingCta: {
-    eyebrow: 'Next Step',
-    heading: 'If you are considering counseling, reaching out can be the first gentle step.',
-    body:
-      'Online scheduling is still being finalized. For now, the best way to get started is to call or email directly to ask questions, discuss fit, and learn current availability.',
     primaryLabel: 'Call Amy',
     primaryHref: `tel:${CONTACT.phone}`,
     secondaryLabel: 'Email Amy',

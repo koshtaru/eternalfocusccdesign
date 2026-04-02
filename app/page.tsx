@@ -263,29 +263,61 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
     <section
       ref={sectionRef}
       aria-labelledby="services-heading"
-      className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
+      className="relative w-full bg-cream-dark py-16"
     >
-      <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
-        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
-          <Image
-            src="/services_couple.jpg"
-            alt="Two people in a supportive counseling session"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-center"
-          />
+      <div className="container-shell">
+        {/* Intro — image + service cards */}
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
+            <Image
+              src="/services_couple.jpg"
+              alt="Two people in a supportive counseling session"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover object-center"
+            />
+          </div>
+          <div ref={contentRef}>
+            <p className="label-upper mb-4">{services.eyebrow}</p>
+            <div className="hairline mb-8" />
+            <h2 id="services-heading" className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
+            <p className="body-copy mt-5">{services.intro}</p>
+            <div className="mt-8 space-y-4">
+              {services.items.map((card) => (
+                <article key={card.title} className="card-premium-soft p-5">
+                  <p className="card-kicker">{card.accent}</p>
+                  <h3 className="card-title mt-2">{card.title}</h3>
+                  <p className="card-copy mt-2">{card.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
-        <div ref={contentRef}>
-          <p className="label-upper mb-4">{services.eyebrow}</p>
-          <div className="hairline mb-8" />
-          <h2 id="services-heading" className="section-title !text-[clamp(1.6rem,2.8vw,2.5rem)]">{services.heading}</h2>
-          <p className="body-copy mt-5">{services.intro}</p>
-          <div className="mt-8 space-y-4">
-            {services.items.slice(0, 2).map((card) => (
-              <article key={card.title} className="card-premium-soft p-5">
-                <p className="card-kicker">{card.accent}</p>
-                <h3 className="card-title mt-2">{card.title}</h3>
-                <p className="card-copy mt-2">{card.description}</p>
+        {/* Focus areas */}
+        <div className="mt-16 border-t border-[var(--color-sage)]/20 pt-12">
+          <p className="label-upper mb-8">{services.focusAreas.eyebrow}</p>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {services.focusAreas.groups.map((group) => (
+              <article key={group.title} className="card-premium p-6">
+                <h3 className="font-serif text-xl font-semibold text-charcoal">{group.title}</h3>
+                <p className="card-copy mt-3">{group.intro}</p>
+                <ul className="mt-5 space-y-2">
+                  {group.items.map((item) => (
+                    <li key={item} className="card-premium-inset px-4 py-3 text-sm leading-6 text-[var(--color-charcoal-light)]">{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+        {/* What support can look like */}
+        <div className="mt-12 border-t border-[var(--color-sage)]/20 pt-12">
+          <p className="label-upper mb-4">{services.supportLooksLike.eyebrow}</p>
+          <h3 className="section-title max-w-2xl">{services.supportLooksLike.heading}</h3>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {services.supportLooksLike.paragraphs.map((p, i) => (
+              <article key={i} className="card-premium-soft bg-white p-6">
+                <p className="card-copy">{p}</p>
               </article>
             ))}
           </div>
