@@ -2,7 +2,7 @@ import { CONTACT_PAGE_CONTENT } from '../../lib/content';
 import LeafDecoration from '../../components/LeafDecoration';
 
 export default function ContactPage() {
-  const { hero, waysToStart, whatToExpect, insuranceStatus, closingCta } = CONTACT_PAGE_CONTENT;
+  const { hero, waysToStart, insuranceStatus, closingCta } = CONTACT_PAGE_CONTENT;
 
   return (
     <div>
@@ -54,36 +54,10 @@ export default function ContactPage() {
         <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-48 opacity-10 animate-leaf-rotate pointer-events-none" aria-hidden="true" />
       </section>
 
-      {/* ── What to Expect ── */}
-      <section
-        aria-labelledby="what-to-expect-heading"
-        className="relative w-full bg-cream-dark py-20"
-      >
-        <div className="container-shell">
-          <p className="label-upper mb-4">{whatToExpect.eyebrow}</p>
-          <div className="hairline mb-8" />
-          <h2 id="what-to-expect-heading" className="section-title max-w-2xl">{whatToExpect.heading}</h2>
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {whatToExpect.steps.map((step, i) => (
-              <article key={step.title} className="card-premium-soft flex gap-4 px-5 py-5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-light-tint)] text-sm font-semibold text-[var(--color-sage-dark)]">
-                  0{i + 1}
-                </span>
-                <div className="pt-0.5">
-                  <h3 className="card-title">{step.title}</h3>
-                  <p className="card-copy mt-2">{step.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-        <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-40 opacity-20 animate-leaf-rotate pointer-events-none" aria-hidden="true" />
-      </section>
-
-      {/* ── Insurance / Payment ── */}
+      {/* ── Session Fees ── */}
       <section
         aria-labelledby="insurance-status-heading"
-        className="w-full bg-cream py-20"
+        className="w-full bg-cream-dark py-20"
       >
         <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>

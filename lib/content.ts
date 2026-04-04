@@ -353,12 +353,11 @@ export const CONTACT_PAGE_CONTENT = {
     ],
   },
   insuranceStatus: {
-    eyebrow: 'Insurance & Payment Status',
-    heading: 'Insurance credentialing is in progress.',
+    eyebrow: 'Session Fees',
+    heading: 'Private pay sessions are available now.',
     body:
-      'Insurance participation is not active yet. Current session fees are listed below.',
+      'All sessions are currently private pay. Straightforward, transparent pricing with no insurance required.',
     items: [
-      'Insurance credentialing is currently in progress, so accepted plans are not being listed yet.',
       'Individual session: $130',
       'Couples session: $150',
       'Missed appointment: $80',
