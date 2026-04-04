@@ -334,13 +334,19 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
           <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
-          {/* Counselor snapshot — single condensed line */}
-          <div className="mt-5 border-t border-white/20 pt-5">
+          {/* Counselor snapshot + Meet Amy on same row */}
+          <div className="mt-5 border-t border-white/20 pt-5 flex items-center justify-between gap-3">
             <p className="text-sm font-medium text-white">
               {faithSection.counselorValue} | {faithSection.statesValue}
             </p>
+            <a
+              href="/#about-heading"
+              className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-sage-light hover:text-white transition-colors duration-200"
+            >
+              {faithSection.meetAmyLabel} <span aria-hidden="true">→</span>
+            </a>
           </div>
-          {/* Therapeutic approaches — pill cards in a row */}
+          {/* Therapeutic approaches — abbr-only pill row */}
           <div className="mt-5 border-t border-white/20 pt-5">
             <p className="text-xs uppercase tracking-[0.14em] text-sage-light mb-3">{faithSection.approachesEyebrow}</p>
             <div className="grid grid-cols-3 gap-2">
@@ -351,31 +357,24 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
                     key={m.abbr}
                     type="button"
                     onClick={() => setExpanded(isOpen ? null : m.abbr)}
-                    className={`rounded-xl border px-2 py-3 text-center transition-all duration-200 focus-visible:outline-none ${
+                    className={`rounded-xl border py-2.5 text-center text-xs font-bold tracking-[0.10em] transition-all duration-200 focus-visible:outline-none ${
                       isOpen
-                        ? 'bg-white/20 border-white/30'
-                        : 'bg-white/10 border-white/15 hover:bg-white/15'
+                        ? 'bg-white text-[#5E6A3E] border-white'
+                        : 'bg-white/20 text-white border-white/40 hover:bg-white/30 hover:border-white/60'
                     }`}
                     aria-expanded={isOpen}
                   >
-                    <span className="block text-xs font-bold tracking-[0.10em] text-white">{m.abbr}</span>
-                    <span className="mt-0.5 block text-[10px] leading-tight text-white/50 truncate px-1">{m.name}</span>
+                    {m.abbr}
                   </button>
                 );
               })}
             </div>
             {activeMethod && (
-              <div className="mt-2 rounded-xl bg-white/10 border border-white/15 px-4 py-3">
+              <div className="mt-2 rounded-xl bg-white/10 border border-white/20 px-4 py-3">
                 <p className="text-xs font-semibold text-white/90">{activeMethod.name}</p>
                 <p className="mt-1.5 text-xs text-white/65 leading-relaxed">{activeMethod.description}</p>
               </div>
             )}
-            <a
-              href="/#about-heading"
-              className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sage-light hover:text-white transition-colors duration-200"
-            >
-              {faithSection.meetAmyLabel} <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
       </div>
