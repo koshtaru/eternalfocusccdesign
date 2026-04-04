@@ -312,6 +312,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
   const contentRef = useRef<HTMLDivElement>(null);
   const quoteRef   = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const activeMethod = faithSection.methods.find((m) => m.abbr === expanded) ?? null;
 
   useViewportReveal(sectionRef, contentRef, quoteRef, 'left');
 
@@ -333,15 +334,16 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
           <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
-          {/* Counselor snapshot */}
-          <div className="mt-5 flex items-center justify-between border-t border-white/20 pt-5">
-            <p className="text-sm font-semibold text-white">{faithSection.counselorValue}</p>
-            <p className="text-xs text-white/60">{faithSection.statesValue}</p>
+          {/* Counselor snapshot — single condensed line */}
+          <div className="mt-5 border-t border-white/20 pt-5">
+            <p className="text-sm font-medium text-white">
+              {faithSection.counselorValue} | {faithSection.statesValue}
+            </p>
           </div>
-          {/* Therapeutic approaches — expandable accordion */}
+          {/* Therapeutic approaches — pill cards in a row */}
           <div className="mt-5 border-t border-white/20 pt-5">
             <p className="text-xs uppercase tracking-[0.14em] text-sage-light mb-3">{faithSection.approachesEyebrow}</p>
-            <div className="space-y-2">
+            <div className="grid grid-cols-3 gap-2">
               {faithSection.methods.map((m) => {
                 const isOpen = expanded === m.abbr;
                 return (
@@ -349,28 +351,28 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
                     key={m.abbr}
                     type="button"
                     onClick={() => setExpanded(isOpen ? null : m.abbr)}
-                    className="w-full text-left rounded-xl bg-white/10 border border-white/15 px-3 py-2.5 transition-colors duration-200 hover:bg-white/15"
+                    className={`rounded-xl border px-2 py-3 text-center transition-all duration-200 focus-visible:outline-none ${
+                      isOpen
+                        ? 'bg-white/20 border-white/30'
+                        : 'bg-white/10 border-white/15 hover:bg-white/15'
+                    }`}
                     aria-expanded={isOpen}
                   >
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <span className="shrink-0 inline-flex items-center rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold tracking-[0.12em] text-white">{m.abbr}</span>
-                        <span className="text-xs text-white/80 truncate">{m.name}</span>
-                      </div>
-                      <span className="shrink-0 text-white/40 text-base leading-none">{isOpen ? '−' : '+'}</span>
-                    </div>
-                    {isOpen && (
-                      <p className="mt-2.5 pt-2.5 border-t border-white/15 text-xs text-white/65 leading-relaxed">
-                        {m.description}
-                      </p>
-                    )}
+                    <span className="block text-xs font-bold tracking-[0.10em] text-white">{m.abbr}</span>
+                    <span className="mt-0.5 block text-[10px] leading-tight text-white/50 truncate px-1">{m.name}</span>
                   </button>
                 );
               })}
             </div>
+            {activeMethod && (
+              <div className="mt-2 rounded-xl bg-white/10 border border-white/15 px-4 py-3">
+                <p className="text-xs font-semibold text-white/90">{activeMethod.name}</p>
+                <p className="mt-1.5 text-xs text-white/65 leading-relaxed">{activeMethod.description}</p>
+              </div>
+            )}
             <a
               href="/#about-heading"
-              className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-sage-light hover:text-white transition-colors duration-200"
+              className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sage-light hover:text-white transition-colors duration-200"
             >
               {faithSection.meetAmyLabel} <span aria-hidden="true">→</span>
             </a>
