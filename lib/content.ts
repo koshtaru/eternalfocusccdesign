@@ -136,6 +136,7 @@ export const HOMEPAGE_CONTENT = {
     educationItems: [
       'MA, Professional Counseling — Liberty University, VA',
       'BS, Management — University of Phoenix',
+      'AA, Human Resources — Community College of the Air Force',
     ],
     backgroundLabel: 'Background',
     backgroundValue: 'Retired U.S. Air Force — 22 years of service',
