@@ -1,7 +1,7 @@
 export const BOOKING_URL = 'https://PLACEHOLDER-SIMPLEPRACTICE-BOOKING-URL';
 export const PORTAL_URL = 'https://PLACEHOLDER-SIMPLEPRACTICE-PORTAL-URL';
-export const PHONE = '405-210-6967';
-export const EMAIL = 'apolzin@eternalfocuscc.org';
+export const PHONE = '920-777-7501';
+export const EMAIL = 'appointments@eternalfocuscc.org';
 export const ADDRESS = 'Telehealth counseling only';
 export const STATES = 'Wisconsin';
 export const COUNSELOR_NAME = 'Amy Polzin';
