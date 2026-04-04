@@ -378,9 +378,10 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           </div>
         </div>
       </div>
-      <LeafDecoration variant="leaf" className="absolute -top-8 -left-8 w-36 opacity-[0.55] -rotate-[25deg] pointer-events-none" aria-hidden="true" />
-      <LeafDecoration variant="leaf" className="absolute bottom-4 left-4 w-20 opacity-[0.35] rotate-[160deg] pointer-events-none" aria-hidden="true" />
-      <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-48 opacity-[0.12] animate-leaf-rotate pointer-events-none" aria-hidden="true" />
+      {/* Palm frond top-left — arcs inward, guides eye toward heading */}
+      <LeafDecoration variant="palm" className="absolute -top-10 -left-6 w-40 opacity-75 -rotate-[30deg] pointer-events-none" aria-hidden="true" />
+      {/* Palm frond bottom-left — smaller, anchors column base */}
+      <LeafDecoration variant="palm" className="absolute bottom-0 left-0 w-24 opacity-60 rotate-[155deg] pointer-events-none" aria-hidden="true" />
     </section>
   );
 }
