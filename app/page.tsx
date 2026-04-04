@@ -378,10 +378,12 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           </div>
         </div>
       </div>
-      {/* Palm frond top-left — arcs inward, guides eye toward heading */}
-      <LeafDecoration variant="palm" className="absolute -top-10 -left-6 w-40 opacity-75 -rotate-[30deg] pointer-events-none" aria-hidden="true" />
-      {/* Palm frond bottom-left — smaller, anchors column base */}
-      <LeafDecoration variant="palm" className="absolute bottom-0 left-0 w-24 opacity-60 rotate-[155deg] pointer-events-none" aria-hidden="true" />
+      {/* Palm frond top-left — large, partially off-screen, hangs over the eyebrow */}
+      <LeafDecoration variant="palm" className="absolute -top-16 -left-10 w-72 opacity-80 -rotate-[35deg] pointer-events-none" aria-hidden="true" />
+      {/* Palm frond bottom-left — medium, anchors content column base */}
+      <LeafDecoration variant="palm" className="absolute -bottom-8 -left-6 w-52 opacity-70 rotate-[130deg] pointer-events-none" aria-hidden="true" />
+      {/* Palm frond bottom-right — smaller, balances the card side */}
+      <LeafDecoration variant="palm" className="absolute -bottom-6 -right-4 w-36 opacity-60 rotate-[50deg] pointer-events-none" aria-hidden="true" />
     </section>
   );
 }

@@ -15,31 +15,32 @@ export default function LeafDecoration({
 }: LeafDecorationProps) {
   const variants: Record<LeafVariant, React.ReactNode> = {
     palm: (
-      <svg viewBox="0 0 180 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <svg viewBox="0 0 220 360" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
         {/* Rachis — central curved stem */}
-        <path d="M90 315 C90 260 88 200 87 140 C86 80 87 35 88 8"
-          stroke={color} strokeWidth="1.5" strokeOpacity="0.40" strokeLinecap="round" />
-        {/* Pair 1 — y≈260, longest leaflets */}
-        <path d="M89 262 C112 253 140 244 160 231 C156 238 128 250 88 267 Z" fill={color} fillOpacity="0.38" />
-        <path d="M89 262 C66 253 38 244 18 231 C22 238 50 250 90 267 Z" fill={color} fillOpacity="0.38" />
-        {/* Pair 2 — y≈228 */}
-        <path d="M88 230 C112 218 142 204 164 188 C159 196 128 208 87 235 Z" fill={color} fillOpacity="0.35" />
-        <path d="M88 230 C64 218 36 204 14 188 C19 196 50 208 91 235 Z" fill={color} fillOpacity="0.35" />
-        {/* Pair 3 — y≈196 */}
-        <path d="M88 198 C110 184 136 168 157 150 C152 158 126 172 87 203 Z" fill={color} fillOpacity="0.32" />
-        <path d="M88 198 C66 184 42 168 21 150 C26 158 52 172 91 203 Z" fill={color} fillOpacity="0.32" />
-        {/* Pair 4 — y≈165 */}
-        <path d="M87 167 C107 151 128 132 146 112 C141 121 120 138 86 172 Z" fill={color} fillOpacity="0.30" />
-        <path d="M87 167 C67 151 46 132 32 112 C37 121 58 138 90 172 Z" fill={color} fillOpacity="0.30" />
-        {/* Pair 5 — y≈135 */}
-        <path d="M87 137 C104 119 122 98 138 78 C133 88 114 106 86 142 Z" fill={color} fillOpacity="0.27" />
-        <path d="M87 137 C70 119 52 98 40 78 C45 88 64 106 90 142 Z" fill={color} fillOpacity="0.27" />
-        {/* Pair 6 — y≈106, shorter */}
-        <path d="M87 108 C101 90 116 70 128 52 C123 62 108 78 86 113 Z" fill={color} fillOpacity="0.24" />
-        <path d="M87 108 C73 90 58 70 50 52 C55 62 70 78 90 113 Z" fill={color} fillOpacity="0.24" />
-        {/* Pair 7 — y≈78, shortest near tip */}
-        <path d="M87 80 C98 64 110 46 118 30 C113 40 101 55 86 85 Z" fill={color} fillOpacity="0.20" />
-        <path d="M87 80 C76 64 64 46 60 30 C65 40 77 55 90 85 Z" fill={color} fillOpacity="0.20" />
+        <path d="M110 356 C109 295 107 225 107 158 C107 92 108 40 110 6"
+          stroke={color} strokeWidth="2" strokeOpacity="0.45" strokeLinecap="round" />
+        {/* Right leaflets — 10 pairs, getting shorter toward frond tip */}
+        <path d="M109 308 C138 294 170 276 198 255 C192 264 160 281 108 314 Z" fill={color} fillOpacity="0.55" />
+        <path d="M108 275 C140 258 175 237 204 213 C198 223 163 242 107 281 Z" fill={color} fillOpacity="0.52" />
+        <path d="M108 243 C140 224 173 200 202 174 C196 185 163 207 107 249 Z" fill={color} fillOpacity="0.49" />
+        <path d="M108 212 C138 191 168 165 196 137 C190 149 160 173 107 218 Z" fill={color} fillOpacity="0.46" />
+        <path d="M108 182 C136 160 163 132 188 103 C182 116 155 142 107 188 Z" fill={color} fillOpacity="0.43" />
+        <path d="M108 154 C133 130 157 101 180 71 C174 85 150 112 107 160 Z" fill={color} fillOpacity="0.40" />
+        <path d="M108 127 C130 103 151 74 170 45 C164 59 143 85 107 133 Z" fill={color} fillOpacity="0.37" />
+        <path d="M108 102 C127 78 146 51 162 24 C156 38 137 62 107 108 Z" fill={color} fillOpacity="0.34" />
+        <path d="M109 79 C125 56 140 32 152 8 C147 21 132 43 108 85 Z" fill={color} fillOpacity="0.30" />
+        <path d="M110 58 C123 38 135 17 144 -2 C139 11 127 30 109 64 Z" fill={color} fillOpacity="0.26" />
+        {/* Left leaflets — mirror of right */}
+        <path d="M109 308 C80 294 48 276 20 255 C26 264 58 281 110 314 Z" fill={color} fillOpacity="0.55" />
+        <path d="M108 275 C76 258 43 237 14 213 C20 223 55 242 111 281 Z" fill={color} fillOpacity="0.52" />
+        <path d="M108 243 C76 224 45 200 16 174 C22 185 55 207 111 249 Z" fill={color} fillOpacity="0.49" />
+        <path d="M108 212 C78 191 50 165 22 137 C28 149 58 173 111 218 Z" fill={color} fillOpacity="0.46" />
+        <path d="M108 182 C80 160 55 132 30 103 C36 116 63 142 111 188 Z" fill={color} fillOpacity="0.43" />
+        <path d="M108 154 C83 130 61 101 38 71 C44 85 68 112 111 160 Z" fill={color} fillOpacity="0.40" />
+        <path d="M108 127 C86 103 67 74 48 45 C54 59 75 85 111 133 Z" fill={color} fillOpacity="0.37" />
+        <path d="M108 102 C89 78 72 51 56 24 C62 38 79 62 111 108 Z" fill={color} fillOpacity="0.34" />
+        <path d="M109 79 C93 56 78 32 66 8 C71 21 86 43 110 85 Z" fill={color} fillOpacity="0.30" />
+        <path d="M110 58 C97 38 85 17 76 -2 C81 11 93 30 109 64 Z" fill={color} fillOpacity="0.26" />
       </svg>
     ),
     leaf: (
