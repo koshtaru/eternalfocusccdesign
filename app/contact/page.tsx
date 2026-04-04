@@ -1,8 +1,16 @@
+'use client';
+
+import { useState } from 'react';
 import { CONTACT_PAGE_CONTENT } from '../../lib/content';
-import LeafDecoration from '../../components/LeafDecoration';
 
 export default function ContactPage() {
   const { hero, waysToStart, insuranceStatus, closingCta } = CONTACT_PAGE_CONTENT;
+  const [formState, setFormState] = useState<'idle' | 'sent'>('idle');
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormState('sent');
+  }
 
   return (
     <div>
@@ -11,70 +19,147 @@ export default function ContactPage() {
         aria-labelledby="contact-hero-heading"
         className="relative w-full bg-cream py-24"
       >
-        <div className="container-shell grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-start">
+
+          {/* Left — form */}
           <div>
             <p className="label-upper mb-4">{hero.eyebrow}</p>
             <div className="hairline mb-8" />
             <h1 id="contact-hero-heading" className="section-title">{hero.heading}</h1>
             <p className="body-copy mt-5">{hero.intro}</p>
-            <p className="body-copy mt-3">{hero.supportingText}</p>
+
+            {formState === 'sent' ? (
+              <div className="mt-8 rounded-2xl bg-[var(--color-light-tint)] px-6 py-8">
+                <p className="text-lg font-semibold text-[var(--color-sage-dark)]">Message received.</p>
+                <p className="mt-2 body-copy">
+                  Thank you for reaching out. Our office will be in touch with you soon.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-8 grid gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="contact-name" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-charcoal)]">
+                      Full Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      name="name"
+                      type="text"
+                      required
+                      autoComplete="name"
+                      className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="contact-email" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-charcoal)]">
+                      Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="contact-phone" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-charcoal)]">
+                    Phone <span className="normal-case font-normal tracking-normal opacity-50">(optional)</span>
+                  </label>
+                  <input
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
+                    placeholder="(920) 000-0000"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label htmlFor="contact-message" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-charcoal)]">
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    rows={5}
+                    className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition resize-none"
+                    placeholder="How can we help you?"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="button-base mt-1 self-start rounded-xl bg-[var(--color-sage-dark)] px-8 py-3.5 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sage-dark)]/40"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
-          {/* Contact details card — dark green, matching the faith section card */}
-          <div className="rounded-[30px] bg-[#5E6A3E] p-8 text-white">
+
+          {/* Right — contact info card */}
+          <div className="rounded-[30px] bg-[#5E6A3E] p-8 text-white lg:sticky lg:top-28">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-6">Get in Touch</p>
             <div className="space-y-5">
               <div className="border-b border-white/20 pb-5">
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-1">Phone</p>
+                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Phone</p>
                 <a
                   href={`tel:${waysToStart.items[0].value}`}
-                  className="text-xl font-semibold text-white hover:text-white/80 transition-colors"
+                  className="block text-2xl font-bold text-white hover:text-white/80 transition-colors"
                 >
                   {waysToStart.items[0].value}
                 </a>
-                <p className="mt-1 text-sm text-white/65">{waysToStart.items[0].description}</p>
+                <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[0].description}</p>
               </div>
               <div className="border-b border-white/20 pb-5">
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-1">Email</p>
+                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Email</p>
                 <a
                   href={`mailto:${waysToStart.items[1].value}`}
-                  className="text-lg font-semibold text-white hover:text-white/80 transition-colors break-all"
+                  className="block text-base font-semibold text-white hover:text-white/80 transition-colors break-all"
                 >
                   {waysToStart.items[1].value}
                 </a>
-                <p className="mt-1 text-sm text-white/65">{waysToStart.items[1].description}</p>
+                <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[1].description}</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-1">Session Format</p>
+                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Session Format</p>
                 <p className="text-base font-medium text-white">{waysToStart.items[2].value}</p>
-                <p className="mt-1 text-sm text-white/65">{waysToStart.items[2].description}</p>
+                <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[2].description}</p>
               </div>
             </div>
           </div>
+
         </div>
-        <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-48 opacity-10 animate-leaf-rotate pointer-events-none" aria-hidden="true" />
       </section>
 
       {/* ── Session Fees ── */}
       <section
-        aria-labelledby="insurance-status-heading"
+        aria-labelledby="session-fees-heading"
         className="w-full bg-cream-dark py-20"
       >
         <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div>
             <p className="label-upper mb-4">{insuranceStatus.eyebrow}</p>
             <div className="hairline mb-8" />
-            <h2 id="insurance-status-heading" className="section-title">{insuranceStatus.heading}</h2>
+            <h2 id="session-fees-heading" className="section-title">{insuranceStatus.heading}</h2>
             <p className="body-copy mt-5">{insuranceStatus.body}</p>
           </div>
-          <ul className="grid gap-3">
-            {insuranceStatus.items.map((item, i) => (
-              <li key={item} className="card-premium-soft flex gap-4 px-5 py-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-light-tint)] text-sm font-semibold text-[var(--color-sage-dark)]">
-                  0{i + 1}
-                </span>
-                <span className="card-copy pt-0.5">{item}</span>
-              </li>
-            ))}
+          <ul className="divide-y divide-[var(--color-cream)] rounded-2xl bg-white/60 px-6">
+            {insuranceStatus.items.map((item) => {
+              const [label, price] = item.split(': ');
+              return (
+                <li key={item} className="flex items-center justify-between py-4">
+                  <span className="body-copy">{label}</span>
+                  <span className="text-base font-semibold text-[var(--color-sage-dark)]">{price}</span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -97,7 +182,6 @@ export default function ContactPage() {
             </a>
           </div>
         </div>
-        <LeafDecoration variant="bottom-right" className="absolute bottom-0 right-0 w-64 opacity-25 pointer-events-none" aria-hidden="true" />
       </section>
     </div>
   );

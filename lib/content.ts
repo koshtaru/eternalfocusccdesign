@@ -368,9 +368,9 @@ export const CONTACT_PAGE_CONTENT = {
     heading: 'You are welcome to take the next step at your own pace.',
     body:
       'Whether you are ready to begin soon or simply want more information, reaching out by phone or email is a warm and practical place to start.',
-    primaryLabel: 'Call Amy',
+    primaryLabel: 'Call Our Office',
     primaryHref: `tel:${CONTACT.phone}`,
-    secondaryLabel: 'Email Amy',
+    secondaryLabel: 'Email Us',
     secondaryHref: `mailto:${CONTACT.email}`,
   },
 } as const;
