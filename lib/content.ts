@@ -96,27 +96,6 @@ export const HOMEPAGE_CONTENT = {
         },
       ],
     },
-    approaches: {
-      eyebrow: 'Therapeutic Approaches',
-      intro: 'Her work draws from several evidence-based approaches, including:',
-      methods: [
-        {
-          abbr: 'CBT',
-          name: 'Cognitive Behavioral Therapy',
-          description: 'to identify unhelpful thought patterns and build healthier responses',
-        },
-        {
-          abbr: 'EFT',
-          name: 'Emotionally Focused Therapy',
-          description: 'to support emotional awareness, connection, and relationship repair',
-        },
-        {
-          abbr: 'IFS',
-          name: 'Internal Family Systems',
-          description: 'to help clients understand internal patterns with greater clarity and compassion',
-        },
-      ],
-    },
   },
   faithSection: {
     eyebrow: 'Thoughtful Integration',
@@ -127,19 +106,25 @@ export const HOMEPAGE_CONTENT = {
     quote:
       '"...who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves receive from God."',
     quoteAttribution: '2 Corinthians 1:4 (NIV)',
-    snapshotEyebrow: 'Practice Snapshot',
-    counselorLabel: 'Counselor',
-    counselorValue: `${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
-    statesLabel: 'Licensed States',
-    statesValue: STATES,
-    educationLabel: 'Education',
-    educationItems: [
-      'MA, Professional Counseling — Liberty University, VA',
-      'BS, Management — University of Phoenix',
-      'AA, Human Resources — Community College of the Air Force',
+    approachesEyebrow: 'Therapeutic Approaches',
+    methods: [
+      {
+        abbr: 'CBT',
+        name: 'Cognitive Behavioral Therapy',
+        description: 'to identify unhelpful thought patterns and build healthier responses',
+      },
+      {
+        abbr: 'EFT',
+        name: 'Emotionally Focused Therapy',
+        description: 'to support emotional awareness, connection, and relationship repair',
+      },
+      {
+        abbr: 'IFS',
+        name: 'Internal Family Systems',
+        description: 'to help clients understand internal patterns with greater clarity and compassion',
+      },
     ],
-    backgroundLabel: 'Background',
-    backgroundValue: 'Retired U.S. Air Force — 22 years of service',
+    meetAmyLabel: 'Meet Amy',
     note:
       'Amy currently provides telehealth counseling for clients in Wisconsin, with a warm and thoughtful approach that honors both clinical care and Christian faith.',
   },

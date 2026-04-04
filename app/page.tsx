@@ -299,25 +299,6 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
             ))}
           </div>
         </div>
-        {/* Therapeutic approaches */}
-        <div className="mt-12 border-t border-[var(--color-sage)]/20 pt-12">
-          <div className="grid gap-4 lg:grid-cols-[auto_1fr] lg:items-baseline mb-8">
-            <p className="label-upper">{services.approaches.eyebrow}</p>
-            <p className="body-copy lg:text-right !text-sm lg:ml-auto">{services.approaches.intro}</p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {services.approaches.methods.map((m) => (
-              <article key={m.abbr} className="card-premium p-6 flex flex-col gap-3">
-                <span className="inline-flex self-start items-center rounded-full bg-[var(--color-sage-dark)] px-3 py-1 text-xs font-bold tracking-[0.14em] text-white">
-                  {m.abbr}
-                </span>
-                <div className="hairline" />
-                <h3 className="card-title">{m.name}</h3>
-                <p className="card-copy !text-sm">{m.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
       </div>
       <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
       <LeafDecoration variant="single" className="absolute bottom-8 left-8 w-20 opacity-20 animate-leaf-drift" aria-hidden="true" />
@@ -350,27 +331,23 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
           <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
-          <div className="mt-6 space-y-4 border-t border-white/20 pt-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.counselorLabel}</p>
-              <p className="mt-1 text-lg">{faithSection.counselorValue}</p>
+          <div className="mt-6 border-t border-white/20 pt-6">
+            <p className="text-xs uppercase tracking-[0.14em] text-sage-light mb-4">{faithSection.approachesEyebrow}</p>
+            <div className="space-y-3">
+              {faithSection.methods.map((m) => (
+                <div key={m.abbr} className="rounded-xl bg-white/10 border border-white/15 p-4">
+                  <span className="inline-flex items-center rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold tracking-[0.12em] text-white">{m.abbr}</span>
+                  <p className="mt-2 text-sm font-semibold text-white">{m.name}</p>
+                  <p className="mt-1 text-xs text-white/70 leading-relaxed">{m.description}</p>
+                </div>
+              ))}
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.statesLabel}</p>
-              <p className="mt-1 text-lg">{faithSection.statesValue}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.educationLabel}</p>
-              <ul className="mt-1 space-y-1">
-                {faithSection.educationItems.map((item) => (
-                  <li key={item} className="text-sm text-white/85">{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{faithSection.backgroundLabel}</p>
-              <p className="mt-1 text-sm text-white/85">{faithSection.backgroundValue}</p>
-            </div>
+            <a
+              href="/#about-heading"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-sage-light hover:text-white transition-colors duration-200"
+            >
+              {faithSection.meetAmyLabel} <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </div>
