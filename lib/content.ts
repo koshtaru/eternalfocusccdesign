@@ -135,7 +135,7 @@ export const HOMEPAGE_CONTENT = {
     educationLabel: 'Education',
     educationItems: [
       'MA, Professional Counseling — Liberty University, VA',
-      'BS, Business Management — University of Phoenix',
+      'BS, Management — University of Phoenix',
     ],
     backgroundLabel: 'Background',
     backgroundValue: 'Retired U.S. Air Force — 22 years of service',
@@ -154,7 +154,7 @@ export const HOMEPAGE_CONTENT = {
     educationLabel: 'Education & Background',
     educationItems: [
       'MA, Professional Counseling — Liberty University, VA',
-      'BS, Business Management — University of Phoenix',
+      'BS, Management — University of Phoenix',
       'AA, Human Resources — Community College of the Air Force',
     ],
     backgroundLabel: 'Background',
@@ -271,7 +271,7 @@ export const ABOUT_PAGE_CONTENT = {
       'Amy brings counseling training together with a broader professional background that reflects discipline, service, and practical life experience.',
     items: [
       'MA, Professional Counseling — Liberty University, VA',
-      'BS, Business Management — University of Phoenix',
+      'BS, Management — University of Phoenix',
       'AA, Human Resources — Community College of the Air Force',
     ],
     note:
