@@ -26,10 +26,10 @@ export default function NavBar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
         scrolled
           ? 'bg-[rgba(246,244,242,0.88)] backdrop-blur-md py-4 border-b border-[rgba(43,43,43,0.08)] shadow-[0_4px_16px_rgba(43,43,43,0.06)]'
-          : 'bg-[rgba(246,244,242,0.85)] backdrop-blur-sm py-6 md:bg-transparent md:backdrop-blur-none'
+          : 'bg-[var(--color-cream)] py-6 border-b border-transparent md:bg-transparent md:border-none'
       }`}
     >
       <div className="container-shell flex min-h-[72px] items-center justify-between gap-4">
