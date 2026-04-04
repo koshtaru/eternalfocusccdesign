@@ -341,7 +341,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
             </p>
             <a
               href="/#about-heading"
-              className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-sage-light hover:text-white transition-colors duration-200"
+              className="shrink-0 inline-flex items-center gap-1 text-xs font-medium text-white hover:text-white/70 transition-colors duration-200"
             >
               {faithSection.meetAmyLabel} <span aria-hidden="true">→</span>
             </a>
