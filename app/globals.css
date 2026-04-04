@@ -45,12 +45,15 @@
 html {
   scroll-padding-top: 80px; /* offset for fixed 72px navbar */
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  scrollbar-gutter: stable; /* reserve scrollbar space to prevent layout shift */
 }
 
 html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
