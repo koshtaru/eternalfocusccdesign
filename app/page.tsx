@@ -378,9 +378,9 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           </div>
         </div>
       </div>
+      <LeafDecoration variant="leaf" className="absolute -top-8 -left-8 w-36 opacity-[0.55] -rotate-[25deg] pointer-events-none" aria-hidden="true" />
+      <LeafDecoration variant="leaf" className="absolute bottom-4 left-4 w-20 opacity-[0.35] rotate-[160deg] pointer-events-none" aria-hidden="true" />
       <LeafDecoration variant="cluster" className="absolute bottom-8 right-8 w-48 opacity-[0.12] animate-leaf-rotate pointer-events-none" aria-hidden="true" />
-      <LeafDecoration variant="vertical" className="absolute top-0 left-6 h-[60%] w-12 opacity-[0.08] animate-leaf-drift pointer-events-none" aria-hidden="true" />
-      <LeafDecoration variant="single" className="absolute bottom-12 left-12 w-24 opacity-[0.10] animate-leaf-drift pointer-events-none" aria-hidden="true" />
     </section>
   );
 }

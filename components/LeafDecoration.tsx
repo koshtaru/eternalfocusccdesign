@@ -1,6 +1,6 @@
 import React from 'react';
 
-type LeafVariant = 'cluster' | 'single' | 'vertical' | 'bottom-right' | 'top-right' | 'bottom-left';
+type LeafVariant = 'cluster' | 'single' | 'vertical' | 'bottom-right' | 'top-right' | 'bottom-left' | 'leaf';
 
 interface LeafDecorationProps {
   className?: string;
@@ -14,6 +14,25 @@ export default function LeafDecoration({
   color = '#7E8A56',
 }: LeafDecorationProps) {
   const variants: Record<LeafVariant, React.ReactNode> = {
+    leaf: (
+      <svg viewBox="0 0 80 220" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        {/* Leaf body */}
+        <path d="M40 6 C62 28 72 75 72 110 C72 145 62 192 40 214 C18 192 8 145 8 110 C8 75 18 28 40 6 Z"
+          fill={color} fillOpacity="0.18" stroke={color} strokeOpacity="0.25" strokeWidth="0.8" />
+        {/* Center spine */}
+        <path d="M40 6 L40 214" stroke={color} strokeWidth="1" strokeOpacity="0.30" strokeLinecap="round" />
+        {/* Left veins */}
+        <path d="M40 45 C28 50 20 58 15 68" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 80 C26 87 17 96 12 108" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 115 C26 120 17 129 13 140" stroke={color} strokeWidth="0.8" strokeOpacity="0.20" strokeLinecap="round" />
+        <path d="M40 150 C28 154 20 161 16 170" stroke={color} strokeWidth="0.8" strokeOpacity="0.18" strokeLinecap="round" />
+        {/* Right veins */}
+        <path d="M40 45 C52 50 60 58 65 68" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 80 C54 87 63 96 68 108" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 115 C54 120 63 129 67 140" stroke={color} strokeWidth="0.8" strokeOpacity="0.20" strokeLinecap="round" />
+        <path d="M40 150 C52 154 60 161 64 170" stroke={color} strokeWidth="0.8" strokeOpacity="0.18" strokeLinecap="round" />
+      </svg>
+    ),
     cluster: (
       <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
         <path d="M160 180C160 180 140 140 100 130C60 120 40 80 40 80" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
