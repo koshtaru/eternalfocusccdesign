@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useLayoutEffect } from 'react';
+import { useRef, useLayoutEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EXTERNAL_LINKS } from '../lib/constants';
@@ -311,6 +311,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const quoteRef   = useRef<HTMLDivElement>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   useViewportReveal(sectionRef, contentRef, quoteRef, 'left');
 
@@ -328,23 +329,48 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <p className="body-copy mt-5">{faithSection.body}</p>
         </div>
         <div ref={quoteRef} className="rounded-[30px] bg-[#5E6A3E] p-8 text-white">
+          {/* Scripture */}
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
           <p className="mt-3 text-right text-xs text-white/60 tracking-wide">{faithSection.quoteAttribution}</p>
-          <div className="mt-6 border-t border-white/20 pt-6">
-            <p className="text-xs uppercase tracking-[0.14em] text-sage-light mb-4">{faithSection.approachesEyebrow}</p>
-            <div className="space-y-3">
-              {faithSection.methods.map((m) => (
-                <div key={m.abbr} className="rounded-xl bg-white/10 border border-white/15 p-4">
-                  <span className="inline-flex items-center rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-bold tracking-[0.12em] text-white">{m.abbr}</span>
-                  <p className="mt-2 text-sm font-semibold text-white">{m.name}</p>
-                  <p className="mt-1 text-xs text-white/70 leading-relaxed">{m.description}</p>
-                </div>
-              ))}
+          {/* Counselor snapshot */}
+          <div className="mt-5 flex items-center justify-between border-t border-white/20 pt-5">
+            <p className="text-sm font-semibold text-white">{faithSection.counselorValue}</p>
+            <p className="text-xs text-white/60">{faithSection.statesValue}</p>
+          </div>
+          {/* Therapeutic approaches — expandable accordion */}
+          <div className="mt-5 border-t border-white/20 pt-5">
+            <p className="text-xs uppercase tracking-[0.14em] text-sage-light mb-3">{faithSection.approachesEyebrow}</p>
+            <div className="space-y-2">
+              {faithSection.methods.map((m) => {
+                const isOpen = expanded === m.abbr;
+                return (
+                  <button
+                    key={m.abbr}
+                    type="button"
+                    onClick={() => setExpanded(isOpen ? null : m.abbr)}
+                    className="w-full text-left rounded-xl bg-white/10 border border-white/15 px-3 py-2.5 transition-colors duration-200 hover:bg-white/15"
+                    aria-expanded={isOpen}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <span className="shrink-0 inline-flex items-center rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold tracking-[0.12em] text-white">{m.abbr}</span>
+                        <span className="text-xs text-white/80 truncate">{m.name}</span>
+                      </div>
+                      <span className="shrink-0 text-white/40 text-base leading-none">{isOpen ? '−' : '+'}</span>
+                    </div>
+                    {isOpen && (
+                      <p className="mt-2.5 pt-2.5 border-t border-white/15 text-xs text-white/65 leading-relaxed">
+                        {m.description}
+                      </p>
+                    )}
+                  </button>
+                );
+              })}
             </div>
             <a
               href="/#about-heading"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-sage-light hover:text-white transition-colors duration-200"
+              className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-sage-light hover:text-white transition-colors duration-200"
             >
               {faithSection.meetAmyLabel} <span aria-hidden="true">→</span>
             </a>

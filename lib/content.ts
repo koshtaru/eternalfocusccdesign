@@ -106,6 +106,8 @@ export const HOMEPAGE_CONTENT = {
     quote:
       '"...who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves receive from God."',
     quoteAttribution: '2 Corinthians 1:4 (NIV)',
+    counselorValue: `${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
+    statesValue: STATES,
     approachesEyebrow: 'Therapeutic Approaches',
     methods: [
       {
