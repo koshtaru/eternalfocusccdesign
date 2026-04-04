@@ -19,36 +19,36 @@ export default function LeafDecoration({
         {/* Rachis — central curved stem */}
         <path d="M133 416 C132 350 131 275 130 200 C129 125 130 60 131 8"
           stroke={color} strokeWidth="2.5" strokeOpacity="0.60" strokeLinecap="round" />
-        {/* Right leaflets — open bezier strokes, lift then droop */}
-        <path d="M134 370 C178 358 218 369 226 373" stroke={color} strokeWidth="1.5" strokeOpacity="0.70" strokeLinecap="round" />
-        <path d="M133 346 C174 333 211 344 219 348" stroke={color} strokeWidth="1.5" strokeOpacity="0.67" strokeLinecap="round" />
-        <path d="M132 322 C170 308 203 319 211 323" stroke={color} strokeWidth="1.5" strokeOpacity="0.64" strokeLinecap="round" />
-        <path d="M132 298 C165 283 196 294 204 298" stroke={color} strokeWidth="1.4" strokeOpacity="0.62" strokeLinecap="round" />
-        <path d="M131 275 C161 259 188 270 196 274" stroke={color} strokeWidth="1.4" strokeOpacity="0.59" strokeLinecap="round" />
-        <path d="M131 253 C157 236 181 247 189 251" stroke={color} strokeWidth="1.4" strokeOpacity="0.56" strokeLinecap="round" />
-        <path d="M130 232 C153 214 174 225 182 229" stroke={color} strokeWidth="1.3" strokeOpacity="0.53" strokeLinecap="round" />
-        <path d="M130 212 C150 193 167 204 175 208" stroke={color} strokeWidth="1.3" strokeOpacity="0.50" strokeLinecap="round" />
-        <path d="M130 193 C146 173 161 184 169 188" stroke={color} strokeWidth="1.3" strokeOpacity="0.48" strokeLinecap="round" />
-        <path d="M130 175 C143 155 155 166 163 170" stroke={color} strokeWidth="1.2" strokeOpacity="0.46" strokeLinecap="round" />
-        <path d="M130 158 C140 138 150 149 158 153" stroke={color} strokeWidth="1.2" strokeOpacity="0.44" strokeLinecap="round" />
-        <path d="M130 142 C138 122 145 133 153 137" stroke={color} strokeWidth="1.2" strokeOpacity="0.42" strokeLinecap="round" />
-        <path d="M130 127 C136 108 141 119 148 123" stroke={color} strokeWidth="1.1" strokeOpacity="0.40" strokeLinecap="round" />
-        <path d="M130 113 C134 95 138 106 144 110" stroke={color} strokeWidth="1.1" strokeOpacity="0.38" strokeLinecap="round" />
+        {/* Right leaflets — closed filled blades, fillOpacity graduates base→tip */}
+        <path d="M134 368 C175 361 216 374 226 378 C218 383 175 377 134 372 Z" fill={color} fillOpacity="0.62" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M133 344 C172 337 209 349 219 353 C211 358 172 352 133 348 Z" fill={color} fillOpacity="0.58" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M132 320 C168 313 201 324 211 328 C203 333 168 328 132 324 Z" fill={color} fillOpacity="0.55" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M132 296 C164 289 194 299 204 303 C196 308 164 304 132 300 Z" fill={color} fillOpacity="0.52" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M131 273 C160 266 186 275 196 279 C188 284 160 281 131 277 Z" fill={color} fillOpacity="0.49" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M131 251 C157 244 179 253 189 257 C181 262 157 258 131 255 Z" fill={color} fillOpacity="0.46" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M130 230 C153 223 172 232 182 236 C174 241 153 239 130 234 Z" fill={color} fillOpacity="0.43" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 210 C150 203 165 212 175 216 C167 221 150 219 130 214 Z" fill={color} fillOpacity="0.41" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 191 C148 185 159 193 169 197 C161 202 148 199 130 195 Z" fill={color} fillOpacity="0.39" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 173 C145 167 153 175 163 179 C155 184 145 181 130 177 Z" fill={color} fillOpacity="0.37" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 156 C143 150 148 158 158 162 C150 167 143 164 130 160 Z" fill={color} fillOpacity="0.35" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 140 C140 134 143 142 153 146 C145 151 140 148 130 144 Z" fill={color} fillOpacity="0.33" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 125 C138 120 138 127 148 131 C140 136 138 134 130 129 Z" fill={color} fillOpacity="0.31" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
+        <path d="M130 111 C136 107 134 113 144 117 C136 122 136 118 130 115 Z" fill={color} fillOpacity="0.29" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
         {/* Left leaflets — mirror of right */}
-        <path d="M134 370 C88 358 44 369 36 373" stroke={color} strokeWidth="1.5" strokeOpacity="0.70" strokeLinecap="round" />
-        <path d="M133 346 C90 333 51 344 43 348" stroke={color} strokeWidth="1.5" strokeOpacity="0.67" strokeLinecap="round" />
-        <path d="M132 322 C92 308 59 319 51 323" stroke={color} strokeWidth="1.5" strokeOpacity="0.64" strokeLinecap="round" />
-        <path d="M132 298 C97 283 66 294 58 298" stroke={color} strokeWidth="1.4" strokeOpacity="0.62" strokeLinecap="round" />
-        <path d="M131 275 C101 259 74 270 66 274" stroke={color} strokeWidth="1.4" strokeOpacity="0.59" strokeLinecap="round" />
-        <path d="M131 253 C105 236 81 247 73 251" stroke={color} strokeWidth="1.4" strokeOpacity="0.56" strokeLinecap="round" />
-        <path d="M130 232 C107 214 88 225 80 229" stroke={color} strokeWidth="1.3" strokeOpacity="0.53" strokeLinecap="round" />
-        <path d="M130 212 C110 193 95 204 87 208" stroke={color} strokeWidth="1.3" strokeOpacity="0.50" strokeLinecap="round" />
-        <path d="M130 193 C114 173 101 184 93 188" stroke={color} strokeWidth="1.3" strokeOpacity="0.48" strokeLinecap="round" />
-        <path d="M130 175 C117 155 107 166 99 170" stroke={color} strokeWidth="1.2" strokeOpacity="0.46" strokeLinecap="round" />
-        <path d="M130 158 C120 138 112 149 104 153" stroke={color} strokeWidth="1.2" strokeOpacity="0.44" strokeLinecap="round" />
-        <path d="M130 142 C122 122 117 133 109 137" stroke={color} strokeWidth="1.2" strokeOpacity="0.42" strokeLinecap="round" />
-        <path d="M130 127 C124 108 121 119 114 123" stroke={color} strokeWidth="1.1" strokeOpacity="0.40" strokeLinecap="round" />
-        <path d="M130 113 C126 95 124 106 118 110" stroke={color} strokeWidth="1.1" strokeOpacity="0.38" strokeLinecap="round" />
+        <path d="M134 368 C93 361 48 374 38 378 C46 383 93 377 134 372 Z" fill={color} fillOpacity="0.62" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M133 344 C92 337 55 349 45 353 C53 358 92 352 133 348 Z" fill={color} fillOpacity="0.58" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M132 320 C96 313 63 324 53 328 C61 333 96 328 132 324 Z" fill={color} fillOpacity="0.55" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M132 296 C100 289 70 299 60 303 C68 308 100 304 132 300 Z" fill={color} fillOpacity="0.52" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M131 273 C104 266 78 275 68 279 C76 284 104 281 131 277 Z" fill={color} fillOpacity="0.49" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M131 251 C107 244 85 253 75 257 C83 262 107 258 131 255 Z" fill={color} fillOpacity="0.46" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M130 230 C111 223 92 232 82 236 C90 241 111 239 130 234 Z" fill={color} fillOpacity="0.43" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 210 C114 203 99 212 89 216 C97 221 114 219 130 214 Z" fill={color} fillOpacity="0.41" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 191 C116 185 105 193 95 197 C103 202 116 199 130 195 Z" fill={color} fillOpacity="0.39" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 173 C119 167 111 175 101 179 C109 184 119 181 130 177 Z" fill={color} fillOpacity="0.37" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 156 C121 150 116 158 106 162 C114 167 121 164 130 160 Z" fill={color} fillOpacity="0.35" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 140 C124 134 121 142 111 146 C119 151 124 148 130 144 Z" fill={color} fillOpacity="0.33" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 125 C126 120 126 127 116 131 C124 136 126 134 130 129 Z" fill={color} fillOpacity="0.31" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
+        <path d="M130 111 C128 107 130 113 120 117 C128 122 128 118 130 115 Z" fill={color} fillOpacity="0.29" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
       </svg>
     ),
     leaf: (
