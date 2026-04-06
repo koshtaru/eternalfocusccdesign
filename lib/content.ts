@@ -154,6 +154,7 @@ export const HOMEPAGE_CONTENT = {
       "Amy's approach is warm, collaborative, and grounded in the belief that counseling should help people feel both supported and equipped. For clients who desire it, faith can be integrated gently and respectfully into the counseling process.",
     bioEyebrow: 'A Little About Amy',
     bioItems: [
+      'Retired from the United States Air Force after 22 years of service.',
       'Proud parent of three adult children and grandparent of three.',
       'Married three times — divorced, widowed, and now blessed.',
       'Enjoys spending time with friends and family, traveling, and playing pickleball.',
