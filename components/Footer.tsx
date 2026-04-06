@@ -23,7 +23,7 @@ export default function Footer() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-7 text-[var(--color-charcoal-light)]">
-            Quiet, thoughtful telehealth counseling rooted in care, steadiness, and hope.
+            Rooted in Faith, Professionalism, and Hope.
           </p>
           <div className="mt-4 space-y-0.5">
             <p className="text-sm leading-7 text-[var(--color-charcoal-light)]">{CONTACT.address}</p>

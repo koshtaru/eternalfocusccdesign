@@ -27,7 +27,7 @@ export const HOMEPAGE_CONTENT = {
   },
   services: {
     eyebrow: 'Teamwork',
-    heading: 'Support for individuals, couples, and telehealth care in Wisconsin.',
+    heading: 'We use a secure, simple practice telehealth platform to support individuals (20 years & older) and couples receiving therapy in Wisconsin.',
     intro:
       'These care areas reflect confirmed areas of support currently offered through telehealth counseling and can be updated over time as the practice continues to grow.',
     items: [
@@ -80,7 +80,10 @@ export const HOMEPAGE_CONTENT = {
     },
     supportLooksLike: {
       eyebrow: 'What Support Can Look Like',
-      heading: 'A place to process, gain tools, and move through difficult seasons with steadier support.',
+      heading: 'A place to process, gain insights, and grow through seasons of adversity.',
+      quote:
+        '"No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness and peace for those who have been trained by it."',
+      quoteAttribution: 'Hebrews 12:11 (NIV)',
       paragraphs: [
         {
           title: 'A Place to Be Heard',
@@ -88,7 +91,7 @@ export const HOMEPAGE_CONTENT = {
         },
         {
           title: 'Skills That Stay With You',
-          body: 'Support may include learning coping skills, building insight, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
+          body: 'Support may include learning coping skills, gaining valuable insights, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
         },
         {
           title: 'Care at Your Own Pace',
@@ -146,12 +149,11 @@ export const HOMEPAGE_CONTENT = {
       'AA, Human Resources — Community College of the Air Force',
     ],
     backgroundLabel: 'Background',
-    backgroundValue: 'Retired U.S. Air Force — 22 years of service',
+    backgroundValue: 'Licensed Professional Counselor since 2017',
     approachBody:
       "Amy's approach is warm, collaborative, and grounded in the belief that counseling should help people feel both supported and equipped. For clients who desire it, faith can be integrated gently and respectfully into the counseling process.",
     bioEyebrow: 'A Little About Amy',
     bioItems: [
-      'Retired from the United States Air Force after 22 years of service.',
       'Proud parent of three adult children and grandparent of three.',
       'Married three times — divorced, widowed, and now blessed.',
       'Enjoys spending time with friends and family, traveling, and playing pickleball.',
@@ -159,21 +161,21 @@ export const HOMEPAGE_CONTENT = {
   },
   telehealth: {
     eyebrow: 'Virtual Care',
-    heading:
-      'Telehealth counseling that offers privacy, flexibility, and support where you already are.',
+    heading: 'Telehealth counseling offers convenience, privacy, and accessibility.',
     body:
-      'Amy provides telehealth counseling only, making it easier to receive care from home or another private space without the added stress of travel or office logistics.',
+      'Amy provides telehealth counseling only, making it easier to receive care from home or another private space without the added stress of travel or office logistics. Client must receive therapy within the state of Wisconsin.',
     highlights: [
       'Convenience: meet from home or another private, quiet space that feels comfortable and manageable.',
       'Privacy: sessions are designed to support a confidential and respectful counseling experience.',
       'Accessibility: telehealth can support consistent care during busy seasons, life transitions, or transportation challenges.',
+      'Session length: 45 and 60 minute sessions are available.',
     ],
   },
   insurance: {
-    eyebrow: 'Payment Details',
-    heading: 'Insurance and payment information presented simply and clearly.',
+    eyebrow: 'Session Fees',
+    heading: 'Private pay sessions are available now.',
     body:
-      'Insurance credentialing is currently in progress. Session fees are listed below.',
+      'All sessions are currently private pay. Straightforward, transparent pricing with no insurance required.',
     items: [
       'Individual session: $130',
       'Couples session: $150',
@@ -191,8 +193,7 @@ export const HOMEPAGE_CONTENT = {
   closingCTA: {
     eyebrow: "Begin When You're Ready",
     heading: 'When you feel ready, the next step can be simple.',
-    body:
-      'If you are considering counseling, you are welcome to reach out at your own pace. For now, the clearest way to get started is by phone or email while online scheduling and portal access are still being finalized.',
+    body: `To get started, call at ${CONTACT.phone} or e-mail at ${CONTACT.email}`,
     primaryCta: 'Book Appointment',
     secondaryCta: 'Client Portal',
   },

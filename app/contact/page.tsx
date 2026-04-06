@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { CONTACT_PAGE_CONTENT } from '../../lib/content';
 
 export default function ContactPage() {
-  const { hero, waysToStart, insuranceStatus, closingCta } = CONTACT_PAGE_CONTENT;
+  const { hero, waysToStart, closingCta } = CONTACT_PAGE_CONTENT;
   const [formState, setFormState] = useState<'idle' | 'sent'>('idle');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -135,32 +135,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* ── Session Fees ── */}
-      <section
-        aria-labelledby="session-fees-heading"
-        className="w-full bg-cream-dark py-20"
-      >
-        <div className="container-shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div>
-            <p className="label-upper mb-4">{insuranceStatus.eyebrow}</p>
-            <div className="hairline mb-8" />
-            <h2 id="session-fees-heading" className="section-title">{insuranceStatus.heading}</h2>
-            <p className="body-copy mt-5">{insuranceStatus.body}</p>
-          </div>
-          <ul className="divide-y divide-[var(--color-cream)] rounded-2xl bg-white/60 px-6">
-            {insuranceStatus.items.map((item) => {
-              const [label, price] = item.split(': ');
-              return (
-                <li key={item} className="flex items-center justify-between py-4">
-                  <span className="body-copy">{label}</span>
-                  <span className="text-base font-semibold text-[var(--color-sage-dark)]">{price}</span>
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </section>
 

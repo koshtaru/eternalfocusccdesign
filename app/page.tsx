@@ -15,7 +15,7 @@ const HOME_SECTIONS = [
   { id: 'testimonials-heading', label: 'Stories' },
   { id: 'services-heading',     label: 'Services' },
   { id: 'telehealth-heading',   label: 'Telehealth' },
-  { id: 'insurance-heading',    label: 'Insurance' },
+  { id: 'insurance-heading',    label: 'Fees' },
   { id: 'about-heading',        label: 'About' },
   { id: 'closing-cta-heading',  label: 'Get Started' },
 ];
@@ -283,8 +283,9 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
             </div>
             <div className="card-premium-inset px-6 py-5 max-w-xs hidden lg:block">
               <p className="reflection-quote !text-base !leading-relaxed text-[var(--color-charcoal-light)]">
-                &ldquo;Healing is not linear &mdash; and good support meets you where you actually are.&rdquo;
+                {services.supportLooksLike.quote}
               </p>
+              <p className="mt-2 text-xs text-[var(--color-charcoal-light)]/60 text-right">{services.supportLooksLike.quoteAttribution}</p>
             </div>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -418,7 +419,7 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
 function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.insurance }) {
   const ref = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  useViewportRevealCards(ref, textRef, '.card-premium-soft');
+  useViewportRevealCards(ref, textRef, '.session-fee-row');
 
   return (
     <section
@@ -433,15 +434,16 @@ function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.in
           <h2 id="insurance-heading" className="section-title">{insurance.heading}</h2>
           <p className="body-copy mt-5">{insurance.body}</p>
         </div>
-        <ul className="grid gap-3">
-          {insurance.items.map((item, index) => (
-            <li key={item} className="card-premium-soft flex gap-4 px-5 py-4">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-light-tint)] text-sm font-semibold text-[var(--color-sage-dark)]">
-                0{index + 1}
-              </span>
-              <span className="card-copy pt-0.5">{item}</span>
-            </li>
-          ))}
+        <ul className="divide-y divide-[var(--color-cream-dark)] rounded-2xl bg-white/60 px-6">
+          {insurance.items.map((item) => {
+            const [label, price] = item.split(': ');
+            return (
+              <li key={item} className="session-fee-row flex items-center justify-between py-4">
+                <span className="body-copy">{label}</span>
+                <span className="text-base font-semibold text-[var(--color-sage-dark)]">{price}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
