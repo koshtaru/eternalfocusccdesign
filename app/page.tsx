@@ -400,6 +400,15 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
           <div className="hairline mb-8" />
           <h2 id="telehealth-heading" className="section-title">{telehealth.heading}</h2>
           <p className="body-copy mt-5">{telehealth.body}</p>
+          <div className="mt-5 flex items-start gap-3 rounded-xl border border-[var(--color-sage-dark)]/25 bg-[var(--color-sage-dark)]/[0.07] px-4 py-3.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-sage-dark)]" aria-hidden="true">
+              <path fillRule="evenodd"
+                d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z"
+                clipRule="evenodd" />
+            </svg>
+            <p className="text-sm font-semibold text-[var(--color-sage-dark)]">{telehealth.locationNote}</p>
+          </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
           {telehealth.highlights.map((item) => (

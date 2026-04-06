@@ -156,7 +156,8 @@ export const HOMEPAGE_CONTENT = {
     eyebrow: 'Virtual Care',
     heading: 'Telehealth counseling offers convenience, privacy, and accessibility.',
     body:
-      'Amy provides telehealth counseling only, making it easier to receive care from home or another private space without the added stress of travel or office logistics. Client must receive therapy within the state of Wisconsin.',
+      'Amy provides telehealth counseling only, making it easier to receive care from home or another private space without the added stress of travel or office logistics.',
+    locationNote: 'Clients must be physically located in Wisconsin to receive services.',
     highlights: [
       'Convenience: meet from home or another private, quiet space that feels comfortable and manageable.',
       'Privacy: sessions are designed to support a confidential and respectful counseling experience.',
