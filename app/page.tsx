@@ -244,7 +244,6 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
             <p className="label-upper mb-3">{services.eyebrow}</p>
             <div className="hairline mb-4" />
             <h2 className="section-title !text-[clamp(1.2rem,2vw,1.75rem)] !leading-tight">{services.heading}</h2>
-            <p className="body-copy mt-3 !text-sm">{services.intro}</p>
             <div className="mt-4 space-y-3">
               {services.items.map((card) => (
                 <article key={card.title} className="card-premium-soft p-4">

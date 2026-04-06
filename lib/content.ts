@@ -26,28 +26,20 @@ export const HOMEPAGE_CONTENT = {
     accent: 'Warmth. Clarity. Hope.',
   },
   services: {
-    eyebrow: 'Teamwork',
-    heading: 'We use a secure, simple practice telehealth platform to support individuals (20 years & older) and couples receiving therapy in Wisconsin.',
-    intro:
-      'These care areas reflect confirmed areas of support currently offered through telehealth counseling and can be updated over time as the practice continues to grow.',
+    eyebrow: 'Counseling Services',
+    heading: 'We use a secure telehealth platform to support individuals and couples receiving therapy in Wisconsin.',
     items: [
       {
         title: 'Individual Counseling',
         description:
           'One-to-One counseling for anxiety, grief and loss, life transitions, and the emotional burdens that can quietly build over time.',
-        accent: 'Anxiety, grief, and life transitions',
+        accent: 'Anxiety, grief, and life transitions — Ages 20+',
       },
       {
         title: 'Couples Counseling',
         description:
           'Support for couples who want help with communication, conflict, trust, and building a healthier connection moving forward.',
-        accent: 'Communication, trust, and reconnection',
-      },
-      {
-        title: 'Telehealth Counseling',
-        description:
-          'Virtual counseling for clients in Wisconsin, offering a steady and private way to receive support from home or another comfortable space.',
-        accent: 'Private, flexible, and accessible care',
+        accent: 'Communication, trust, and reconnection — 60 min sessions',
       },
     ],
     focusAreas: {
