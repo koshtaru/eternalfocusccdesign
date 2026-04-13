@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { CONTACT_PAGE_CONTENT } from '../../lib/content';
+import LeafDecoration from '../../components/LeafDecoration';
 
 export default function ContactPage() {
   const { hero, waysToStart, closingCta } = CONTACT_PAGE_CONTENT;
@@ -136,6 +137,11 @@ export default function ContactPage() {
           </div>
 
         </div>
+        <LeafDecoration
+          variant="brand-cluster"
+          className="absolute bottom-[-4%] right-[-4%] w-[220px] opacity-[0.08] pointer-events-none"
+          aria-hidden="true"
+        />
       </section>
 
       {/* ── Closing CTA ── */}

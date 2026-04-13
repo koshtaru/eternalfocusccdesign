@@ -1,6 +1,6 @@
 import React from 'react';
 
-type LeafVariant = 'cluster' | 'single' | 'vertical' | 'bottom-right' | 'top-right' | 'bottom-left' | 'leaf' | 'palm';
+type LeafVariant = 'cluster' | 'single' | 'vertical' | 'bottom-right' | 'top-right' | 'bottom-left' | 'leaf' | 'palm' | 'brand-cluster' | 'brand-stem';
 
 interface LeafDecorationProps {
   className?: string;
@@ -120,6 +120,79 @@ export default function LeafDecoration({
         <ellipse cx="120" cy="95" rx="24" ry="15" fill={color} opacity="0.1"/>
         <path d="M40 130C35 125 28 128 25 135C22 142 27 150 34 147C41 144 44 136 40 130Z" fill={color} opacity="0.15"/>
         <path d="M70 135C65 130 58 133 55 140C52 147 57 155 64 152C71 149 74 141 70 135Z" fill={color} opacity="0.12"/>
+      </svg>
+    ),
+    'brand-cluster': (
+      <svg viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <defs>
+          <radialGradient id="bcGrad1" cx="45%" cy="35%" r="65%">
+            <stop offset="0%" stopColor="#5DB83A"/>
+            <stop offset="55%" stopColor="#4E8A2A"/>
+            <stop offset="100%" stopColor="#6B7A3C"/>
+          </radialGradient>
+          <radialGradient id="bcGrad2" cx="55%" cy="25%" r="70%">
+            <stop offset="0%" stopColor="#62C040"/>
+            <stop offset="100%" stopColor="#7A8A42"/>
+          </radialGradient>
+          <radialGradient id="bcGrad3" cx="50%" cy="30%" r="60%">
+            <stop offset="0%" stopColor="#58B035"/>
+            <stop offset="100%" stopColor="#72803E"/>
+          </radialGradient>
+        </defs>
+        {/* Right outer blade */}
+        <path d="M148 352 C160 330 195 295 215 245 C235 195 238 140 228 85 C218 35 192 10 166 4 C184 28 192 68 188 118 C184 168 170 220 148 352 Z"
+          fill="url(#bcGrad1)"/>
+        {/* Left outer blade */}
+        <path d="M152 352 C140 330 105 295 85 245 C65 195 62 140 72 85 C82 35 108 10 134 4 C116 28 108 68 112 118 C116 168 130 220 152 352 Z"
+          fill="url(#bcGrad2)"/>
+        {/* Center blade */}
+        <path d="M150 348 C145 310 140 265 142 210 C144 158 148 100 150 10 C152 100 156 158 158 210 C160 265 155 310 150 348 Z"
+          fill="url(#bcGrad3)"/>
+        {/* White highlight curves — depth/sheen */}
+        <path d="M150 352 C158 310 175 260 188 200 C196 160 195 110 184 65"
+          stroke="white" strokeWidth="6" strokeLinecap="round" strokeOpacity="0.55" fill="none"/>
+        <path d="M150 352 C142 310 125 260 112 200 C104 160 105 110 116 65"
+          stroke="white" strokeWidth="5" strokeLinecap="round" strokeOpacity="0.45" fill="none"/>
+        <path d="M150 348 C148 300 147 250 148 190 C149 140 150 80 150 14"
+          stroke="white" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.35" fill="none"/>
+      </svg>
+    ),
+    'brand-stem': (
+      <svg viewBox="0 0 260 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        <defs>
+          <radialGradient id="bsGrad1" cx="45%" cy="25%" r="65%">
+            <stop offset="0%" stopColor="#5DB83A"/>
+            <stop offset="55%" stopColor="#4E8A2A"/>
+            <stop offset="100%" stopColor="#6B7A3C"/>
+          </radialGradient>
+          <radialGradient id="bsGrad2" cx="55%" cy="20%" r="70%">
+            <stop offset="0%" stopColor="#62C040"/>
+            <stop offset="100%" stopColor="#7A8A42"/>
+          </radialGradient>
+          <radialGradient id="bsGrad3" cx="50%" cy="22%" r="60%">
+            <stop offset="0%" stopColor="#58B035"/>
+            <stop offset="100%" stopColor="#72803E"/>
+          </radialGradient>
+        </defs>
+        {/* Right outer blade */}
+        <path d="M128 310 C140 288 175 253 195 203 C215 153 218 98 208 43 C198 -7 172 -32 146 -38 C164 -14 172 26 168 76 C164 126 150 178 128 310 Z"
+          fill="url(#bsGrad1)"/>
+        {/* Left outer blade */}
+        <path d="M132 310 C120 288 85 253 65 203 C45 153 42 98 52 43 C62 -7 88 -32 114 -38 C96 -14 88 26 92 76 C96 126 110 178 132 310 Z"
+          fill="url(#bsGrad2)"/>
+        {/* Center blade */}
+        <path d="M130 306 C125 268 120 223 122 168 C124 116 128 58 130 -32 C132 58 136 116 138 168 C140 223 135 268 130 306 Z"
+          fill="url(#bsGrad3)"/>
+        {/* White highlight curves */}
+        <path d="M130 310 C138 268 155 218 168 158 C176 118 175 68 164 23"
+          stroke="white" strokeWidth="6" strokeLinecap="round" strokeOpacity="0.55" fill="none"/>
+        <path d="M130 310 C122 268 105 218 92 158 C84 118 85 68 96 23"
+          stroke="white" strokeWidth="5" strokeLinecap="round" strokeOpacity="0.45" fill="none"/>
+        {/* S-curve stem from base down-right */}
+        <path d="M130 315 C128 355 120 385 118 420 C116 455 125 478 145 492"
+          stroke="#6B7A3C" strokeWidth="5" strokeLinecap="round" strokeOpacity="0.80" fill="none"/>
+        <path d="M130 315 C128 355 120 385 118 420 C116 455 125 478 145 492"
+          stroke="#4E8A2A" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.50" fill="none"/>
       </svg>
     ),
     'bottom-left': (
