@@ -5,7 +5,7 @@ import { CONTACT_PAGE_CONTENT } from '../../lib/content';
 import LeafDecoration from '../../components/LeafDecoration';
 
 export default function ContactPage() {
-  const { hero, waysToStart, closingCta } = CONTACT_PAGE_CONTENT;
+  const { hero, waysToStart } = CONTACT_PAGE_CONTENT;
   const [formState, setFormState] = useState<'idle' | 'sent'>('idle');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -139,29 +139,9 @@ export default function ContactPage() {
         </div>
         <LeafDecoration
           variant="brand-cluster"
-          className="absolute bottom-[-4%] right-[-4%] w-[220px] opacity-[0.08] pointer-events-none"
+          className="absolute bottom-6 right-[-3%] w-[220px] opacity-[0.08] pointer-events-none [mix-blend-mode:multiply]"
           aria-hidden="true"
         />
-      </section>
-
-      {/* ── Closing CTA ── */}
-      <section
-        aria-labelledby="contact-cta-heading"
-        className="relative overflow-hidden cta-panel py-20 cta-section-bridge"
-      >
-        <div className="container-shell relative z-10 max-w-3xl">
-          <p className="label-upper mb-4 text-sage-light">{closingCta.eyebrow}</p>
-          <h2 id="contact-cta-heading" className="section-title text-white">{closingCta.heading}</h2>
-          <p className="body-copy mt-5 text-white/80">{closingCta.body}</p>
-          <div className="cta-actions mt-10">
-            <a href={closingCta.primaryHref} className="button-base button-on-dark-primary">
-              {closingCta.primaryLabel}
-            </a>
-            <a href={closingCta.secondaryHref} className="button-base button-on-dark-secondary">
-              {closingCta.secondaryLabel}
-            </a>
-          </div>
-        </div>
       </section>
     </div>
   );
