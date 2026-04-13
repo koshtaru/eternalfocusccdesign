@@ -209,11 +209,6 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
         className="absolute bottom-[-4%] right-[-4%] w-[35vw] translate-x-[20%] translate-y-[20%] opacity-60 animate-leaf-drift"
         aria-hidden="true"
       />
-      <LeafDecoration
-        variant="brand-cluster"
-        className="absolute bottom-[-5%] left-[-5%] w-[280px] opacity-[0.08] pointer-events-none"
-        aria-hidden="true"
-      />
     </section>
   );
 }
@@ -305,8 +300,11 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
           </div>
         </div>
       </div>
-      <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
-      <LeafDecoration variant="single" className="absolute bottom-8 left-8 w-20 opacity-20 animate-leaf-drift" aria-hidden="true" />
+      <LeafDecoration
+        variant="brand-stem"
+        className="absolute top-[-4%] right-[-3%] w-[220px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+        aria-hidden="true"
+      />
     </section>
   );
 }
@@ -383,6 +381,11 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           </div>
         </div>
       </div>
+      <LeafDecoration
+        variant="brand-cluster"
+        className="absolute bottom-[-4%] right-[-4%] w-[260px] opacity-[0.12] pointer-events-none [mix-blend-mode:screen]"
+        aria-hidden="true"
+      />
     </section>
   );
 }
@@ -626,7 +629,7 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
       <LeafDecoration variant="cluster" className="absolute bottom-8 left-8 w-36 opacity-20 animate-leaf-drift" aria-hidden="true" />
       <LeafDecoration
         variant="brand-stem"
-        className="absolute top-[-4%] right-[-3%] w-[200px] opacity-[0.08] pointer-events-none"
+        className="absolute top-[-4%] right-[-3%] w-[200px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
         aria-hidden="true"
       />
     </section>

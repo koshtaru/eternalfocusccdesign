@@ -129,7 +129,7 @@ export default function LeafDecoration({
         alt=""
         width={300}
         height={360}
-        className="w-full h-full object-contain [mix-blend-mode:multiply]"
+        className="w-full h-full object-contain"
       />
     ),
     'brand-stem': (
@@ -138,7 +138,7 @@ export default function LeafDecoration({
         alt=""
         width={260}
         height={500}
-        className="w-full h-full object-contain [mix-blend-mode:multiply]"
+        className="w-full h-full object-contain"
       />
     ),
     'bottom-left': (
