@@ -104,44 +104,47 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* Right — contact info card */}
-          <div className="rounded-[30px] bg-[#5E6A3E] p-8 text-white lg:sticky lg:top-28">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-6">Get in Touch</p>
-            <div className="space-y-5">
-              <div className="border-b border-white/20 pb-5">
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Phone</p>
-                <a
-                  href={`tel:${waysToStart.items[0].value}`}
-                  className="block text-2xl font-bold text-white hover:text-white/80 transition-colors"
-                >
-                  {waysToStart.items[0].value}
-                </a>
-                <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[0].description}</p>
-              </div>
-              <div className="border-b border-white/20 pb-5">
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Email</p>
-                <a
-                  href={`mailto:${waysToStart.items[1].value}`}
-                  className="block text-base font-semibold text-white hover:text-white/80 transition-colors break-all"
-                >
-                  {waysToStart.items[1].value}
-                </a>
-                <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[1].description}</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Session Format</p>
-                <p className="text-base font-medium text-white">{waysToStart.items[2].value}</p>
-                <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[2].description}</p>
+          {/* Right — contact info card + decorative accent */}
+          <div className="flex flex-col items-center gap-6 lg:sticky lg:top-28">
+            <div className="w-full rounded-[30px] bg-[#5E6A3E] p-8 text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-6">Get in Touch</p>
+              <div className="space-y-5">
+                <div className="border-b border-white/20 pb-5">
+                  <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Phone</p>
+                  <a
+                    href={`tel:${waysToStart.items[0].value}`}
+                    className="block text-2xl font-bold text-white hover:text-white/80 transition-colors"
+                  >
+                    {waysToStart.items[0].value}
+                  </a>
+                  <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[0].description}</p>
+                </div>
+                <div className="border-b border-white/20 pb-5">
+                  <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Email</p>
+                  <a
+                    href={`mailto:${waysToStart.items[1].value}`}
+                    className="block text-base font-semibold text-white hover:text-white/80 transition-colors break-all"
+                  >
+                    {waysToStart.items[1].value}
+                  </a>
+                  <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[1].description}</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.14em] text-white/50 mb-2">Session Format</p>
+                  <p className="text-base font-medium text-white">{waysToStart.items[2].value}</p>
+                  <p className="mt-1.5 text-sm text-white/65">{waysToStart.items[2].description}</p>
+                </div>
               </div>
             </div>
+
+            <LeafDecoration
+              variant="brand-cluster"
+              className="w-[300px] pointer-events-none [mix-blend-mode:multiply]"
+              aria-hidden="true"
+            />
           </div>
 
         </div>
-        <LeafDecoration
-          variant="brand-cluster"
-          className="absolute bottom-6 right-[-3%] w-[220px] opacity-[0.08] pointer-events-none [mix-blend-mode:multiply]"
-          aria-hidden="true"
-        />
       </section>
     </div>
   );
