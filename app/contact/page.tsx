@@ -105,8 +105,8 @@ export default function ContactPage() {
           </div>
 
           {/* Right — contact info card + decorative accent */}
-          <div className="flex flex-col items-center gap-6 lg:sticky lg:top-28">
-            <div className="w-full rounded-[30px] bg-[#5E6A3E] p-8 text-white">
+          <div className="flex flex-col items-center gap-6">
+            <div className="w-full rounded-[30px] bg-[#5E6A3E] p-8 text-white lg:sticky lg:top-28">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-6">Get in Touch</p>
               <div className="space-y-5">
                 <div className="border-b border-white/20 pb-5">
