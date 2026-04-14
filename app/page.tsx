@@ -572,7 +572,7 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
         <div ref={imageRef} className="flex flex-col gap-6">
           <div className="card-rounded aspect-[3/4] relative overflow-hidden max-h-[55vh] w-full">
             <Image
-              src="/about_founder.jpg"
+              src="/amy-polzin.jpg"
               alt="Amy Polzin, Licensed Professional Counselor"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
