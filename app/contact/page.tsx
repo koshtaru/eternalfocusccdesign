@@ -139,7 +139,7 @@ export default function ContactPage() {
 
             <LeafDecoration
               variant="brand-cluster"
-              className="w-[300px] pointer-events-none [mix-blend-mode:multiply]"
+              className="w-[300px] opacity-50 pointer-events-none [mix-blend-mode:multiply]"
               aria-hidden="true"
             />
           </div>
