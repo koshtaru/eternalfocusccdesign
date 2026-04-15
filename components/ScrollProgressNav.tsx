@@ -57,7 +57,9 @@ export default function ScrollProgressNav({ sections }: Props) {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
+    const navbar = document.querySelector('header');
+    const offset = navbar ? navbar.getBoundingClientRect().height + 16 : 96;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
