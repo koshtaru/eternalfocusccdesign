@@ -11,13 +11,13 @@ import ScrollProgressNav from '../components/ScrollProgressNav';
 
 const HOME_SECTIONS = [
   { id: 'hero-heading',         label: 'Home' },
-  { id: 'faith-heading',        label: 'Faith' },
-  { id: 'testimonials-heading', label: 'Stories' },
-  { id: 'services-heading',     label: 'Services' },
-  { id: 'telehealth-heading',   label: 'Telehealth' },
-  { id: 'insurance-heading',    label: 'Fees' },
-  { id: 'about-heading',        label: 'About' },
-  { id: 'closing-cta-heading',  label: 'Get Started' },
+  { id: 'faith-heading',        label: 'Faith',       offset: 80 },
+  { id: 'testimonials-heading', label: 'Stories',     offset: 80 },
+  { id: 'services-heading',     label: 'Services',    offset: 100 },
+  { id: 'telehealth-heading',   label: 'Telehealth',  offset: 155 },
+  { id: 'insurance-heading',    label: 'Fees',        offset: 80 },
+  { id: 'about-heading',        label: 'About',       offset: 80 },
+  { id: 'closing-cta-heading',  label: 'Get Started', offset: 80 },
 ];
 
 gsap.registerPlugin(ScrollTrigger);

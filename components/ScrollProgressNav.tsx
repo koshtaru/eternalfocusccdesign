@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 export interface ScrollSection {
   id: string;
   label: string;
+  offset?: number;
 }
 
 interface Props {
@@ -65,17 +66,18 @@ export default function ScrollProgressNav({ sections }: Props) {
     const section = (el.closest('section') ?? el) as HTMLElement;
     const navbar = document.querySelector('header');
     const navbarH = navbar ? navbar.getBoundingClientRect().height : 80;
+    const sec = sections.find((s) => s.id === id);
+    const extraOffset = sec?.offset ?? 80;
 
     let top: number;
     if (section.classList.contains('items-center')) {
       // Full-height vertically-centered section: target the eyebrow so the
       // heading lands in view rather than the blank space above centered content
       const eyebrow = section.querySelector<HTMLElement>('.label-upper') ?? section;
-      top = Math.max(0, eyebrow.getBoundingClientRect().top + window.scrollY - navbarH - 80);
+      top = Math.max(0, eyebrow.getBoundingClientRect().top + window.scrollY - navbarH - extraOffset);
     } else {
-      // Compact section (e.g. Services): pull back 100px so the section top
-      // sits lower on screen and the eyebrow lands at a comfortable position
-      top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - navbarH - 100);
+      // Compact section (e.g. Services): use the per-section offset below the navbar
+      top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - navbarH - extraOffset);
     }
     window.scrollTo({ top, behavior: 'smooth' });
   };
