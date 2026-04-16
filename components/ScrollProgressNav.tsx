@@ -69,7 +69,7 @@ export default function ScrollProgressNav({ sections }: Props) {
     // sections that use items-center, where the content is vertically centered
     // and the section top is mostly blank space.
     const firstContent = section.querySelector<HTMLElement>('.label-upper, h2') ?? section;
-    const top = Math.max(0, firstContent.getBoundingClientRect().top + window.scrollY - navbarH - 24);
+    const top = Math.max(0, firstContent.getBoundingClientRect().top + window.scrollY - navbarH - 80);
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
