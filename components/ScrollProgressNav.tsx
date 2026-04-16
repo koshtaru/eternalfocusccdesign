@@ -22,22 +22,41 @@ export default function ScrollProgressNav({ sections }: Props) {
     const update = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-      setScrollProgress(progress);
 
-      // Show after scrolling past hero (first 15% of page)
-      setVisible(progress > 0.05);
+      // Show after scrolling past first 5% of page
+      setVisible(docHeight > 0 && scrollTop / docHeight > 0.05);
 
-      // Find active section
+      // Section positions (absolute scroll Y of each section/element)
+      const positions = sections.map((sec) => {
+        const el = document.getElementById(sec.id);
+        if (!el) return 0;
+        const section = el.closest('section') ?? el;
+        return section.getBoundingClientRect().top + window.scrollY;
+      });
+
+      // Interpolate bar progress between sections
+      const pageEnd = document.documentElement.scrollHeight;
+      let bp = 0;
+      for (let i = 0; i < positions.length; i++) {
+        const start = positions[i];
+        const end = i < positions.length - 1 ? positions[i + 1] : pageEnd;
+        if (scrollTop >= start && scrollTop < end) {
+          const t = (scrollTop - start) / Math.max(1, end - start);
+          bp = (i + t) / (sections.length - 1);
+          break;
+        }
+        if (i === sections.length - 1 && scrollTop >= start) {
+          bp = 1;
+        }
+      }
+      setScrollProgress(Math.min(bp, 1));
+
+      // Active dot
       let current = 0;
       sections.forEach((sec, i) => {
         const el = document.getElementById(sec.id);
         if (!el) return;
-        const rect = el.getBoundingClientRect();
-        // Section is "active" when its top is within upper 55% of viewport
-        if (rect.top <= window.innerHeight * 0.55) {
-          current = i;
-        }
+        if (el.getBoundingClientRect().top <= window.innerHeight * 0.55) current = i;
       });
       setActiveIndex(current);
     };
