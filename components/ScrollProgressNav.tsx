@@ -120,7 +120,7 @@ export default function ScrollProgressNav({ sections }: Props) {
       }}
     >
       {/* Vertical progress track */}
-      <div className="relative flex flex-col items-center" style={{ overflow: 'hidden' }}>
+      <div className="relative flex flex-col items-center">
         {/* Track — runs from center of first dot to center of last dot.
              py-1 (4px) + half button (10px) = 14px inset each end */}
         <div
