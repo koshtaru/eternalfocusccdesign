@@ -121,19 +121,21 @@ export default function ScrollProgressNav({ sections }: Props) {
     >
       {/* Vertical progress track */}
       <div className="relative flex flex-col items-center" style={{ overflow: 'hidden' }}>
-        {/* Track background */}
+        {/* Track — runs from center of first dot to center of last dot.
+             py-1 (4px) + half button (10px) = 14px inset each end */}
         <div
           className="absolute left-1/2 -translate-x-1/2 w-[2px] rounded-full bg-[rgba(43,43,43,0.10)]"
-          style={{ top: 0, height: '100%' }}
+          style={{ top: 14, bottom: 14 }}
         />
-        {/* Filled progress */}
+        {/* Filled progress — same bounds, scaled from the top */}
         <div
-          className="absolute left-1/2 -translate-x-1/2 w-[2px] rounded-full bg-[var(--color-sage)]"
+          className="absolute left-1/2 -translate-x-1/2 w-[2px] bg-[var(--color-sage)]"
           style={{
-            top: 0,
-            height: `${Math.min(scrollProgress * 100, 100)}%`,
-            transition: 'height 80ms linear',
+            top: 14,
+            bottom: 14,
             transformOrigin: 'top',
+            transform: `scaleY(${Math.min(scrollProgress, 1)})`,
+            transition: 'transform 80ms linear',
           }}
         />
 
