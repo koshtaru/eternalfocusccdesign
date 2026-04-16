@@ -640,7 +640,10 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
 export default function HomePage() {
   useEffect(() => {
     history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
+    // Only jump to top when there's no hash target (e.g. /#about-heading)
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   const {
