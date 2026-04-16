@@ -5,7 +5,7 @@ import LeafDecoration from './LeafDecoration';
 
 export default function Footer() {
   return (
-    <footer className="relative mt-20 overflow-hidden border-t border-[rgba(43,43,43,0.10)] bg-[#F2EBE5]">
+    <footer className="relative overflow-hidden border-t border-[rgba(43,43,43,0.10)] bg-[#F2EBE5]">
       <div className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,_rgba(242,235,229,0.6),_transparent_60%)]" aria-hidden="true" />
       <div className="container-shell grid gap-10 py-11 md:grid-cols-3">
         <div className="relative">
