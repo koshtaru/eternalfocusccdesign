@@ -15,7 +15,7 @@ const HOME_SECTIONS = [
   { id: 'testimonials-heading', label: 'Stories',     offset: 80 },
   { id: 'services-heading',     label: 'Services',    offset: 100 },
   { id: 'telehealth-heading',   label: 'Telehealth',  offset: 155 },
-  { id: 'insurance-heading',    label: 'Fees',        offset: 80 },
+  { id: 'insurance-heading',    label: 'Fees',        offset: 195 },
   { id: 'about-heading',        label: 'About',       offset: 80 },
   { id: 'closing-cta-heading',  label: 'Get Started', offset: 80 },
 ];
