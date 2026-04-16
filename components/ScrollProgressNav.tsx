@@ -73,9 +73,9 @@ export default function ScrollProgressNav({ sections }: Props) {
       const eyebrow = section.querySelector<HTMLElement>('.label-upper') ?? section;
       top = Math.max(0, eyebrow.getBoundingClientRect().top + window.scrollY - navbarH - 80);
     } else {
-      // Compact section (e.g. Services): scroll to the section top —
-      // the internal layout naturally places the content in the right spot
-      top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - navbarH);
+      // Compact section (e.g. Services): pull back 100px so the section top
+      // sits lower on screen and the eyebrow lands at a comfortable position
+      top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - navbarH - 100);
     }
     window.scrollTo({ top, behavior: 'smooth' });
   };
