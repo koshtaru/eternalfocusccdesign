@@ -129,12 +129,12 @@ export default function ScrollProgressNav({ sections }: Props) {
         />
         {/* Filled progress — same bounds, scaled from the top */}
         <div
-          className="absolute left-1/2 -translate-x-1/2 w-[2px] bg-[var(--color-sage)]"
+          className="absolute left-1/2 w-[2px] bg-[var(--color-sage)]"
           style={{
             top: 14,
             bottom: 14,
             transformOrigin: 'top',
-            transform: `scaleY(${Math.min(scrollProgress, 1)})`,
+            transform: `translateX(-50%) scaleY(${Math.min(scrollProgress, 1)})`,
             transition: 'transform 80ms linear',
           }}
         />
