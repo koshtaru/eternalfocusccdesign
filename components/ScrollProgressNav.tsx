@@ -57,10 +57,19 @@ export default function ScrollProgressNav({ sections }: Props) {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const target = el.closest('section') ?? el;
+    // First dot always goes to the very top
+    if (id === 'hero-heading') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const section = el.closest('section') ?? el;
     const navbar = document.querySelector('header');
-    const offset = navbar ? navbar.getBoundingClientRect().height : 80;
-    const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
+    const navbarH = navbar ? navbar.getBoundingClientRect().height : 80;
+    // Scroll to the eyebrow label or first heading inside — this accounts for
+    // sections that use items-center, where the content is vertically centered
+    // and the section top is mostly blank space.
+    const firstContent = section.querySelector<HTMLElement>('.label-upper, h2') ?? section;
+    const top = Math.max(0, firstContent.getBoundingClientRect().top + window.scrollY - navbarH - 24);
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
