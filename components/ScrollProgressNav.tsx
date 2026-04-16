@@ -71,9 +71,13 @@ export default function ScrollProgressNav({ sections }: Props) {
 
     let top: number;
     if (section.classList.contains('items-center')) {
-      // Full-height vertically-centered section: target the eyebrow so the
-      // heading lands in view rather than the blank space above centered content
-      const eyebrow = section.querySelector<HTMLElement>('.label-upper') ?? section;
+      // Full-height vertically-centered section: target the primary eyebrow.
+      // Find the h2 heading first, then look for .label-upper in its parent
+      // container — this avoids picking up secondary eyebrows in other columns
+      // (e.g. "A Little About Amy" in the About section's bio card).
+      const h2 = section.querySelector<HTMLElement>('h2[id], h2');
+      const container = h2?.parentElement ?? section;
+      const eyebrow = container.querySelector<HTMLElement>('.label-upper') ?? section;
       top = Math.max(0, eyebrow.getBoundingClientRect().top + window.scrollY - navbarH - extraOffset);
     } else {
       // Compact section (e.g. Services): use the per-section offset below the navbar
