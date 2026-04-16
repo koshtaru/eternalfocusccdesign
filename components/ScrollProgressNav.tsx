@@ -58,9 +58,13 @@ export default function ScrollProgressNav({ sections }: Props) {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (!el) return;
-    // First dot always goes to the very top
+    // First dot → very top, last dot → very bottom
     if (id === 'hero-heading') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (id === 'closing-cta-heading') {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
       return;
     }
     const section = (el.closest('section') ?? el) as HTMLElement;
