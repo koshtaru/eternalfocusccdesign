@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useLayoutEffect, useState } from 'react';
+import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EXTERNAL_LINKS } from '../lib/constants';
@@ -638,6 +638,11 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
 
 // ─── Page ───────────────────────────────────────────────────────────────────
 export default function HomePage() {
+  useEffect(() => {
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  }, []);
+
   const {
     hero,
     services,
