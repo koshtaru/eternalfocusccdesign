@@ -62,14 +62,21 @@ export default function ScrollProgressNav({ sections }: Props) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    const section = el.closest('section') ?? el;
+    const section = (el.closest('section') ?? el) as HTMLElement;
     const navbar = document.querySelector('header');
     const navbarH = navbar ? navbar.getBoundingClientRect().height : 80;
-    // Scroll to the eyebrow label or first heading inside — this accounts for
-    // sections that use items-center, where the content is vertically centered
-    // and the section top is mostly blank space.
-    const firstContent = section.querySelector<HTMLElement>('.label-upper, h2') ?? section;
-    const top = Math.max(0, firstContent.getBoundingClientRect().top + window.scrollY - navbarH - 80);
+
+    let top: number;
+    if (section.classList.contains('items-center')) {
+      // Full-height vertically-centered section: target the eyebrow so the
+      // heading lands in view rather than the blank space above centered content
+      const eyebrow = section.querySelector<HTMLElement>('.label-upper') ?? section;
+      top = Math.max(0, eyebrow.getBoundingClientRect().top + window.scrollY - navbarH - 80);
+    } else {
+      // Compact section (e.g. Services): scroll to the section top —
+      // the internal layout naturally places the content in the right spot
+      top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - navbarH);
+    }
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
