@@ -5,7 +5,7 @@ export const EMAIL = 'appointments@eternalfocuscc.org';
 export const ADDRESS = 'Telehealth counseling only';
 export const STATES = 'Wisconsin';
 export const COUNSELOR_NAME = 'Amy Polzin';
-export const COUNSELOR_CREDENTIAL = 'MA, NCC, LPC';
+export const COUNSELOR_CREDENTIAL = 'MA, LPC';
 
 export const SITE = {
   name: 'Eternal Focus Christian Counseling',
