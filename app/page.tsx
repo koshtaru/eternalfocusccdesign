@@ -471,6 +471,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef   = useRef<HTMLDivElement>(null);
+  const videoRef   = useRef<HTMLVideoElement>(null);
 
   useViewportReveal(sectionRef, imageRef, contentRef, 'right');
 
@@ -481,14 +482,20 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
       className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
-        <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
+        <div
+          ref={imageRef}
+          className="card-rounded w-full"
+          onMouseEnter={() => videoRef.current?.play()}
+          onMouseLeave={() => videoRef.current?.pause()}
+        >
           <video
+            ref={videoRef}
             src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/testimonials-video.mov?alt=media&token=df17eb67-9de3-4be3-926d-027fe2936881"
-            autoPlay
-            muted
-            loop
+            controls
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            disablePictureInPicture
+            controlsList="noplaybackrate"
+            className="w-full h-auto block"
           />
         </div>
         <div ref={contentRef}>
