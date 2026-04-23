@@ -482,12 +482,13 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[65vh] w-full">
-          <Image
-            src="/testimonial_interior.jpg"
-            alt="A calming interior counseling space"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-center"
+          <video
+            src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/testimonials-video.mov?alt=media&token=df17eb67-9de3-4be3-926d-027fe2936881"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </div>
         <div ref={contentRef}>
