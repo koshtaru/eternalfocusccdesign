@@ -53,14 +53,12 @@ export default function Footer() {
         <div className="relative">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-charcoal-light)]">Quick Links</h2>
           <div className="space-y-2">
-            <a
-              href={EXTERNAL_LINKS.bookAppointment}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
             >
-              Book Appointment
-            </a>
+              Contact Us
+            </Link>
             <a
               href={EXTERNAL_LINKS.clientPortal}
               target="_blank"

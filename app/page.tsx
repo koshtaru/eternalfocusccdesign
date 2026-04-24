@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 import { EXTERNAL_LINKS } from '../lib/constants';
 import { HOMEPAGE_CONTENT } from '../lib/content';
 import LeafDecoration from '../components/LeafDecoration';
@@ -185,14 +186,12 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
           {hero.supportingText}
         </p>
         <div ref={ctaRef} className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a
-            href={EXTERNAL_LINKS.bookAppointment}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="btn-primary px-8 py-3 text-base"
           >
             {hero.primaryCta}
-          </a>
+          </Link>
           <a
             href={EXTERNAL_LINKS.clientPortal}
             target="_blank"
@@ -532,14 +531,12 @@ function ClosingCTASection({ closingCTA }: { closingCTA: typeof HOMEPAGE_CONTENT
         <h2 id="closing-cta-heading" className="section-title text-white">{closingCTA.heading}</h2>
         <p className="body-copy mt-5 text-white/80">{closingCTA.body}</p>
         <div className="cta-actions mt-10">
-          <a
-            href={EXTERNAL_LINKS.bookAppointment}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="button-base button-on-dark-primary"
           >
             {closingCTA.primaryCta}
-          </a>
+          </Link>
           <a
             href={EXTERNAL_LINKS.clientPortal}
             target="_blank"

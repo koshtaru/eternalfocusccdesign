@@ -14,7 +14,7 @@ export const HOMEPAGE_CONTENT = {
     supportingText: `${SITE.name} offers a calm, supportive space where professional counseling and Christian faith can be held together with care, wisdom, and respect.`,
     intro:
       'Amy Polzin provides telehealth counseling for clients in Wisconsin. While online scheduling is not live yet, you are welcome to call or email directly to ask questions and take the next step.',
-    primaryCta: 'Book Appointment',
+    primaryCta: 'Contact Us',
     secondaryCta: 'Client Portal',
     visualEyebrow: 'Visual Placeholder',
     visualDescription:
@@ -188,7 +188,7 @@ export const HOMEPAGE_CONTENT = {
     eyebrow: "Begin When You're Ready",
     heading: 'When you feel ready, the next step can be simple.',
     body: `To get started, call at ${CONTACT.phone} or e-mail at ${CONTACT.email}`,
-    primaryCta: 'Book Appointment',
+    primaryCta: 'Contact Us',
     secondaryCta: 'Client Portal',
   },
 } as const;
