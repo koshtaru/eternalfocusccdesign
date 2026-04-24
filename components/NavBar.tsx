@@ -66,14 +66,12 @@ export default function NavBar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={EXTERNAL_LINKS.bookAppointment}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="btn-primary"
           >
-            Book Appointment
-          </a>
+            Contact Us
+          </Link>
           <a
             href={EXTERNAL_LINKS.clientPortal}
             target="_blank"
