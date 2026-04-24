@@ -484,7 +484,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div
           ref={imageRef}
-          className="card-rounded w-full"
+          className="card-rounded w-full max-w-[420px] mx-auto"
           onMouseEnter={() => videoRef.current?.play()}
           onMouseLeave={() => videoRef.current?.pause()}
         >
