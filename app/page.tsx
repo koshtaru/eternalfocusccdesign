@@ -471,8 +471,6 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const imageRef   = useRef<HTMLDivElement>(null);
-  const videoRef   = useRef<HTMLVideoElement>(null);
-
   useViewportReveal(sectionRef, imageRef, contentRef, 'right');
 
   return (
@@ -485,11 +483,8 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
         <div
           ref={imageRef}
           className="card-rounded w-full max-w-[420px] mx-auto"
-          onMouseEnter={() => videoRef.current?.play()}
-          onMouseLeave={() => videoRef.current?.pause()}
         >
           <video
-            ref={videoRef}
             src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/testimonials-video.mp4?alt=media&token=7a76d338-f152-49a4-8261-6a8efd2c3006"
             controls
             playsInline
