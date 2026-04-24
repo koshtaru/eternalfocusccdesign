@@ -490,7 +490,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
         >
           <video
             ref={videoRef}
-            src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/testimonials-video.mov?alt=media&token=df17eb67-9de3-4be3-926d-027fe2936881"
+            src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/testimonials-video.mp4?alt=media&token=634d9d5a-246e-4505-b3ed-c114e9829008"
             controls
             playsInline
             disablePictureInPicture
