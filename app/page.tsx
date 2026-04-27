@@ -492,6 +492,8 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
             className="w-full h-full object-cover object-[center_35%] block"
           />
         </div>
+        <div className="relative">
+          <LeafDecoration variant="top-right" className="lg:hidden absolute top-0 right-0 w-36 opacity-30 pointer-events-none" aria-hidden="true" />
         <div ref={contentRef}>
           <p className="label-upper mb-4">Your Story Matters</p>
           <div className="hairline mb-8" />
@@ -508,8 +510,9 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
             </div>
           </div>
         </div>
+        </div>
       </div>
-      <LeafDecoration variant="top-right" className="absolute top-auto bottom-8 right-8 lg:top-8 lg:bottom-auto w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
+      <LeafDecoration variant="top-right" className="hidden lg:block absolute top-8 right-8 w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
       <LeafDecoration variant="single" className="absolute bottom-8 left-8 w-20 opacity-20 animate-leaf-drift" aria-hidden="true" />
     </section>
   );
