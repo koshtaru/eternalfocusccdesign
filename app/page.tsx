@@ -237,7 +237,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
           <div className="relative">
             <LeafDecoration
               variant="brand-stem"
-              className="lg:hidden absolute top-0 right-0 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+              className="lg:hidden absolute top-12 right-0 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
               aria-hidden="true"
             />
           <div ref={contentRef}>
