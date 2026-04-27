@@ -326,7 +326,7 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           <h2 id="faith-heading" className="section-title">{faithSection.heading}</h2>
           <p className="body-copy mt-5">{faithSection.body}</p>
         </div>
-        <div ref={quoteRef} className="rounded-[30px] bg-[#5E6A3E] p-8 text-white">
+        <div ref={quoteRef} className="relative overflow-hidden rounded-[30px] bg-[#5E6A3E] p-8 text-white">
           {/* Scripture */}
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sage-light mb-4">Scripture</p>
           <blockquote className="font-serif text-2xl leading-relaxed italic text-white/90">{faithSection.quote}</blockquote>
@@ -373,13 +373,13 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
               </div>
             )}
           </div>
+          <LeafDecoration
+            variant="brand-cluster"
+            className="absolute bottom-0 right-0 w-[220px] opacity-[0.15] pointer-events-none"
+            aria-hidden="true"
+          />
         </div>
       </div>
-      <LeafDecoration
-        variant="brand-cluster"
-        className="absolute bottom-6 left-[-3%] w-[260px] opacity-[0.12] pointer-events-none [mix-blend-mode:multiply]"
-        aria-hidden="true"
-      />
     </section>
   );
 }
