@@ -232,7 +232,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
         <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
           <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[48vh] w-full">
             <Image
-              src="/services_couple.jpg"
+              src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/Images%2Fservices_couple.PNG?alt=media&token=b9529258-443a-4791-a857-eedb3fb64285"
               alt="Two people in a supportive counseling session"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
