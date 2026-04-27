@@ -235,11 +235,6 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
             />
           </div>
           <div className="relative">
-            <LeafDecoration
-              variant="brand-stem"
-              className="lg:hidden absolute top-5 right-0 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
-              aria-hidden="true"
-            />
           <div ref={contentRef}>
             <p className="label-upper mb-3">{services.eyebrow}</p>
             <div className="hairline mb-4" />
@@ -257,7 +252,12 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
           </div>
         </div>
         {/* Focus areas */}
-        <div className="mt-16 border-t border-[var(--color-sage)]/20 pt-12">
+        <div className="relative mt-16 lg:border-t lg:border-[var(--color-sage)]/20 pt-12">
+          <LeafDecoration
+            variant="brand-stem"
+            className="lg:hidden absolute top-0 right-0 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+            aria-hidden="true"
+          />
           <p className="label-upper mb-8">{services.focusAreas.eyebrow}</p>
           <div className="grid gap-6 lg:grid-cols-3">
             {services.focusAreas.groups.map((group) => (
