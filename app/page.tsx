@@ -229,8 +229,8 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
     >
       <div className="container-shell">
         {/* Intro — image + service cards */}
-        <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
-          <div ref={imageRef} className="card-rounded aspect-[4/5] relative overflow-hidden max-h-[48vh] w-full">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch">
+          <div ref={imageRef} className="card-rounded relative overflow-hidden w-full h-full min-h-[320px]">
             <Image
               src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/Images%2Fservices_couple.PNG?alt=media&token=b9529258-443a-4791-a857-eedb3fb64285"
               alt="Two people in a supportive counseling session"
