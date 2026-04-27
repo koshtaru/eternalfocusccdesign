@@ -509,7 +509,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
           </div>
         </div>
       </div>
-      <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
+      <LeafDecoration variant="top-right" className="absolute top-auto bottom-8 right-8 lg:top-8 lg:bottom-auto w-40 opacity-30 animate-leaf-rotate" aria-hidden="true" />
       <LeafDecoration variant="single" className="absolute bottom-8 left-8 w-20 opacity-20 animate-leaf-drift" aria-hidden="true" />
     </section>
   );
