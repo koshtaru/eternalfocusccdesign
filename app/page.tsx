@@ -252,7 +252,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
           </div>
         </div>
         {/* Focus areas */}
-        <div className="relative mt-16 lg:border-t lg:border-[var(--color-sage)]/20 pt-12">
+        <div className="relative mt-16 pt-12">
           <LeafDecoration
             variant="brand-stem"
             className="lg:hidden absolute top-0 right-0 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
