@@ -608,7 +608,12 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
           <h2 id="about-heading" className="section-title">{about.heading}</h2>
           <p className="body-copy mt-5">{about.intro}</p>
           {/* Credentials */}
-          <div className="mt-8 rounded-[20px] bg-[#5E6A3E] p-6 text-white space-y-4">
+          <div className="relative overflow-hidden mt-8 rounded-[20px] bg-[#5E6A3E] p-6 text-white space-y-4">
+            <LeafDecoration
+              variant="brand-stem"
+              className="lg:hidden absolute top-0 right-0 w-[140px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+              aria-hidden="true"
+            />
             <div>
               <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.counselorLabel}</p>
               <p className="mt-1 text-lg">{about.counselorValue}</p>
@@ -639,7 +644,7 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
       <LeafDecoration variant="cluster" className="absolute bottom-8 left-8 w-36 opacity-20 animate-leaf-drift" aria-hidden="true" />
       <LeafDecoration
         variant="brand-stem"
-        className="absolute top-[-4%] right-[3%] w-[200px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+        className="hidden lg:block absolute top-[-4%] right-[3%] w-[200px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
         aria-hidden="true"
       />
     </section>
