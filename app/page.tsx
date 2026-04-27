@@ -255,7 +255,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
         <div className="relative mt-16 pt-12">
           <LeafDecoration
             variant="brand-stem"
-            className="lg:hidden absolute top-0 left-1/2 -translate-x-1/2 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+            className="lg:hidden absolute -top-16 left-1/2 -translate-x-1/2 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
             aria-hidden="true"
           />
           <p className="label-upper mb-8">{services.focusAreas.eyebrow}</p>
