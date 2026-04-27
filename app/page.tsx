@@ -205,7 +205,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
 
       <LeafDecoration
         variant="bottom-right"
-        className="absolute bottom-[-4%] right-[-4%] w-[35vw] translate-x-[20%] translate-y-[20%] opacity-60 animate-leaf-drift"
+        className="absolute bottom-[-4%] right-[-4%] w-[35vw] translate-x-[20%] translate-y-[20%] opacity-60"
         aria-hidden="true"
       />
     </section>
