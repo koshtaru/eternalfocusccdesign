@@ -375,11 +375,16 @@ function FaithSection({ faithSection }: { faithSection: typeof HOMEPAGE_CONTENT.
           </div>
           <LeafDecoration
             variant="brand-cluster"
-            className="absolute bottom-0 right-0 w-[220px] opacity-[0.15] pointer-events-none"
+            className="lg:hidden absolute bottom-0 right-0 w-[220px] opacity-[0.15] pointer-events-none"
             aria-hidden="true"
           />
         </div>
       </div>
+      <LeafDecoration
+        variant="brand-cluster"
+        className="hidden lg:block absolute bottom-6 left-[-3%] w-[260px] opacity-[0.12] pointer-events-none [mix-blend-mode:multiply]"
+        aria-hidden="true"
+      />
     </section>
   );
 }
