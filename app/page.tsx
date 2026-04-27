@@ -489,7 +489,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
             playsInline
             disablePictureInPicture
             controlsList="noplaybackrate"
-            className="w-full h-full object-cover object-bottom block"
+            className="w-full h-full object-cover object-top block"
           />
         </div>
         <div ref={contentRef}>
