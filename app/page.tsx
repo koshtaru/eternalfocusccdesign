@@ -481,7 +481,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-center py-16">
         <div
           ref={imageRef}
-          className="card-rounded w-full max-w-[420px] mx-auto"
+          className="card-rounded w-full max-w-[420px] mx-auto overflow-hidden aspect-[3/4]"
         >
           <video
             src="https://firebasestorage.googleapis.com/v0/b/eternal-focus.firebasestorage.app/o/testimonials-video.mp4?alt=media&token=7a76d338-f152-49a4-8261-6a8efd2c3006"
@@ -489,7 +489,7 @@ function TestimonialsSection({ testimonialsPlaceholder }: { testimonialsPlacehol
             playsInline
             disablePictureInPicture
             controlsList="noplaybackrate"
-            className="w-full h-auto block"
+            className="w-full h-full object-cover object-bottom block"
           />
         </div>
         <div ref={contentRef}>
