@@ -234,6 +234,12 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
               className="object-cover object-center"
             />
           </div>
+          <div className="relative">
+            <LeafDecoration
+              variant="brand-stem"
+              className="lg:hidden absolute top-0 right-0 w-[160px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+              aria-hidden="true"
+            />
           <div ref={contentRef}>
             <p className="label-upper mb-3">{services.eyebrow}</p>
             <div className="hairline mb-4" />
@@ -247,6 +253,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
                 </article>
               ))}
             </div>
+          </div>
           </div>
         </div>
         {/* Focus areas */}
@@ -296,7 +303,7 @@ function ServicesSection({ services }: { services: typeof HOMEPAGE_CONTENT.servi
       </div>
       <LeafDecoration
         variant="brand-stem"
-        className="absolute top-[-4%] right-[3%] w-[220px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+        className="hidden lg:block absolute top-[-4%] right-[3%] w-[220px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
         aria-hidden="true"
       />
     </section>
