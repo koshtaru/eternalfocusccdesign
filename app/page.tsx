@@ -432,7 +432,7 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
           ))}
         </div>
       </div>
-      <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-40 opacity-40 animate-leaf-rotate pointer-events-none" aria-hidden="true" />
+      <LeafDecoration variant="top-right" className="absolute top-8 right-8 w-20 lg:w-40 opacity-40 animate-leaf-rotate pointer-events-none" aria-hidden="true" />
     </section>
   );
 }
