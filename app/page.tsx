@@ -578,67 +578,66 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
       className="relative flex min-h-[100dvh] w-full items-center bg-cream"
     >
       <div className="container-shell grid gap-8 lg:grid-cols-2 lg:items-start py-16">
-        {/* Left — photo + personal bio */}
-        <div ref={imageRef} className="flex flex-col gap-6">
-          <div className="card-rounded aspect-[3/4] relative overflow-hidden max-h-[55vh] w-full">
-            <Image
-              src="/amy-polzin.jpg"
-              alt="Amy Polzin, Licensed Professional Counselor"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-top"
-            />
-          </div>
-          <div className="card-premium-soft p-5">
-            <p className="label-upper mb-3">{about.bioEyebrow}</p>
-            <ul className="space-y-2">
-              {about.bioItems.map((item) => (
-                <li key={item} className="flex gap-2 text-sm text-[var(--color-charcoal-light)]">
-                  <span className="mt-0.5 shrink-0 text-[var(--color-sage)]">—</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        {/* Right — heading + credentials + approach */}
-        <div ref={contentRef}>
+        {/* 1 mobile: Header — desktop: right col, row 1 */}
+        <div ref={contentRef} className="order-1 lg:col-start-2 lg:row-start-1">
           <p className="label-upper mb-4">{about.eyebrow}</p>
           <div className="hairline mb-8" />
           <h2 id="about-heading" className="section-title">{about.heading}</h2>
           <p className="body-copy mt-5">{about.intro}</p>
-          {/* Credentials */}
-          <div className="relative overflow-hidden mt-8 rounded-[20px] bg-[#5E6A3E] p-6 text-white space-y-4">
-            <LeafDecoration
-              variant="brand-stem"
-              className="lg:hidden absolute top-0 right-0 w-[140px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
-              aria-hidden="true"
-            />
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.counselorLabel}</p>
-              <p className="mt-1 text-lg">{about.counselorValue}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.statesLabel}</p>
-              <p className="mt-1 text-lg">{about.statesValue}</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.educationLabel}</p>
-              <ul className="mt-1 space-y-1">
-                {about.educationItems.map((item) => (
-                  <li key={item} className="text-sm text-white/85">{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.backgroundLabel}</p>
-              <p className="mt-1 text-sm text-white/85">{about.backgroundValue}</p>
-            </div>
+        </div>
+        {/* 2 mobile: Photo — desktop: left col, row 1 */}
+        <div ref={imageRef} className="order-2 lg:col-start-1 lg:row-start-1 card-rounded aspect-[3/4] relative overflow-hidden max-h-[55vh] w-full">
+          <Image
+            src="/amy-polzin.jpg"
+            alt="Amy Polzin, Licensed Professional Counselor"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-top"
+          />
+        </div>
+        {/* 3 mobile: Green credentials card — desktop: right col, row 2 */}
+        <div className="order-3 lg:col-start-2 lg:row-start-2 relative overflow-hidden rounded-[20px] bg-[#5E6A3E] p-6 text-white space-y-4">
+          <LeafDecoration
+            variant="brand-stem"
+            className="lg:hidden absolute top-0 right-0 w-[140px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
+            aria-hidden="true"
+          />
+          <div>
+            <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.counselorLabel}</p>
+            <p className="mt-1 text-lg">{about.counselorValue}</p>
           </div>
-          {/* Counseling approach */}
-          <div className="mt-8">
-            <p className="body-copy">{about.approachBody}</p>
+          <div>
+            <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.statesLabel}</p>
+            <p className="mt-1 text-lg">{about.statesValue}</p>
           </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.educationLabel}</p>
+            <ul className="mt-1 space-y-1">
+              {about.educationItems.map((item) => (
+                <li key={item} className="text-sm text-white/85">{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.14em] text-sage-light">{about.backgroundLabel}</p>
+            <p className="mt-1 text-sm text-white/85">{about.backgroundValue}</p>
+          </div>
+        </div>
+        {/* 4 mobile: Bio card — desktop: left col, row 2 */}
+        <div className="order-4 lg:col-start-1 lg:row-start-2 card-premium-soft p-5">
+          <p className="label-upper mb-3">{about.bioEyebrow}</p>
+          <ul className="space-y-2">
+            {about.bioItems.map((item) => (
+              <li key={item} className="flex gap-2 text-sm text-[var(--color-charcoal-light)]">
+                <span className="mt-0.5 shrink-0 text-[var(--color-sage)]">—</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* 5 mobile: Approach — desktop: right col, row 3 */}
+        <div className="order-5 lg:col-start-2 lg:row-start-3">
+          <p className="body-copy">{about.approachBody}</p>
         </div>
       </div>
       <LeafDecoration variant="cluster" className="absolute bottom-8 left-8 w-36 opacity-20" aria-hidden="true" />
