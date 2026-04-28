@@ -641,7 +641,7 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
           </div>
         </div>
       </div>
-      <LeafDecoration variant="cluster" className="absolute bottom-8 left-8 w-36 opacity-20 animate-leaf-drift" aria-hidden="true" />
+      <LeafDecoration variant="cluster" className="absolute bottom-8 left-8 w-36 opacity-20" aria-hidden="true" />
       <LeafDecoration
         variant="brand-stem"
         className="hidden lg:block absolute top-[-4%] right-[3%] w-[200px] opacity-[0.15] pointer-events-none [mix-blend-mode:multiply]"
