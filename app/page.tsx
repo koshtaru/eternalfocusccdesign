@@ -408,7 +408,7 @@ function TelehealthSection({ telehealth }: { telehealth: typeof HOMEPAGE_CONTENT
       aria-labelledby="telehealth-heading"
       className="relative flex min-h-[100dvh] w-full items-center bg-cream-dark"
     >
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center py-16 pb-24 lg:pb-16">
         <div ref={textRef}>
           <p className="label-upper mb-4">{telehealth.eyebrow}</p>
           <div className="hairline mb-8" />
