@@ -148,7 +148,6 @@ export const HOMEPAGE_CONTENT = {
     bioItems: [
       'Retired from the United States Air Force after 22 years of service.',
       'Proud parent of three adult children and grandparent of three.',
-      'Married three times — divorced, widowed, and now blessed.',
       'Enjoys spending time with friends and family, traveling, and playing pickleball.',
     ],
   },
@@ -267,7 +266,6 @@ export const ABOUT_PAGE_CONTENT = {
     items: [
       'Retired from the United States Air Force after 22 years of service.',
       'Proud parent of three adult children and grandparent of three.',
-      'Married three times — divorced, widowed, and now blessed.',
       'Enjoys spending time with friends and family, traveling, and playing pickleball.',
     ],
   },
