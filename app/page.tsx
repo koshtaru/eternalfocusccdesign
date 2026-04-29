@@ -585,8 +585,8 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
           <h2 id="about-heading" className="section-title">{about.heading}</h2>
           <p className="body-copy mt-5">{about.intro}</p>
         </div>
-        {/* 2 mobile: Photo — desktop: left col, row 1 */}
-        <div ref={imageRef} className="order-2 lg:col-start-1 lg:row-start-1 card-rounded aspect-[3/4] relative overflow-hidden max-h-[55vh] w-full">
+        {/* 2 mobile: Photo — desktop: left col, rows 1-2 */}
+        <div ref={imageRef} className="order-2 lg:col-start-1 lg:row-start-1 lg:row-span-2 card-rounded aspect-[3/4] lg:aspect-auto relative overflow-hidden max-h-[55vh] lg:max-h-none lg:h-full w-full">
           <Image
             src="/amy-polzin.jpg"
             alt="Amy Polzin, Licensed Professional Counselor"
@@ -623,8 +623,8 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
             <p className="mt-1 text-sm text-white/85">{about.backgroundValue}</p>
           </div>
         </div>
-        {/* 4 mobile: Bio card — desktop: left col, row 2 */}
-        <div className="order-4 lg:col-start-1 lg:row-start-2 card-premium-soft p-5">
+        {/* 4 mobile: Bio card — desktop: left col, row 3 */}
+        <div className="order-4 lg:col-start-1 lg:row-start-3 card-premium-soft p-5">
           <p className="label-upper mb-3">{about.bioEyebrow}</p>
           <ul className="space-y-2">
             {about.bioItems.map((item) => (
@@ -636,7 +636,7 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
           </ul>
         </div>
         {/* 5 mobile: Approach — desktop: right col, row 3 */}
-        <div className="order-5 lg:col-start-2 lg:row-start-3">
+        <div className="order-5 lg:col-start-2 lg:row-start-3 lg:row-span-1">
           <p className="body-copy">{about.approachBody}</p>
         </div>
       </div>
