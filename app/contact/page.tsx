@@ -6,11 +6,25 @@ import LeafDecoration from '../../components/LeafDecoration';
 
 export default function ContactPage() {
   const { hero, waysToStart } = CONTACT_PAGE_CONTENT;
-  const [formState, setFormState] = useState<'idle' | 'sent'>('idle');
+  const [formState, setFormState] = useState<'idle' | 'loading' | 'sent' | 'error'>('idle');
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setFormState('sent');
+    setFormState('loading');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const body = new URLSearchParams(data as unknown as Record<string, string>).toString();
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+      if (res.ok) { setFormState('sent'); }
+      else { setFormState('error'); }
+    } catch {
+      setFormState('error');
+    }
   }
 
   return (
@@ -37,7 +51,17 @@ export default function ContactPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-8 grid gap-4">
+              <form
+                name="contact"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="mt-8 grid gap-4"
+              >
+                {/* Required hidden inputs for Netlify */}
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
+
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="contact-name" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-charcoal)]">
@@ -94,11 +118,19 @@ export default function ContactPage() {
                     placeholder="How can we help you?"
                   />
                 </div>
+
+                {formState === 'error' && (
+                  <p className="text-sm text-red-600">
+                    Something went wrong. Please try again, or reach us directly by phone or email.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="button-base mt-1 self-start rounded-xl bg-[var(--color-sage-dark)] px-8 py-3.5 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sage-dark)]/40"
+                  disabled={formState === 'loading'}
+                  className="button-base mt-1 self-start rounded-xl bg-[var(--color-sage-dark)] px-8 py-3.5 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-sage-dark)]/40 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {formState === 'loading' ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             )}
