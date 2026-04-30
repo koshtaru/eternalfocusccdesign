@@ -1,5 +1,5 @@
 export const BOOKING_URL = 'https://PLACEHOLDER-SIMPLEPRACTICE-BOOKING-URL';
-export const PORTAL_URL = 'https://PLACEHOLDER-SIMPLEPRACTICE-PORTAL-URL';
+export const PORTAL_URL = 'https://www.therapyportal.com/p/eternal54942/';
 export const PHONE = '920-777-7501';
 export const EMAIL = 'appointments@eternalfocuscc.org';
 export const ADDRESS = 'Telehealth counseling only';
