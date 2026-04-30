@@ -55,6 +55,7 @@ export default function ContactPage() {
                 name="contact"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
+                autoComplete="off"
                 onSubmit={handleSubmit}
                 className="mt-8 grid gap-4"
               >
@@ -72,7 +73,6 @@ export default function ContactPage() {
                       name="name"
                       type="text"
                       required
-                      autoComplete="name"
                       className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
                       placeholder="Your full name"
                     />
@@ -86,7 +86,6 @@ export default function ContactPage() {
                       name="email"
                       type="email"
                       required
-                      autoComplete="email"
                       className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
                       placeholder="your@email.com"
                     />
@@ -101,7 +100,6 @@ export default function ContactPage() {
                     name="phone"
                     type="tel"
                     required
-                    autoComplete="tel"
                     className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
                     placeholder="(920) 000-0000"
                   />
