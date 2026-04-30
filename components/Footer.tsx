@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-[rgba(43,43,43,0.10)] bg-[#F2EBE5]">
       <div className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,_rgba(242,235,229,0.6),_transparent_60%)]" aria-hidden="true" />
-      <div className="container-shell grid gap-10 py-11 md:grid-cols-3">
+      <div className="container-shell grid gap-10 py-11 md:grid-cols-2">
         <div className="relative">
           <div className="mb-3 flex items-center gap-3">
             <Image
@@ -18,8 +18,9 @@ export default function Footer() {
               className="h-8 w-auto shrink-0"
               sizes="32px"
             />
-            <h2 className="font-serif text-lg font-semibold text-[var(--color-charcoal)]">
-              Eternal Focus Christian Counseling
+            <h2 className="font-serif text-lg font-semibold leading-snug text-[var(--color-charcoal)]">
+              <span className="block">Eternal Focus</span>
+              <span className="block">Christian Counseling</span>
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-7 text-[var(--color-charcoal-light)]">
@@ -46,34 +47,18 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={EXTERNAL_LINKS.clientPortal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
+                >
+                  Client Portal
+                </a>
+              </li>
             </ul>
           </nav>
-        </div>
-
-        <div className="relative">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-charcoal-light)]">Quick Links</h2>
-          <div className="space-y-2">
-            <Link
-              href="/contact"
-              className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
-            >
-              Contact Us
-            </Link>
-            <a
-              href={EXTERNAL_LINKS.clientPortal}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
-            >
-              Client Portal
-            </a>
-            <Link
-              href="/privacy"
-              className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
-            >
-              Privacy
-            </Link>
-          </div>
         </div>
       </div>
 
