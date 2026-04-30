@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="relative">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-charcoal-light)]">Navigation</h2>
           <nav aria-label="Footer">
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
