@@ -20,7 +20,7 @@ export default function ContactPage() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
       });
-      if (res.ok) { setFormState('sent'); }
+      if (res.ok) { form.reset(); setFormState('sent'); }
       else { setFormState('error'); }
     } catch {
       setFormState('error');
