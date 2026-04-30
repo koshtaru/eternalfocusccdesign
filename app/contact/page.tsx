@@ -94,12 +94,13 @@ export default function ContactPage() {
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label htmlFor="contact-phone" className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-charcoal)]">
-                    Phone <span className="normal-case font-normal tracking-normal opacity-50">(optional)</span>
+                    Phone
                   </label>
                   <input
                     id="contact-phone"
                     name="phone"
                     type="tel"
+                    required
                     autoComplete="tel"
                     className="rounded-xl border border-[var(--color-cream-dark)] bg-white px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder:text-[var(--color-charcoal)]/40 focus:border-[var(--color-sage-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sage-dark)]/20 transition"
                     placeholder="(920) 000-0000"
