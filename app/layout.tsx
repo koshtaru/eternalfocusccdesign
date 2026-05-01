@@ -59,6 +59,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
+        {/* Runs synchronously before React hydrates to prevent browser scroll restoration on refresh */}
+        <script dangerouslySetInnerHTML={{ __html: `history.scrollRestoration='manual';if(!location.hash)window.scrollTo(0,0);` }} />
         <div className="grain-overlay" aria-hidden="true" />
         <a href="#main-content" className="skip-link">
           Skip to content

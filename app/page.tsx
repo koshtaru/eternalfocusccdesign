@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useLayoutEffect, useState, useEffect } from 'react';
+import { useRef, useLayoutEffect, useState } from 'react';
 import gsap from 'gsap';
 import VideoPlayer from '../components/VideoPlayer';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -650,14 +650,6 @@ function AboutSection({ about }: { about: typeof HOMEPAGE_CONTENT.about }) {
 
 // ─── Page ───────────────────────────────────────────────────────────────────
 export default function HomePage() {
-  useEffect(() => {
-    history.scrollRestoration = 'manual';
-    // Only jump to top when there's no hash target (e.g. /#about-heading)
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
-    }
-  }, []);
-
   const {
     hero,
     services,
