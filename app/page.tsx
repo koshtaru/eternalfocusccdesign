@@ -189,7 +189,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
         <div ref={ctaRef} className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link
             href="/contact"
-            className="btn-primary px-8 py-3 text-base"
+            className="btn-primary px-8 py-3 text-base w-full sm:w-auto"
           >
             {hero.primaryCta}
           </Link>
@@ -197,7 +197,7 @@ function HeroSection({ hero }: { hero: typeof HOMEPAGE_CONTENT.hero }) {
             href={EXTERNAL_LINKS.clientPortal}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary px-8 py-3 text-base"
+            className="btn-secondary px-8 py-3 text-base w-full sm:w-auto"
           >
             {hero.secondaryCta}
           </a>
