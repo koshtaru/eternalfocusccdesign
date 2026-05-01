@@ -147,7 +147,7 @@ export const HOMEPAGE_CONTENT = {
     bioEyebrow: 'A Little About Amy',
     bioItems: [
       'Retired from the United States Air Force after 22 years of service.',
-      'Proud parent of three adult children and grandparent of three.',
+      'Proud parent of three adult children and grandparent of five.',
       'Enjoys spending time with friends and family, traveling, and playing pickleball.',
     ],
   },
@@ -265,7 +265,7 @@ export const ABOUT_PAGE_CONTENT = {
     heading: 'Beyond the counseling room.',
     items: [
       'Retired from the United States Air Force after 22 years of service.',
-      'Proud parent of three adult children and grandparent of three.',
+      'Proud parent of three adult children and grandparent of five.',
       'Enjoys spending time with friends and family, traveling, and playing pickleball.',
     ],
   },
