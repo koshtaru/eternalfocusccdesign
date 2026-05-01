@@ -12,7 +12,7 @@ export const SITE = {
   title: 'Eternal Focus Christian Counseling',
   description:
     'Christ-centered counseling support for individuals, couples, and families.',
-  url: 'https://www.eternfocuscounseling.com',
+  url: 'https://www.eternalfocuscc.org',
 } as const;
 
 export const NAV_LINKS = [
