@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { PRIVACY_PAGE_CONTENT } from '../../lib/content';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  robots: { index: false, follow: false },
+};
 
 export default function PrivacyPage() {
   const { hero, inquiryHandling, communicationTools, updates, contact } =

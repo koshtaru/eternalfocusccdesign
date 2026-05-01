@@ -9,9 +9,9 @@ export const COUNSELOR_CREDENTIAL = 'MA, LPC';
 
 export const SITE = {
   name: 'Eternal Focus Christian Counseling',
-  title: 'Eternal Focus Christian Counseling',
+  title: 'Eternal Focus Christian Counseling | Telehealth Therapy in Wisconsin',
   description:
-    'Christ-centered counseling support for individuals, couples, and families.',
+    'Christ-centered telehealth counseling for individuals, couples, and families in Wisconsin. Licensed counselor Amy Polzin, MA LPC. Book a session today.',
   url: 'https://www.eternalfocuscc.org',
 } as const;
 
