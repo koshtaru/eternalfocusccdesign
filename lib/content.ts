@@ -170,6 +170,7 @@ export const HOMEPAGE_CONTENT = {
     body:
       'All sessions are currently private pay. Straightforward, transparent pricing with no insurance required.',
     items: [
+      'Initial intake: $220',
       'Individual session (45 min): $165',
       'Individual session (60 min): $185',
       'Couples session: $220',
@@ -352,6 +353,7 @@ export const CONTACT_PAGE_CONTENT = {
     body:
       'All sessions are currently private pay. Straightforward, transparent pricing with no insurance required.',
     items: [
+      'Initial intake: $220',
       'Individual session (45 min): $165',
       'Individual session (60 min): $185',
       'Couples session: $220',
