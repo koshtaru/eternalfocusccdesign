@@ -8,13 +8,13 @@ import {
 
 export const HOMEPAGE_CONTENT = {
   hero: {
-    eyebrow: 'Faith-Centered Christian Counseling',
+    eyebrow: 'Christ-Centered Christian Counseling',
     heading:
       'Compassionate counseling for the places in life that feel tender, heavy, or hard to navigate alone.',
     supportingText: `${SITE.name} offers a calm, supportive space where professional counseling and Christian faith can be held together with care, wisdom, and respect.`,
     intro:
       'Amy Polzin provides telehealth counseling for clients in Wisconsin. While online scheduling is not live yet, you are welcome to call or email directly to ask questions and take the next step.',
-    primaryCta: 'Book Appointment',
+    primaryCta: 'Contact Us',
     secondaryCta: 'Client Portal',
     visualEyebrow: 'Visual Placeholder',
     visualDescription:
@@ -26,68 +26,155 @@ export const HOMEPAGE_CONTENT = {
     accent: 'Warmth. Clarity. Hope.',
   },
   services: {
-    eyebrow: 'How We Can Help',
-    heading: 'Support for individuals, couples, and telehealth care in Wisconsin.',
-    intro:
-      'These care areas reflect confirmed areas of support currently offered through telehealth counseling and can be updated over time as the practice continues to grow.',
+    eyebrow: 'Counseling Services',
+    heading: 'We use a secure telehealth platform to support individuals and couples receiving therapy in Wisconsin.',
     items: [
       {
         title: 'Individual Counseling',
         description:
-          'One-on-one counseling for anxiety, grief and loss, life transitions, and the emotional burdens that can quietly build over time.',
-        accent: 'Anxiety, grief, and life transitions',
+          'One-to-One counseling for anxiety, grief and loss, life transitions, and the emotional burdens that can quietly build over time.',
+        accent: 'Anxiety, grief, and life transitions — Ages 20+',
       },
       {
         title: 'Couples Counseling',
         description:
           'Support for couples who want help with communication, conflict, trust, and building a healthier connection moving forward.',
-        accent: 'Communication, trust, and reconnection',
-      },
-      {
-        title: 'Telehealth Counseling',
-        description:
-          'Virtual counseling for clients in Wisconsin, offering a steady and private way to receive support from home or another comfortable space.',
-        accent: 'Private, flexible, and accessible care',
+        accent: 'Communication, trust, and reconnection — 60 min sessions',
       },
     ],
+    focusAreas: {
+      eyebrow: 'Areas of Focus',
+      groups: [
+        {
+          title: 'Emotional health and daily stress',
+          intro:
+            'Support for the internal weight that can quietly affect everyday life, relationships, and peace of mind.',
+          items: ['Anxiety', 'Depression', 'Anger management', 'Life transitions'],
+        },
+        {
+          title: 'Loss, trauma, and complex experiences',
+          intro:
+            'Care for seasons that involve pain, overwhelm, or the need to process difficult experiences with gentleness and steadiness.',
+          items: [
+            'Grief and loss',
+            'Trauma',
+            'Suicide prevention and postvention',
+            'Dissociative Identity Disorder (DID)',
+          ],
+        },
+        {
+          title: 'Relationship support',
+          intro:
+            'Counseling for adults and couples who want help with connection, communication, and moving through challenges with greater understanding.',
+          items: ['Adults ages 20+', 'Couples counseling'],
+        },
+      ],
+    },
+    supportLooksLike: {
+      eyebrow: 'What Support Can Look Like',
+      heading: 'A place to process, gain insights, and grow through seasons of adversity.',
+      quote:
+        '"No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness and peace for those who have been trained by it."',
+      quoteAttribution: 'Hebrews 12:11 (NIV)',
+      paragraphs: [
+        {
+          title: 'A Place to Be Heard',
+          body: 'Counseling can be a place to slow down and talk honestly about what has been weighing on you, whether that involves anxiety, grief, trauma, anger, relationship strain, or a major transition.',
+        },
+        {
+          title: 'Skills That Stay With You',
+          body: 'Support may include learning coping skills, gaining valuable insights, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
+        },
+        {
+          title: 'Care at Your Own Pace',
+          body: 'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
+        },
+      ],
+    },
   },
   faithSection: {
     eyebrow: 'Thoughtful Integration',
     heading:
-      'Faith-centered counseling that is gentle, grounded, and attentive to the whole person.',
+      'Christ-centered counseling that is gentle, grounded, and attentive to the whole person.',
     body:
-      'For clients who desire it, counseling can thoughtfully include prayer, biblical perspective, and faith-based reflection alongside sound clinical care. Each session is approached with respect, humility, and sensitivity to your story.',
+      'For clients who desire it, counseling can thoughtfully include prayer, biblical perspective, and Christ-centered reflection alongside sound clinical care. Each session is approached with respect, humility, and sensitivity to your story.',
     quote:
-      '"Healing often begins when people feel safe enough to be honest, supported enough to keep going, and reminded that hope is still present."',
-    snapshotEyebrow: 'Practice Snapshot',
+      '"...who comforts us in all our troubles, so that we can comfort those in any trouble with the comfort we ourselves receive from God."',
+    quoteAttribution: '2 Corinthians 1:4 (NIV)',
+    counselorValue: `${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
+    statesValue: STATES,
+    approachesEyebrow: 'Therapeutic Approaches',
+    methods: [
+      {
+        abbr: 'CBT',
+        name: 'Cognitive Behavioral Therapy',
+        description: 'to identify unhelpful thought patterns and build healthier responses',
+      },
+      {
+        abbr: 'EFT',
+        name: 'Emotionally Focused Therapy',
+        description: 'to support emotional awareness, connection, and relationship repair',
+      },
+      {
+        abbr: 'IFS',
+        name: 'Internal Family Systems',
+        description: 'to help clients understand internal patterns with greater clarity and compassion',
+      },
+    ],
+    meetAmyLabel: 'Meet Amy',
+    note:
+      'Amy currently provides telehealth counseling for clients in Wisconsin, with a warm and thoughtful approach that honors both clinical care and Christian faith.',
+  },
+  about: {
+    eyebrow: 'About the Counselor',
+    heading: `Meet ${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
+    intro:
+      'Warm, Christ-centered counseling for adults and couples seeking steady support, practical tools, and compassionate care.',
     counselorLabel: 'Counselor',
     counselorValue: `${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
     statesLabel: 'Licensed States',
     statesValue: STATES,
-    note:
-      'Amy currently provides telehealth counseling for clients in Wisconsin, with a warm and thoughtful approach that honors both clinical care and Christian faith.',
+    educationLabel: 'Education & Background',
+    educationItems: [
+      'MA, Professional Counseling — Liberty University, VA',
+      'BS, Management — University of Phoenix',
+      'AA, Human Resources — Community College of the Air Force',
+    ],
+    backgroundLabel: 'Background',
+    backgroundValue: 'Licensed Professional Counselor since 2017',
+    approachBody:
+      "Amy's approach is warm, collaborative, and grounded in the belief that counseling should help people feel both supported and equipped. For clients who desire it, faith can be integrated gently and respectfully into the counseling process.",
+    bioEyebrow: 'A Little About Amy',
+    bioItems: [
+      'Retired from the United States Air Force after 22 years of service.',
+      'Proud parent of three adult children and grandparent of five.',
+      'Enjoys spending time with friends and family, traveling, and playing pickleball.',
+    ],
   },
   telehealth: {
     eyebrow: 'Virtual Care',
-    heading:
-      'Telehealth counseling that offers privacy, flexibility, and support where you already are.',
+    heading: 'Telehealth counseling offers convenience, privacy, and accessibility.',
     body:
       'Amy provides telehealth counseling only, making it easier to receive care from home or another private space without the added stress of travel or office logistics.',
+    locationNote: 'Clients must be physically located in Wisconsin to receive services.',
     highlights: [
       'Convenience: meet from home or another private, quiet space that feels comfortable and manageable.',
       'Privacy: sessions are designed to support a confidential and respectful counseling experience.',
       'Accessibility: telehealth can support consistent care during busy seasons, life transitions, or transportation challenges.',
+      'Session length: 45 and 60 minute sessions are available.',
     ],
   },
   insurance: {
-    eyebrow: 'Payment Details',
-    heading: 'Insurance and payment information presented simply and clearly.',
+    eyebrow: 'Session Fees',
+    heading: 'Private pay sessions are available now.',
     body:
-      'Insurance credentialing is currently in progress. Until that process is complete, please contact the practice directly for the latest information about fees, payment, and getting started.',
+      'All sessions are currently private pay. Straightforward, transparent pricing with no insurance required.',
     items: [
-      'Insurance status: credentialing is in progress, so accepted plans are not being listed yet.',
-      'Fees: current session rates will be shared directly once payment details are finalized.',
-      'Next step: call or email the practice for the most current information about scheduling, fees, and insurance updates.',
+      'Initial intake: $220',
+      'Individual session (45 min): $165',
+      'Individual session (60 min): $185',
+      'Couples session: $220',
+      'Missed appointment: $80',
     ],
   },
   testimonialsPlaceholder: {
@@ -101,9 +188,8 @@ export const HOMEPAGE_CONTENT = {
   closingCTA: {
     eyebrow: "Begin When You're Ready",
     heading: 'When you feel ready, the next step can be simple.',
-    body:
-      'If you are considering counseling, you are welcome to reach out at your own pace. For now, the clearest way to get started is by phone or email while online scheduling and portal access are still being finalized.',
-    primaryCta: 'Book Appointment',
+    body: `To get started, call at ${CONTACT.phone} or e-mail at ${CONTACT.email}`,
+    primaryCta: 'Contact Us',
     secondaryCta: 'Client Portal',
   },
 } as const;
@@ -113,7 +199,7 @@ export const ABOUT_PAGE_CONTENT = {
     eyebrow: 'About the Counselor',
     heading: `Meet ${COUNSELOR_NAME}, ${COUNSELOR_CREDENTIAL}`,
     intro:
-      'Warm, faith-centered counseling for adults and couples seeking steady support, practical tools, and compassionate care.',
+      'Warm, Christ-centered counseling for adults and couples seeking steady support, practical tools, and compassionate care.',
     supportingText: `${COUNSELOR_NAME} is a Licensed Professional Counselor in ${STATES} who provides telehealth counseling only, offering a calm and thoughtful space for healing, growth, and meaningful change.`,
   },
   professionalOverview: {
@@ -168,12 +254,21 @@ export const ABOUT_PAGE_CONTENT = {
     intro:
       'Amy brings counseling training together with a broader professional background that reflects discipline, service, and practical life experience.',
     items: [
-      'Master of Arts in Professional Counseling - Liberty University',
-      'Bachelor of Science in Management - University of Phoenix',
-      'Associate of Arts in Human Resources - Community College of the Air Force',
+      'MA, Professional Counseling — Liberty University, VA',
+      'BS, Management — University of Phoenix',
+      'AA, Human Resources — Community College of the Air Force',
     ],
     note:
       'Her background in the Air Force is part of the broader experience that informs her professionalism and steady presence in care.',
+  },
+  personalBio: {
+    eyebrow: 'A Little About Amy',
+    heading: 'Beyond the counseling room.',
+    items: [
+      'Retired from the United States Air Force after 22 years of service.',
+      'Proud parent of three adult children and grandparent of five.',
+      'Enjoys spending time with friends and family, traveling, and playing pickleball.',
+    ],
   },
   closingCta: {
     eyebrow: 'Take the Next Step',
@@ -253,14 +348,16 @@ export const CONTACT_PAGE_CONTENT = {
     ],
   },
   insuranceStatus: {
-    eyebrow: 'Insurance & Payment Status',
-    heading: 'Insurance credentialing is in progress.',
+    eyebrow: 'Session Fees',
+    heading: 'Private pay sessions are available now.',
     body:
-      'Insurance participation is not active yet, and payment details are still being finalized. For now, the best way to receive the most current information is to contact the practice directly.',
+      'All sessions are currently private pay. Straightforward, transparent pricing with no insurance required.',
     items: [
-      'Insurance credentialing is currently in progress, so accepted plans are not being listed yet.',
-      'Session fees and payment details will be shared once they are finalized.',
-      'Phone or email is the best way to ask about the most current status before getting started.',
+      'Initial intake: $220',
+      'Individual session (45 min): $165',
+      'Individual session (60 min): $185',
+      'Couples session: $220',
+      'Missed appointment: $80',
     ],
   },
   closingCta: {
@@ -268,105 +365,9 @@ export const CONTACT_PAGE_CONTENT = {
     heading: 'You are welcome to take the next step at your own pace.',
     body:
       'Whether you are ready to begin soon or simply want more information, reaching out by phone or email is a warm and practical place to start.',
-    primaryLabel: 'Call Amy',
+    primaryLabel: 'Call Our Office',
     primaryHref: `tel:${CONTACT.phone}`,
-    secondaryLabel: 'Email Amy',
-    secondaryHref: `mailto:${CONTACT.email}`,
-  },
-} as const;
-
-export const SERVICES_PAGE_CONTENT = {
-  hero: {
-    eyebrow: 'Services',
-    heading: 'Counseling support for the concerns that can weigh on daily life and relationships.',
-    intro:
-      `${COUNSELOR_NAME} provides telehealth counseling for adults ages 20 and older, as well as couples, in ${STATES}. Care is offered with warmth, clarity, and respect for each client's story.`,
-    supportingText:
-      'Whether you are feeling overwhelmed, grieving a loss, navigating a transition, or trying to strengthen a relationship, counseling can offer a steady place to process what is happening and move forward with support.',
-  },
-  focusAreas: {
-    eyebrow: 'Main Services / Focus Areas',
-    heading: 'Clear areas of support, organized in a way that is easy to understand.',
-    groups: [
-      {
-        title: 'Emotional health and daily stress',
-        intro:
-          'Support for the internal weight that can quietly affect everyday life, relationships, and peace of mind.',
-        items: ['Anxiety', 'Depression', 'Anger management', 'Life transitions'],
-      },
-      {
-        title: 'Loss, trauma, and complex experiences',
-        intro:
-          'Care for seasons that involve pain, overwhelm, or the need to process difficult experiences with gentleness and steadiness.',
-        items: [
-          'Grief and loss',
-          'Trauma',
-          'Suicide prevention and postvention',
-          'Dissociative Identity Disorder (DID)',
-        ],
-      },
-      {
-        title: 'Relationship support',
-        intro:
-          'Counseling for adults and couples who want help with connection, communication, and moving through challenges with greater understanding.',
-        items: ['Adults ages 20+', 'Couples counseling'],
-      },
-    ],
-  },
-  counselingApproach: {
-    eyebrow: 'Counseling Approach',
-    heading: 'Faith-centered care that is compassionate, practical, and clinically informed.',
-    body:
-      "Amy's work is grounded in the belief that counseling should help people feel heard, supported, and better equipped for what they are facing. For clients who desire it, faith can be integrated naturally and respectfully into the counseling process.",
-    methodsIntro:
-      'Her approach may include several evidence-based methods, depending on each client and situation:',
-    methods: [
-      {
-        name: 'CBT',
-        description:
-          'to notice unhelpful thought patterns and build healthier ways of responding',
-      },
-      {
-        name: 'EFT',
-        description:
-          'to support emotional awareness, connection, and deeper understanding in relationships',
-      },
-      {
-        name: 'IFS',
-        description:
-          'to help clients understand internal experiences with greater curiosity, compassion, and clarity',
-      },
-    ],
-  },
-  whoItsFor: {
-    eyebrow: 'Who Counseling Is For',
-    heading: 'Care designed for adults and couples, offered through telehealth in Wisconsin.',
-    items: [
-      'Adults ages 20 and older',
-      'Couples seeking support, healing, or improved communication',
-      'Clients located in Wisconsin',
-      'Clients looking for telehealth counseling only',
-    ],
-    note:
-      'If you are unsure whether counseling would be a good fit for your needs, reaching out by phone or email is a simple place to begin.',
-  },
-  supportLooksLike: {
-    eyebrow: 'What Support Can Look Like',
-    heading: 'A place to process, gain tools, and move through difficult seasons with steadier support.',
-    paragraphs: [
-      'Counseling can be a place to slow down and talk honestly about what has been weighing on you, whether that involves anxiety, grief, trauma, anger, relationship strain, or a major transition.',
-      'Support may include learning coping skills, building insight, processing painful experiences, strengthening communication, and finding more grounded ways to respond to the challenges in front of you.',
-      'The goal is not to rush your story, but to offer care that is thoughtful, practical, and attentive to the pace that feels right for you.',
-    ],
-  },
-  closingCta: {
-    eyebrow: 'Next Step',
-    heading: 'If you are considering counseling, reaching out can be the first gentle step.',
-    body:
-      'Online scheduling is still being finalized. For now, the best way to get started is to call or email directly to ask questions, discuss fit, and learn current availability.',
-    primaryLabel: 'Call Amy',
-    primaryHref: `tel:${CONTACT.phone}`,
-    secondaryLabel: 'Email Amy',
+    secondaryLabel: 'Email Us',
     secondaryHref: `mailto:${CONTACT.email}`,
   },
 } as const;

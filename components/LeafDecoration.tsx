@@ -1,6 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 
-type LeafVariant = 'cluster' | 'single' | 'vertical' | 'bottom-right' | 'top-right' | 'bottom-left';
+type LeafVariant = 'cluster' | 'single' | 'vertical' | 'bottom-right' | 'top-right' | 'bottom-left' | 'leaf' | 'palm' | 'brand-cluster' | 'brand-stem';
 
 interface LeafDecorationProps {
   className?: string;
@@ -14,6 +15,62 @@ export default function LeafDecoration({
   color = '#7E8A56',
 }: LeafDecorationProps) {
   const variants: Record<LeafVariant, React.ReactNode> = {
+    palm: (
+      <svg viewBox="0 0 270 420" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        {/* Rachis — central curved stem */}
+        <path d="M133 416 C132 350 131 275 130 200 C129 125 130 60 131 8"
+          stroke={color} strokeWidth="2.5" strokeOpacity="0.60" strokeLinecap="round" />
+        {/* Right leaflets — closed filled blades, fillOpacity graduates base→tip */}
+        <path d="M134 368 C175 361 216 374 226 378 C218 383 175 377 134 372 Z" fill={color} fillOpacity="0.62" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M133 344 C172 337 209 349 219 353 C211 358 172 352 133 348 Z" fill={color} fillOpacity="0.58" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M132 320 C168 313 201 324 211 328 C203 333 168 328 132 324 Z" fill={color} fillOpacity="0.55" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M132 296 C164 289 194 299 204 303 C196 308 164 304 132 300 Z" fill={color} fillOpacity="0.52" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M131 273 C160 266 186 275 196 279 C188 284 160 281 131 277 Z" fill={color} fillOpacity="0.49" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M131 251 C157 244 179 253 189 257 C181 262 157 258 131 255 Z" fill={color} fillOpacity="0.46" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M130 230 C153 223 172 232 182 236 C174 241 153 239 130 234 Z" fill={color} fillOpacity="0.43" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 210 C150 203 165 212 175 216 C167 221 150 219 130 214 Z" fill={color} fillOpacity="0.41" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 191 C148 185 159 193 169 197 C161 202 148 199 130 195 Z" fill={color} fillOpacity="0.39" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 173 C145 167 153 175 163 179 C155 184 145 181 130 177 Z" fill={color} fillOpacity="0.37" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 156 C143 150 148 158 158 162 C150 167 143 164 130 160 Z" fill={color} fillOpacity="0.35" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 140 C140 134 143 142 153 146 C145 151 140 148 130 144 Z" fill={color} fillOpacity="0.33" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 125 C138 120 138 127 148 131 C140 136 138 134 130 129 Z" fill={color} fillOpacity="0.31" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
+        <path d="M130 111 C136 107 134 113 144 117 C136 122 136 118 130 115 Z" fill={color} fillOpacity="0.29" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
+        {/* Left leaflets — mirror of right */}
+        <path d="M134 368 C93 361 48 374 38 378 C46 383 93 377 134 372 Z" fill={color} fillOpacity="0.62" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M133 344 C92 337 55 349 45 353 C53 358 92 352 133 348 Z" fill={color} fillOpacity="0.58" stroke={color} strokeWidth="0.4" strokeOpacity="0.25" />
+        <path d="M132 320 C96 313 63 324 53 328 C61 333 96 328 132 324 Z" fill={color} fillOpacity="0.55" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M132 296 C100 289 70 299 60 303 C68 308 100 304 132 300 Z" fill={color} fillOpacity="0.52" stroke={color} strokeWidth="0.4" strokeOpacity="0.22" />
+        <path d="M131 273 C104 266 78 275 68 279 C76 284 104 281 131 277 Z" fill={color} fillOpacity="0.49" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M131 251 C107 244 85 253 75 257 C83 262 107 258 131 255 Z" fill={color} fillOpacity="0.46" stroke={color} strokeWidth="0.4" strokeOpacity="0.20" />
+        <path d="M130 230 C111 223 92 232 82 236 C90 241 111 239 130 234 Z" fill={color} fillOpacity="0.43" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 210 C114 203 99 212 89 216 C97 221 114 219 130 214 Z" fill={color} fillOpacity="0.41" stroke={color} strokeWidth="0.35" strokeOpacity="0.18" />
+        <path d="M130 191 C116 185 105 193 95 197 C103 202 116 199 130 195 Z" fill={color} fillOpacity="0.39" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 173 C119 167 111 175 101 179 C109 184 119 181 130 177 Z" fill={color} fillOpacity="0.37" stroke={color} strokeWidth="0.35" strokeOpacity="0.16" />
+        <path d="M130 156 C121 150 116 158 106 162 C114 167 121 164 130 160 Z" fill={color} fillOpacity="0.35" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 140 C124 134 121 142 111 146 C119 151 124 148 130 144 Z" fill={color} fillOpacity="0.33" stroke={color} strokeWidth="0.3" strokeOpacity="0.14" />
+        <path d="M130 125 C126 120 126 127 116 131 C124 136 126 134 130 129 Z" fill={color} fillOpacity="0.31" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
+        <path d="M130 111 C128 107 130 113 120 117 C128 122 128 118 130 115 Z" fill={color} fillOpacity="0.29" stroke={color} strokeWidth="0.3" strokeOpacity="0.12" />
+      </svg>
+    ),
+    leaf: (
+      <svg viewBox="0 0 80 220" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+        {/* Leaf body */}
+        <path d="M40 6 C62 28 72 75 72 110 C72 145 62 192 40 214 C18 192 8 145 8 110 C8 75 18 28 40 6 Z"
+          fill={color} fillOpacity="0.18" stroke={color} strokeOpacity="0.25" strokeWidth="0.8" />
+        {/* Center spine */}
+        <path d="M40 6 L40 214" stroke={color} strokeWidth="1" strokeOpacity="0.30" strokeLinecap="round" />
+        {/* Left veins */}
+        <path d="M40 45 C28 50 20 58 15 68" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 80 C26 87 17 96 12 108" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 115 C26 120 17 129 13 140" stroke={color} strokeWidth="0.8" strokeOpacity="0.20" strokeLinecap="round" />
+        <path d="M40 150 C28 154 20 161 16 170" stroke={color} strokeWidth="0.8" strokeOpacity="0.18" strokeLinecap="round" />
+        {/* Right veins */}
+        <path d="M40 45 C52 50 60 58 65 68" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 80 C54 87 63 96 68 108" stroke={color} strokeWidth="0.8" strokeOpacity="0.22" strokeLinecap="round" />
+        <path d="M40 115 C54 120 63 129 67 140" stroke={color} strokeWidth="0.8" strokeOpacity="0.20" strokeLinecap="round" />
+        <path d="M40 150 C52 154 60 161 64 170" stroke={color} strokeWidth="0.8" strokeOpacity="0.18" strokeLinecap="round" />
+      </svg>
+    ),
     cluster: (
       <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
         <path d="M160 180C160 180 140 140 100 130C60 120 40 80 40 80" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
@@ -65,6 +122,24 @@ export default function LeafDecoration({
         <path d="M40 130C35 125 28 128 25 135C22 142 27 150 34 147C41 144 44 136 40 130Z" fill={color} opacity="0.15"/>
         <path d="M70 135C65 130 58 133 55 140C52 147 57 155 64 152C71 149 74 141 70 135Z" fill={color} opacity="0.12"/>
       </svg>
+    ),
+    'brand-cluster': (
+      <Image
+        src="/leaf-accent-cluster.jpg"
+        alt=""
+        width={300}
+        height={360}
+        className="w-full h-full object-contain"
+      />
+    ),
+    'brand-stem': (
+      <Image
+        src="/leaf-accent-stem.jpg"
+        alt=""
+        width={260}
+        height={500}
+        className="w-full h-full object-contain"
+      />
     ),
     'bottom-left': (
       <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">

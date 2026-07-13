@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { EXTERNAL_LINKS, NAV_LINKS, SITE } from '../lib/constants';
@@ -8,6 +9,14 @@ import MobileDrawer from './MobileDrawer';
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  function handleHomeClick(e: React.MouseEvent) {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -17,15 +26,17 @@ export default function NavBar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[rgba(246,244,242,0.88)] backdrop-blur-md py-4 border-b border-[rgba(43,43,43,0.08)] shadow-[0_4px_16px_rgba(43,43,43,0.06)]'
-          : 'bg-transparent py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300
+        bg-[var(--color-cream)] border-b border-[rgba(43,43,43,0.06)]
+        ${scrolled
+          ? 'py-4 md:bg-[rgba(246,244,242,0.88)] md:backdrop-blur-md md:border-[rgba(43,43,43,0.08)] md:shadow-[0_4px_16px_rgba(43,43,43,0.06)]'
+          : 'py-6 md:bg-transparent md:border-transparent md:shadow-none'
+        }`}
     >
       <div className="container-shell flex min-h-[72px] items-center justify-between gap-4">
         <Link
           href="/"
+          onClick={handleHomeClick}
           className="flex max-w-[18rem] items-center gap-2.5 text-[var(--color-charcoal)] md:max-w-none"
         >
           <Image
@@ -46,6 +57,7 @@ export default function NavBar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={link.label === 'Home' ? handleHomeClick : undefined}
               className="nav-link-editorial text-sm font-medium focus-visible:outline-none"
             >
               {link.label}
@@ -54,14 +66,12 @@ export default function NavBar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={EXTERNAL_LINKS.bookAppointment}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact"
             className="btn-primary"
           >
-            Book Appointment
-          </a>
+            Contact Us
+          </Link>
           <a
             href={EXTERNAL_LINKS.clientPortal}
             target="_blank"

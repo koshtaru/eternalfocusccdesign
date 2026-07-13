@@ -5,9 +5,9 @@ import LeafDecoration from './LeafDecoration';
 
 export default function Footer() {
   return (
-    <footer className="relative mt-20 overflow-hidden border-t border-[rgba(43,43,43,0.10)] bg-[#F2EBE5]">
+    <footer className="relative overflow-hidden border-t border-[rgba(43,43,43,0.10)] bg-[#F2EBE5]">
       <div className="absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,_rgba(242,235,229,0.6),_transparent_60%)]" aria-hidden="true" />
-      <div className="container-shell grid gap-10 py-11 md:grid-cols-3">
+      <div className="container-shell grid gap-10 py-11 md:grid-cols-2">
         <div className="relative">
           <div className="mb-3 flex items-center gap-3">
             <Image
@@ -18,12 +18,13 @@ export default function Footer() {
               className="h-8 w-auto shrink-0"
               sizes="32px"
             />
-            <h2 className="font-serif text-lg font-semibold text-[var(--color-charcoal)]">
-              Eternal Focus Christian Counseling
+            <h2 className="font-serif text-lg font-semibold leading-snug text-[var(--color-charcoal)]">
+              <span className="block">Eternal Focus</span>
+              <span className="block">Christian Counseling</span>
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-7 text-[var(--color-charcoal-light)]">
-            Quiet, thoughtful telehealth counseling rooted in care, steadiness, and hope.
+            Rooted in Faith, Professionalism, and Hope.
           </p>
           <div className="mt-4 space-y-0.5">
             <p className="text-sm leading-7 text-[var(--color-charcoal-light)]">{CONTACT.address}</p>
@@ -35,7 +36,7 @@ export default function Footer() {
         <div className="relative">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-charcoal-light)]">Navigation</h2>
           <nav aria-label="Footer">
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -46,36 +47,18 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={EXTERNAL_LINKS.clientPortal}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
+                >
+                  Client Portal
+                </a>
+              </li>
             </ul>
           </nav>
-        </div>
-
-        <div className="relative">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-charcoal-light)]">Quick Links</h2>
-          <div className="space-y-2">
-            <a
-              href={EXTERNAL_LINKS.bookAppointment}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
-            >
-              Book Appointment
-            </a>
-            <a
-              href={EXTERNAL_LINKS.clientPortal}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
-            >
-              Client Portal
-            </a>
-            <Link
-              href="/privacy"
-              className="block text-sm text-[var(--color-charcoal-light)] transition-colors hover:text-[var(--color-sage)]"
-            >
-              Privacy
-            </Link>
-          </div>
         </div>
       </div>
 

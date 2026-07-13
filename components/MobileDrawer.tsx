@@ -69,14 +69,13 @@ export default function MobileDrawer({ className }: MobileDrawerProps) {
             </nav>
 
             <div className="mt-8 space-y-3 border-t border-[var(--color-light-tint)] pt-6">
-              <a
-                href={EXTERNAL_LINKS.bookAppointment}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
                 className="button-base button-primary flex w-full px-4 py-2.5"
               >
-                Book Appointment
-              </a>
+                Contact Us
+              </Link>
               <a
                 href={EXTERNAL_LINKS.clientPortal}
                 target="_blank"

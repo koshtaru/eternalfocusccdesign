@@ -1,31 +1,30 @@
 export const BOOKING_URL = 'https://PLACEHOLDER-SIMPLEPRACTICE-BOOKING-URL';
-export const PORTAL_URL = 'https://PLACEHOLDER-SIMPLEPRACTICE-PORTAL-URL';
-export const PHONE = '405-210-6967';
-export const EMAIL = 'apolzin@eternalfocuscc.org';
+export const PORTAL_URL = 'https://www.therapyportal.com/p/eternal54942/';
+export const PHONE = '920-777-7501';
+export const EMAIL = 'appointments@eternalfocuscc.org';
 export const ADDRESS = 'Telehealth counseling only';
 export const STATES = 'Wisconsin';
 export const COUNSELOR_NAME = 'Amy Polzin';
-export const COUNSELOR_CREDENTIAL = 'MA, NCC, LPC';
+export const COUNSELOR_CREDENTIAL = 'MA, LPC';
 
 export const SITE = {
   name: 'Eternal Focus Christian Counseling',
-  title: 'Eternal Focus Christian Counseling',
+  title: 'Eternal Focus Christian Counseling | Telehealth Therapy in Wisconsin',
   description:
-    'Faith-centered counseling support for individuals, couples, and families.',
-  url: 'https://www.eternfocuscounseling.com',
+    'Christ-centered telehealth counseling for individuals, couples, and families in Wisconsin. Licensed counselor Amy Polzin, MA LPC. Book a session today.',
+  url: 'https://www.eternalfocuscc.org',
 } as const;
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Services', href: '/#services-heading' },
+  { label: 'About', href: '/#about-heading' },
 ] as const;
 
 export const FOOTER_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/#services-heading' },
+  { label: 'About', href: '/#about-heading' },
   { label: 'Contact', href: '/contact' },
   { label: 'Privacy', href: '/privacy' },
 ] as const;
