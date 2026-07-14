@@ -457,17 +457,22 @@ function InsuranceSection({ insurance }: { insurance: typeof HOMEPAGE_CONTENT.in
           <h2 id="insurance-heading" className="section-title">{insurance.heading}</h2>
           <p className="body-copy mt-5">{insurance.body}</p>
         </div>
-        <ul className="divide-y divide-[var(--color-cream-dark)] rounded-2xl bg-white/60 px-6">
-          {insurance.items.map((item) => {
-            const [label, price] = item.split(': ');
-            return (
-              <li key={item} className="session-fee-row flex items-center justify-between py-4">
-                <span className="body-copy">{label}</span>
-                <span className="text-base font-semibold text-[var(--color-sage-dark)]">{price}</span>
-              </li>
-            );
-          })}
-        </ul>
+        <div>
+          <ul className="divide-y divide-[var(--color-cream-dark)] rounded-2xl bg-white/60 px-6">
+            {insurance.items.map((item) => {
+              const [label, price] = item.split(': ');
+              return (
+                <li key={item} className="session-fee-row flex items-center justify-between py-4">
+                  <span className="body-copy">{label}</span>
+                  <span className="text-base font-semibold text-[var(--color-sage-dark)]">{price}</span>
+                </li>
+              );
+            })}
+          </ul>
+          {insurance.note && (
+            <p className="mt-3 text-sm italic text-[var(--color-charcoal-light)]">{insurance.note}</p>
+          )}
+        </div>
       </div>
     </section>
   );

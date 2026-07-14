@@ -176,6 +176,7 @@ export const HOMEPAGE_CONTENT = {
       'Couples session: $220',
       'Missed appointment: $80',
     ],
+    note: 'Limited reduced-rate options are available based on financial need—please inquire.',
   },
   testimonialsPlaceholder: {
     eyebrow: 'Future Content Area',
